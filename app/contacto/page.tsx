@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 
 type Servicio =
+  | ""
   | "consultoria"
   | "gestoria"
   | "fotovoltaico"
@@ -46,7 +47,9 @@ export default function ContactoPage() {
         ? "Integrador Fotovoltaico"
         : form.servicio === "capacitacion"
         ? "Capacitación"
-        : "Otro";
+        : form.servicio === "otro"
+        ? "Otro"
+        : "(Servicio)";
 
     return encodeURIComponent(
       `Hola, soy ${form.nombre || "(Nombre)"}.\n` +
@@ -60,7 +63,8 @@ export default function ContactoPage() {
 
   const whatsappHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappText}`;
 
-  const handleChange = (key: keyof FormState, value: string) => {
+  // ✅ Tipado seguro para que "servicio" acepte el union
+  const handleChange = <K extends keyof FormState>(key: K, value: FormState[K]) => {
     setForm((prev) => ({ ...prev, [key]: value }));
   };
 
@@ -159,9 +163,13 @@ export default function ContactoPage() {
                   <label className="text-sm font-semibold text-slate-900">¿Qué necesitas?</label>
                   <select
                     value={form.servicio}
-                    onChange={(e) => handleChange("servicio", e.target.value)}
+                    onChange={(e) => handleChange("servicio", e.target.value as Servicio)}
+                    required
                     className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-brand-blue/60"
                   >
+                    <option value="" disabled>
+                      Selecciona un servicio
+                    </option>
                     <option value="consultoria">Consultoría</option>
                     <option value="gestoria">Gestoría</option>
                     <option value="fotovoltaico">Integrador fotovoltaico</option>

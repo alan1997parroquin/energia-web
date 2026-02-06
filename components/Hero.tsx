@@ -3,7 +3,8 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-slate-50">
+    <section className="bg-white">
+    
       {/* Background decoration (claro) */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-b from-brand-blue-soft via-white to-white" />
@@ -22,39 +23,35 @@ export default function Hero() {
             </div>
 
             <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-5xl">
-              Claridad energética para{" "}
-              <span className="text-brand-blue">reducir costos</span>, cumplir
-              regulación y ejecutar con{" "}
-              <span className="text-brand-green">confianza</span>
+              Consultoría eléctrica y datos para decidir con certeza en el{" "}
+              <span className="text-brand-blue">Mercado Eléctrico Mexicano</span>
             </h1>
 
             <p className="text-lg leading-relaxed text-slate-700">
-              Acompañamos a empresas en México con{" "}
-              <span className="font-semibold text-slate-900">
-                consultoría y gestoría energética
-              </span>
-              , integración fotovoltaica y capacitación técnica para tomar
-              decisiones informadas.
+              Convertimos{" "}
+              <span className="font-semibold text-slate-900">datos técnicos</span>{" "}
+              y del sistema eléctrico en decisiones claras: interconexión, nuevas
+              cargas, generación y transición energética con sustento y
+              viabilidad.
             </p>
 
             <div className="flex flex-col gap-3 sm:flex-row">
-  {/* CTA principal */}
-  <Link
-    href="/contacto"
-    className="inline-flex items-center justify-center rounded-xl bg-brand-green px-6 py-3 text-base font-semibold text-white shadow-md transition hover:bg-brand-green-dark hover:shadow-lg"
-  >
-    Solicitar diagnóstico
-  </Link>
+              {/* CTA principal */}
+              <Link
+                href="/contacto"
+                className="inline-flex items-center justify-center rounded-xl bg-brand-green px-6 py-3 text-base font-semibold text-white shadow-md transition hover:bg-brand-green-dark hover:shadow-lg"
+              >
+                Solicitar cotización
+              </Link>
 
-  {/* CTA secundario */}
-  <Link
-    href="/servicios"
-    className="inline-flex items-center justify-center rounded-xl border-2 border-brand-blue px-6 py-3 text-base font-semibold text-brand-blue bg-white transition hover:bg-brand-blue-soft"
-  >
-    Ver servicios
-  </Link>
-</div>
-
+              {/* CTA secundario */}
+              <Link
+                href="/nuestras-soluciones"
+                className="inline-flex items-center justify-center rounded-xl border-2 border-brand-blue px-6 py-3 text-base font-semibold text-brand-blue bg-white transition hover:bg-brand-blue-soft"
+              >
+                Ver soluciones
+              </Link>
+            </div>
 
             {/* Trust row */}
             <div className="flex flex-wrap items-center gap-3 pt-2 text-sm text-slate-600">
@@ -123,15 +120,15 @@ export default function Hero() {
                 <ul className="mt-6 space-y-3 text-sm text-slate-700">
                   <li className="flex gap-2">
                     <span className="mt-1.5 h-2 w-2 rounded-full bg-brand-green" />
-                    Optimización de costos y estrategia energética
+                    Decisiones energéticas con sustento y viabilidad
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1.5 h-2 w-2 rounded-full bg-brand-blue" />
-                    Integración fotovoltaica con viabilidad real
+                    Interconexión y estrategia con base en datos
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1.5 h-2 w-2 rounded-full bg-warning" />
-                    Capacitación técnica y ejecutiva
+                    Ruta clara de ejecución para tu proyecto
                   </li>
                 </ul>
               </div>

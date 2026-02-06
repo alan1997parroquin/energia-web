@@ -1,14 +1,23 @@
+// components/ServicesGrid.tsx
 import Link from "next/link";
 import Image from "next/image";
 
 const services = [
   {
-    title: "Consultoría y Gestoría",
-    desc: "Optimización de costos, estrategia de suministro y acompañamiento técnico-regulatorio.",
-    href: "/servicios/consultoria-gestoria",
+    title: "Consultoría",
+    desc: "Optimización de costos, estrategia de suministro y análisis para mejores decisiones energéticas.",
+    href: "/servicios/consultoria",
     icon: "🧠",
     img: "/imagen/services/consultoria.jpg",
     tag: "Estrategia • MEM",
+  },
+  {
+    title: "Gestoría",
+    desc: "Trámites, interconexión y acompañamiento técnico-regulatorio para avanzar sin fricciones.",
+    href: "/servicios/gestoria",
+    icon: "🧾",
+    img: "/imagen/services/interconexion.jpg",
+    tag: "Trámites • Cumplimiento",
   },
   {
     title: "Integrador Fotovoltaico",
@@ -20,7 +29,7 @@ const services = [
   },
   {
     title: "Capacitación Energética",
-    desc: "Programas técnicos y ejecutivos a la medida para mejorar decisiones energéticas.",
+    desc: "Programas técnicos y ejecutivos a la medida para fortalecer capacidades internas.",
     href: "/servicios/capacitacion",
     icon: "🎓",
     img: "/imagen/services/capacitacion.jpg",
@@ -30,8 +39,8 @@ const services = [
 
 export default function ServicesGrid() {
   return (
-    <section className="relative bg-white">
-      {/* fondo suave (como tu referencia) */}
+    <section className="bg-surface-soft border-t border-surface-border">
+      {/* fondo suave */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-brand-blue-soft/30 via-white to-white" />
 
       <div className="mx-auto max-w-7xl px-6 py-16">
@@ -50,50 +59,56 @@ export default function ServicesGrid() {
 
           <Link
             href="/servicios"
-            className="hidden sm:inline-flex rounded-xl border border-brand-blue/20 bg-white px-5 py-2.5 text-sm font-semibold text-brand-blue shadow-sm transition hover:bg-brand-blue-soft"
+            className="hidden sm:inline-flex items-center justify-center rounded-xl border border-brand-blue/20 bg-white px-5 py-2.5 text-sm font-semibold text-brand-blue shadow-sm transition hover:bg-brand-blue-soft"
           >
             Ver todos
           </Link>
         </div>
 
-        {/* Grid */}
-        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {/* Grid (4 en desktop) */}
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((s, idx) => (
             <Link
               key={s.title}
               href={s.href}
-              className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg"
+              className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue/40"
             >
-              {/* Image */}
-              <div className="relative h-52 w-full">
+              {/* Imagen (más baja para card rectangular) */}
+              
+              <div className="relative h-60 w-full sm:h-64 lg:h-72">
+  
+                
                 <Image
                   src={s.img}
                   alt={s.title}
                   fill
                   className="object-cover transition duration-300 group-hover:scale-[1.04]"
                   priority={idx === 0}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 />
 
-                {/* Overlay para que siempre se lea */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/25 to-transparent" />
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-transparent" />
 
                 {/* Tag */}
-                <div className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-slate-900 shadow-sm backdrop-blur">
-                  <span>{s.icon}</span>
-                  {s.tag}
+                <div className="absolute left-3 top-3 inline-flex max-w-[calc(100%-1.5rem)] items-center gap-2 rounded-full bg-white/90 px-3 py-1 text-[11px] font-semibold text-slate-900 shadow-sm backdrop-blur">
+                  <span className="shrink-0">{s.icon}</span>
+                  <span className="truncate">{s.tag}</span>
                 </div>
 
                 {/* Copy */}
-                <div className="absolute bottom-4 left-4 right-4">
-                  <h3 className="text-lg font-bold text-white">{s.title}</h3>
-                  <p className="mt-1 line-clamp-2 text-sm text-white/85">
+                <div className="absolute bottom-3 left-3 right-3">
+                  <h3 className="text-base font-bold text-white sm:text-lg">
+                    {s.title}
+                  </h3>
+                  <p className="mt-1 line-clamp-2 text-xs text-white/85 sm:text-sm">
                     {s.desc}
                   </p>
                 </div>
               </div>
 
-              {/* Footer */}
-              <div className="flex items-center justify-between p-5">
+              {/* Footer (siempre abajo) */}
+              <div className="mt-auto flex items-center justify-between px-4 py-4">
                 <span className="inline-flex items-center gap-2 text-sm font-semibold text-brand-green">
                   Ver servicio
                   <span className="inline-block h-1.5 w-1.5 rounded-full bg-brand-green" />
@@ -104,7 +119,7 @@ export default function ServicesGrid() {
                 </span>
               </div>
 
-              {/* Accent line (pro feel) */}
+              {/* Accent line */}
               <div className="h-1 w-full bg-gradient-to-r from-brand-blue to-brand-green opacity-0 transition group-hover:opacity-100" />
             </Link>
           ))}

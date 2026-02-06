@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-export default function ConsultoriaGestoriaPage() {
+export default function ConsultoriaPage() {
   return (
     <main className="relative isolate overflow-hidden">
       {/* background */}
@@ -18,11 +18,11 @@ export default function ConsultoriaGestoriaPage() {
           <div className="max-w-xl">
             <p className="text-sm font-semibold text-brand-blue">Servicios</p>
             <h1 className="mt-2 text-4xl font-bold tracking-tight text-slate-900">
-              Consultoría y Gestoría Energética
+              Consultoría Energética
             </h1>
             <p className="mt-4 text-lg leading-relaxed text-slate-600">
-              Te ayudamos a tomar decisiones energéticas con datos, estrategia y
-              cumplimiento regulatorio, reduciendo riesgos y costos.
+              Te ayudamos a tomar decisiones energéticas con datos y estrategia:
+              consumo, tarifas, suministro y escenarios para reducir costo y riesgo.
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -33,10 +33,10 @@ export default function ConsultoriaGestoriaPage() {
                 Solicitar diagnóstico
               </Link>
               <Link
-                href="/servicios/fotovoltaico"
+                href="/servicios/gestoria"
                 className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-6 py-3 text-base font-semibold text-slate-900 shadow-sm transition hover:bg-slate-50"
               >
-                Ver fotovoltaico
+                Ver gestoría
               </Link>
             </div>
           </div>
@@ -47,7 +47,7 @@ export default function ConsultoriaGestoriaPage() {
               <div className="relative h-64 w-full sm:h-72">
                 <Image
                   src="/imagen/services/consultoria.jpg"
-                  alt="Consultoría y gestoría energética"
+                  alt="Consultoría energética"
                   fill
                   className="object-cover"
                   priority
@@ -58,7 +58,7 @@ export default function ConsultoriaGestoriaPage() {
                     Estrategia energética
                   </p>
                   <p className="mt-1 text-xs text-white/85">
-                    MEM • CFE • Regulación
+                    Tarifas • Suministro • Análisis
                   </p>
                 </div>
               </div>
@@ -68,9 +68,10 @@ export default function ConsultoriaGestoriaPage() {
                   En qué te apoyamos
                 </p>
                 <ul className="mt-3 space-y-2 text-sm text-slate-700">
+                  <li>• Diagnóstico de consumo y demanda</li>
                   <li>• Optimización tarifaria y contractual</li>
                   <li>• Estrategia de suministro eléctrico</li>
-                  <li>• Cumplimiento regulatorio y gestoría</li>
+                  <li>• Análisis costo-beneficio y escenarios</li>
                 </ul>
               </div>
             </div>
@@ -83,8 +84,8 @@ export default function ConsultoriaGestoriaPage() {
             ¿Cuándo conviene una consultoría energética?
           </h2>
           <p className="max-w-3xl text-slate-600">
-            Cuando las decisiones energéticas tienen impacto financiero,
-            regulatorio y operativo, la improvisación sale cara.
+            Cuando el gasto eléctrico crece, hay incertidumbre en tarifas o contratos,
+            o necesitas justificar decisiones con números (no con suposiciones).
           </p>
         </section>
       </div>

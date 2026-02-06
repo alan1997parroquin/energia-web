@@ -1,13 +1,21 @@
+// app/servicios/page.tsx (o donde tengas esta página)
 import Link from "next/link";
 
 export default function ServiciosPage() {
   const services = [
     {
       icon: "🧠",
-      title: "Consultoría y Gestoría",
-      desc: "Optimización de costos, estrategia de suministro, cumplimiento y acompañamiento técnico-regulatorio.",
-      href: "/servicios/consultoria-gestoria",
-      tags: ["Estrategia", "MEM", "Cumplimiento"],
+      title: "Consultoría",
+      desc: "Optimización de costos, estrategia de suministro, análisis técnico-regulatorio y toma de decisiones basada en datos.",
+      href: "/servicios/consultoria",
+      tags: ["Estrategia", "MEM", "Análisis"],
+    },
+    {
+      icon: "🧾",
+      title: "Gestoría",
+      desc: "Acompañamiento en trámites, integración de expedientes, seguimiento y coordinación con actores clave del proceso.",
+      href: "/servicios/gestoria",
+      tags: ["Trámites", "Seguimiento", "Expedientes"],
     },
     {
       icon: "☀️",
@@ -42,7 +50,7 @@ export default function ServiciosPage() {
             Soluciones energéticas para empresas en México
           </h1>
           <p className="text-slate-600 text-lg leading-relaxed">
-            Elegimos contigo el camino más eficiente: consultoría/gestoría,
+            Elegimos contigo el camino más eficiente: consultoría, gestoría,
             integración fotovoltaica o capacitación para tu equipo.
           </p>
 
@@ -71,7 +79,8 @@ export default function ServiciosPage() {
             Elige el servicio que necesitas
           </h2>
 
-          <div className="grid gap-6 md:grid-cols-3">
+          {/* 4 cards: en md 2 columnas, en lg 4 columnas */}
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {services.map((s) => (
               <Link
                 key={s.title}

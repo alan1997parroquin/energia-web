@@ -47,6 +47,11 @@
   }
 }
 
+/* ✅ Scroll suave para anchors (#seccion) */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);

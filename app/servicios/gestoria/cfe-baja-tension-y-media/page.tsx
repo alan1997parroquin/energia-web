@@ -1,49 +1,6 @@
-// app/servicios/consultoria/estudios-especificos/page.tsx
+// app/servicios/gestoria/cfe-baja-tension-y-media/page.tsx
 import Link from "next/link";
 import Image from "next/image";
-
-const subservices = [
-  {
-    title: "Análisis de mercado Eléctrico Mayorista",
-    desc: "Convertimos datos del MEM en información útil: precios, nodos, tendencias y escenarios para decidir con claridad.",
-    problem:
-      "Aunque la información de mercado es pública y disponible, no es sencillo realizar un análisis que ayude a comprender su dinámica.",
-    solution:
-      "A través de estadística descriptiva e inferencial procesamos millones de datos para convertirlos en decisiones informadas y valiosas.",
-  },
-  {
-    title: "Investigación específica (cualquier cosa no listada)",
-    desc: "Estudios a la medida para responder preguntas específicas del negocio: definimos alcance, método y entregables claros.",
-    problem:
-      "La oferta de servicios de consultoría en México está muy definida, y enfocada a soluciones técnicas complejas y difíciles de entender, lo que hace difícil encontrar el balance adecuado entre investigación y valor comercial.",
-    solution:
-      "Desarrollamos estudios orientados a decisiones de negocio y no solo técnicas, dando la posibilidad de evaluar proyectos desde el punto de vista del inversionista con un lenguaje sencillo pero con una base técnica sólida y confiable.",
-  },
-  {
-    title: "Análisis de contrato de cobertura eléctrica",
-    desc: "Interpretación técnica y financiera de coberturas: entendimiento de cláusulas, pagos, riesgos y mitigaciones.",
-    problem:
-      "En México para poder interpretar un contrato de cobertura se requiere de un alto grado de especialización en materia de mercados eléctricos combinada con una comprensión de limitantes técnicas. Los usuarios finales no pueden tener dicho perfil y se enfrentan a contratos que no son su negocio principal.",
-    solution:
-      "Interpretamos clausulas complejas, calculos de pagos, y prevenimos a los usuarios finales de posibles riesgos y su mitigación ante el nuevo contexto como usuario calificado.",
-  },
-  {
-    title: "Análisis de consumo",
-    desc: "Diagnóstico de consumo y demanda: patrones, desviaciones y oportunidades de mejora con impacto real en costo.",
-    problem:
-      "Los usuarios de energía eléctrica, ven el pago de su factura como un mal necesario, como una caja negra que solo puede ser interpretada como CFE, al fin y al cabo no es su core business el análisis de su consumo.",
-    solution:
-      "Detectamos oportunidades de mejora con baja inversión pero con grandes impactos a través de modificación de patrones de consumo si el proceso lo permite, y detectamos de manera sencilla en donde están las fugas de dinero que se pueden evitar.",
-  },
-  {
-    title: "Asesoría de Migración a MEM",
-    desc: "Acompañamiento para evaluar y ejecutar migración: requisitos, ruta de trabajo, riesgos y decisión informada.",
-    problem:
-      "El proceso parece abrumador, con mas de 100 documentos que conforman el sector eléctrico mexicano, es difícil perder el rumbo.",
-    solution:
-      "Lo simplificamos todo, nuestro interés es que se tomen decisiones informadas, no lograr migraciones, al MEM, te decimos si te conviene o no y lo realizamos todo por ti.",
-  },
-];
 
 function toId(input: string) {
   return input
@@ -56,7 +13,50 @@ function toId(input: string) {
     .replace(/-+/g, "-");
 }
 
-export default function EstudiosEspecificosPage() {
+const subservices = [
+  {
+    title: "Prefactibilidad de carga",
+    desc: "Evaluación preliminar para estimar viabilidad, restricciones y próximos pasos antes de entrar al trámite formal con CFE.",
+    problem:
+      "Incertidumbre de si un proyecto es factible; se requiere interacción con CFE en un proceso que es complejo para los usuarios.",
+    solution:
+      "Realizamos un estudio rápido con información pública que puede indicar rápidamente al usuario si su proyecto es viable o no antes de solicitar a CFE.",
+  },
+  {
+    title: "Cambio de nombre",
+    desc: "Acompañamiento para actualizar titularidad del servicio: requisitos, documentación y seguimiento hasta el cierre.",
+    problem:
+      "Incertidumbre de si un proyecto es factible; se requiere interacción con CFE en un proceso que es complejo para los usuarios.",
+    solution:
+      "Realizamos un estudio rápido con información pública que puede indicar rápidamente al usuario si su proyecto es viable o no antes de solicitar a CFE.",
+  },
+  {
+    title: "Nuevo servicio",
+    desc: "Gestión integral para alta de nuevo servicio: checklist por caso, documentación y seguimiento con CFE.",
+    problem:
+      "Incertidumbre de si un proyecto es factible; se requiere interacción con CFE en un proceso que es complejo para los usuarios.",
+    solution:
+      "Realizamos un estudio rápido con información pública que puede indicar rápidamente al usuario si su proyecto es viable o no antes de solicitar a CFE.",
+  },
+  {
+    title: "Incremento de demanda",
+    desc: "Evaluación y gestión del incremento de demanda, considerando restricciones técnicas y ruta de atención con CFE.",
+    problem:
+      "Incertidumbre de si un proyecto es factible; se requiere interacción con CFE en un proceso que es complejo para los usuarios.",
+    solution:
+      "Realizamos un estudio rápido con información pública que puede indicar rápidamente al usuario si su proyecto es viable o no antes de solicitar a CFE.",
+  },
+  {
+    title: "Interconexión",
+    desc: "Acompañamiento para interconexión: ruta del trámite, entregables, observaciones y cierre del proceso.",
+    problem:
+      "Incertidumbre de si un proyecto es factible; se requiere interacción con CFE en un proceso que es complejo para los usuarios.",
+    solution:
+      "Realizamos un estudio rápido con información pública que puede indicar rápidamente al usuario si su proyecto es viable o no antes de solicitar a CFE.",
+  },
+].map((s) => ({ ...s, id: toId(s.title) }));
+
+export default function CfeBajaTensionYMediaPage() {
   return (
     <main className="relative isolate overflow-hidden bg-white">
       {/* Background global (misma línea visual) */}
@@ -73,26 +73,26 @@ export default function EstudiosEspecificosPage() {
             Servicios
           </Link>
           <span className="text-ink-soft">/</span>
-          <Link href="/servicios/consultoria" className="font-semibold text-ink hover:underline">
-            Consultoría
+          <Link href="/servicios/gestoria" className="font-semibold text-ink hover:underline">
+            Gestoría
           </Link>
           <span className="text-ink-soft">/</span>
-          <span className="font-semibold text-ink">Estudios específicos</span>
+          <span className="font-semibold text-ink">CFE baja tensión y media</span>
         </div>
 
         {/* HERO */}
         <section className="mt-8 grid items-start gap-10 lg:grid-cols-12">
           {/* Left */}
           <div className="lg:col-span-7">
-            <p className="text-sm font-semibold text-brand-green">Consultoría</p>
+            <p className="text-sm font-semibold text-brand-green">Gestoría</p>
             <h1 className="mt-2 text-4xl font-bold tracking-tight text-ink sm:text-5xl">
-              Estudios específicos
+              CFE baja tensión y media
             </h1>
 
             <p className="mt-4 max-w-2xl text-base text-ink-muted">
-              Estudios puntuales para responder preguntas concretas con base técnica sólida, lenguaje claro y foco en
-              decisiones de negocio. Desde análisis del MEM y coberturas, hasta consumo y migración, aterrizamos
-              información compleja en conclusiones accionables.
+              Trámites y acompañamiento para avanzar con CFE de forma clara: prefactibilidad, alta de
+              servicio, cambios administrativos, incrementos y procesos de interconexión. Reducimos
+              fricción, tiempos y errores con una ruta definida.
             </p>
 
             <div className="mt-7 flex flex-wrap gap-3">
@@ -106,7 +106,7 @@ export default function EstudiosEspecificosPage() {
                 href="#subservicios"
                 className="inline-flex items-center justify-center rounded-full border border-surface-border bg-white px-5 py-2.5 text-sm font-semibold text-ink hover:bg-surface-soft"
               >
-                Ver subservicios ↓
+                Ver subservicios
               </Link>
             </div>
           </div>
@@ -116,8 +116,8 @@ export default function EstudiosEspecificosPage() {
             <div className="relative overflow-hidden rounded-3xl border border-surface-border bg-white/75 shadow-sm backdrop-blur">
               <div className="relative h-52 w-full sm:h-64">
                 <Image
-                  src="/imagen/consultoria/estudios-especificos.jpg"
-                  alt="Estudios específicos"
+                  src="/imagen/gestoria/cfe-baja-media.jpg"
+                  alt="CFE baja tensión y media"
                   fill
                   className="object-cover"
                   priority
@@ -130,15 +130,15 @@ export default function EstudiosEspecificosPage() {
                 <ul className="mt-3 space-y-2 text-sm text-ink-muted">
                   <li className="flex gap-2">
                     <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-brand-green" />
-                    <span>Alcance claro y entregables definidos</span>
+                    <span>Ruta de trámite y checklist por caso</span>
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-brand-green" />
-                    <span>Base técnica sólida + lenguaje ejecutivo</span>
+                    <span>Documentación, formatos y validaciones</span>
                   </li>
                   <li className="flex gap-2">
                     <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-brand-green" />
-                    <span>Recomendaciones accionables para decidir</span>
+                    <span>Seguimiento y resolución de observaciones</span>
                   </li>
                 </ul>
 
@@ -150,10 +150,10 @@ export default function EstudiosEspecificosPage() {
                     Hablar con un consultor
                   </Link>
                   <Link
-                    href="/servicios/consultoria"
+                    href="/servicios/gestoria"
                     className="inline-flex items-center justify-center rounded-full border border-surface-border bg-white px-4 py-2 text-sm font-semibold text-ink hover:bg-surface-soft"
                   >
-                    Volver a Consultoría
+                    Volver a Gestoría
                   </Link>
                 </div>
               </div>
@@ -162,15 +162,15 @@ export default function EstudiosEspecificosPage() {
         </section>
 
         {/* Subservicios */}
-        <section id="subservicios" className="mt-14 scroll-mt-24">
+        <section id="subservicios" className="mt-14">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="text-sm font-semibold text-brand-green">Alcances</p>
               <h2 className="mt-1 text-2xl font-bold tracking-tight text-ink">
-                Subservicios de estudios específicos
+                Subservicios de CFE baja tensión y media
               </h2>
               <p className="mt-2 max-w-2xl text-sm text-ink-muted">
-                Cada subservicio incluye Problema/Solución provisto por el cliente. Las descripciones son propuestas
+                El Problema/Solución es el mismo para este bloque. Las descripciones son propuestas
                 iniciales y se pueden ajustar.
               </p>
             </div>
@@ -186,8 +186,8 @@ export default function EstudiosEspecificosPage() {
           <div className="mt-8 space-y-6">
             {subservices.map((s) => (
               <div
-                key={s.title}
-                id={toId(s.title)}
+                key={s.id}
+                id={s.id}
                 className="relative scroll-mt-24 overflow-hidden rounded-3xl border border-surface-border bg-white/70 p-6 shadow-sm backdrop-blur"
               >
                 <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-brand-blue/10 blur-3xl" />
@@ -200,12 +200,16 @@ export default function EstudiosEspecificosPage() {
 
                   <div className="mt-5 grid gap-3 sm:grid-cols-2">
                     <div className="rounded-2xl border border-surface-border bg-white/70 p-4 backdrop-blur">
-                      <p className="text-xs font-semibold uppercase tracking-wide text-ink-soft">Problema</p>
+                      <p className="text-xs font-semibold uppercase tracking-wide text-ink-soft">
+                        Problema
+                      </p>
                       <p className="mt-1 text-sm text-ink">{s.problem}</p>
                     </div>
 
                     <div className="rounded-2xl border border-surface-border bg-white/70 p-4 backdrop-blur">
-                      <p className="text-xs font-semibold uppercase tracking-wide text-ink-soft">Solución</p>
+                      <p className="text-xs font-semibold uppercase tracking-wide text-ink-soft">
+                        Solución
+                      </p>
                       <p className="mt-1 text-sm text-ink">{s.solution}</p>
                     </div>
                   </div>
@@ -215,13 +219,15 @@ export default function EstudiosEspecificosPage() {
                       href="/contacto"
                       className="inline-flex items-center justify-center rounded-full bg-brand-blue px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-brand-blue-dark"
                     >
-                      Solicitar estudio
+                      Solicitar trámite
                     </Link>
+
+                    {/* útil si luego quieres copiar/pegar el link exacto */}
                     <Link
-                      href="/contacto"
+                      href={`/servicios/gestoria/cfe-baja-tension-y-media#${s.id}`}
                       className="inline-flex items-center justify-center rounded-full border border-surface-border bg-white px-4 py-2 text-sm font-semibold text-ink hover:bg-surface-soft"
                     >
-                      Hacer una pregunta
+                      Copiar enlace
                     </Link>
                   </div>
                 </div>
@@ -236,10 +242,10 @@ export default function EstudiosEspecificosPage() {
             <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
               <div>
                 <h2 className="text-2xl font-bold tracking-tight text-ink">
-                  Un estudio puntual para una decisión específica
+                  Menos fricción, más claridad con CFE
                 </h2>
                 <p className="mt-2 text-sm text-ink-muted">
-                  Si tienes una pregunta concreta, armamos el alcance correcto y te damos conclusiones accionables.
+                  Te ayudamos a avanzar con una ruta clara, documentación completa y seguimiento puntual.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">
@@ -250,10 +256,10 @@ export default function EstudiosEspecificosPage() {
                   Contactar
                 </Link>
                 <Link
-                  href="/servicios/consultoria"
+                  href="/servicios/gestoria"
                   className="inline-flex items-center justify-center rounded-full border border-surface-border bg-white px-5 py-2.5 text-sm font-semibold text-ink hover:bg-surface-soft"
                 >
-                  Volver a Consultoría
+                  Volver a Gestoría
                 </Link>
               </div>
             </div>

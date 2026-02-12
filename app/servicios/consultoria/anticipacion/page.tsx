@@ -5,9 +5,7 @@ import Image from "next/image";
 const subservices = [
   {
     title: "Prospección de precios de energía (por nodo, hora y zona)",
-    // ✅ Descripción particular (propuesta)
     desc: "Forecasts y escenarios de precio con granularidad por nodo/hora/zona para planear inversiones y estrategia comercial.",
-    // ✅ Problema / Solución (cliente)
     problem:
       "No existen forecast de precios de mercados públicos con la granularidad necesaria que requiere un modelo financiero de mediano o largo plazo, accesar a uno es muy caro y es necesario comprar mucha información difícil de procesar.",
     solution:
@@ -16,12 +14,22 @@ const subservices = [
   {
     title: "Simulación de despacho a corto - mediano",
     desc: "Simulación de despacho para evaluar rentabilidad y riesgos con escenarios sobre proyectos actuales y futuros.",
-    problem:
-      "Se utilizan modelos financieros simplistas para proyectos complejos de energía.",
+    problem: "Se utilizan modelos financieros simplistas para proyectos complejos de energía.",
     solution:
       "Simulamos el proyecto en conjunto con los proyectos actuales y futuros, con diversos escenarios, brindamos transparencia en si tu proyecto es o no rentable.",
   },
 ];
+
+function toId(input: string) {
+  return input
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9\s-]/g, "")
+    .trim()
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-");
+}
 
 export default function AnticipacionPage() {
   return (
@@ -36,17 +44,11 @@ export default function AnticipacionPage() {
       <div className="mx-auto max-w-7xl px-6 pt-32 pb-16 lg:pt-24">
         {/* Breadcrumb */}
         <div className="flex flex-wrap items-center gap-2 text-sm">
-          <Link
-            href="/servicios"
-            className="font-semibold text-brand-green hover:underline"
-          >
+          <Link href="/servicios" className="font-semibold text-brand-green hover:underline">
             Servicios
           </Link>
           <span className="text-ink-soft">/</span>
-          <Link
-            href="/servicios/consultoria"
-            className="font-semibold text-ink hover:underline"
-          >
+          <Link href="/servicios/consultoria" className="font-semibold text-ink hover:underline">
             Consultoría
           </Link>
           <span className="text-ink-soft">/</span>
@@ -62,11 +64,9 @@ export default function AnticipacionPage() {
               Anticipación estratégica de tendencias
             </h1>
 
-            {/* ✅ Descripción general (propuesta) */}
             <p className="mt-4 max-w-2xl text-base text-ink-muted">
-              Planeación con escenarios para decidir con anticipación. Integramos
-              forecasts y simulación de despacho para dar transparencia a la
-              rentabilidad y al riesgo en proyectos complejos de energía.
+              Planeación con escenarios para decidir con anticipación. Integramos forecasts y simulación de despacho
+              para dar transparencia a la rentabilidad y al riesgo en proyectos complejos de energía.
             </p>
 
             <div className="mt-7 flex flex-wrap gap-3">
@@ -136,17 +136,14 @@ export default function AnticipacionPage() {
         </section>
 
         {/* Subservicios */}
-        <section id="subservicios" className="mt-14">
+        <section id="subservicios" className="mt-14 scroll-mt-24">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="text-sm font-semibold text-brand-green">Alcances</p>
-              <h2 className="mt-1 text-2xl font-bold tracking-tight text-ink">
-                Subservicios de anticipación
-              </h2>
+              <h2 className="mt-1 text-2xl font-bold tracking-tight text-ink">Subservicios de anticipación</h2>
               <p className="mt-2 max-w-2xl text-sm text-ink-muted">
-                Cada subservicio incluye Problema/Solución provisto por el
-                cliente. Las descripciones son propuestas iniciales y se pueden
-                ajustar.
+                Cada subservicio incluye Problema/Solución provisto por el cliente. Las descripciones son propuestas
+                iniciales y se pueden ajustar.
               </p>
             </div>
 
@@ -162,34 +159,25 @@ export default function AnticipacionPage() {
             {subservices.map((s) => (
               <div
                 key={s.title}
-                className="relative overflow-hidden rounded-3xl border border-surface-border bg-white/70 p-6 shadow-sm backdrop-blur"
+                id={toId(s.title)}
+                className="relative scroll-mt-24 overflow-hidden rounded-3xl border border-surface-border bg-white/70 p-6 shadow-sm backdrop-blur"
               >
                 <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-brand-blue/10 blur-3xl" />
                 <div className="pointer-events-none absolute -bottom-28 -left-28 h-72 w-72 rounded-full bg-brand-green/10 blur-3xl" />
 
                 <div className="relative">
-                  <h3 className="text-xl font-bold tracking-tight text-ink">
-                    {s.title}
-                  </h3>
+                  <h3 className="text-xl font-bold tracking-tight text-ink">{s.title}</h3>
 
-                  {/* ✅ Descripción particular (propuesta) */}
-                  <p className="mt-2 max-w-3xl text-sm text-ink-muted">
-                    {s.desc}
-                  </p>
+                  <p className="mt-2 max-w-3xl text-sm text-ink-muted">{s.desc}</p>
 
-                  {/* Problema / Solución (cliente) */}
                   <div className="mt-5 grid gap-3 sm:grid-cols-2">
                     <div className="rounded-2xl border border-surface-border bg-white/70 p-4 backdrop-blur">
-                      <p className="text-xs font-semibold uppercase tracking-wide text-ink-soft">
-                        Problema
-                      </p>
+                      <p className="text-xs font-semibold uppercase tracking-wide text-ink-soft">Problema</p>
                       <p className="mt-1 text-sm text-ink">{s.problem}</p>
                     </div>
 
                     <div className="rounded-2xl border border-surface-border bg-white/70 p-4 backdrop-blur">
-                      <p className="text-xs font-semibold uppercase tracking-wide text-ink-soft">
-                        Solución
-                      </p>
+                      <p className="text-xs font-semibold uppercase tracking-wide text-ink-soft">Solución</p>
                       <p className="mt-1 text-sm text-ink">{s.solution}</p>
                     </div>
                   </div>
@@ -223,8 +211,7 @@ export default function AnticipacionPage() {
                   Transparencia para decidir si tu proyecto es rentable
                 </h2>
                 <p className="mt-2 text-sm text-ink-muted">
-                  Forecasts y simulaciones para reducir incertidumbre y tomar
-                  decisiones con escenarios claros.
+                  Forecasts y simulaciones para reducir incertidumbre y tomar decisiones con escenarios claros.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">

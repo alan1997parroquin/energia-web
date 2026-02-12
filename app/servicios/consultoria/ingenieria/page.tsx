@@ -5,9 +5,7 @@ import Image from "next/image";
 const subservices = [
   {
     title: "Diseño de microgrids",
-    // ✅ Descripción particular (propuesta)
     desc: "Diseño conceptual y técnico para microgrids: arquitectura, operación, criterios y viabilidad orientada a rentabilidad.",
-    // ✅ Problema / Solución (cliente)
     problem:
       "Existe un proceso complejo para la implementación de proyectos de autoabasto aislado, las prospecciones de retorno de inversión pueden carecer de realismo frente a un escenario complejo con una participación activa del estado.",
     solution:
@@ -16,9 +14,20 @@ const subservices = [
   {
     title: "Diseño de proyectos de transición energética",
     desc: "Diseño y estructuración de proyectos de transición energética con enfoque técnico y de negocio: ruta, criterios, riesgos y siguientes pasos.",
-    // ❌ NO lleva problema/solución (según tu regla)
+    // no problem/solution
   },
 ];
+
+function toId(input: string) {
+  return input
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9\s-]/g, "")
+    .trim()
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-");
+}
 
 export default function IngenieriaPage() {
   return (
@@ -33,17 +42,11 @@ export default function IngenieriaPage() {
       <div className="mx-auto max-w-7xl px-6 pt-32 pb-16 lg:pt-24">
         {/* Breadcrumb */}
         <div className="flex flex-wrap items-center gap-2 text-sm">
-          <Link
-            href="/servicios"
-            className="font-semibold text-brand-green hover:underline"
-          >
+          <Link href="/servicios" className="font-semibold text-brand-green hover:underline">
             Servicios
           </Link>
           <span className="text-ink-soft">/</span>
-          <Link
-            href="/servicios/consultoria"
-            className="font-semibold text-ink hover:underline"
-          >
+          <Link href="/servicios/consultoria" className="font-semibold text-ink hover:underline">
             Consultoría
           </Link>
           <span className="text-ink-soft">/</span>
@@ -59,11 +62,9 @@ export default function IngenieriaPage() {
               Servicios de Ingeniería
             </h1>
 
-            {/* ✅ Descripción general (propuesta) */}
             <p className="mt-4 max-w-2xl text-base text-ink-muted">
-              Diseño conceptual y técnico para habilitar proyectos energéticos.
-              Aterrizamos arquitectura, criterios de operación, riesgos y
-              siguientes pasos con una visión integral (técnica + rentabilidad).
+              Diseño conceptual y técnico para habilitar proyectos energéticos. Aterrizamos arquitectura, criterios de
+              operación, riesgos y siguientes pasos con una visión integral (técnica + rentabilidad).
             </p>
 
             <div className="mt-7 flex flex-wrap gap-3">
@@ -133,7 +134,7 @@ export default function IngenieriaPage() {
         </section>
 
         {/* Subservicios */}
-        <section id="subservicios" className="mt-14">
+        <section id="subservicios" className="mt-14 scroll-mt-24">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="text-sm font-semibold text-brand-green">Alcances</p>
@@ -141,8 +142,8 @@ export default function IngenieriaPage() {
                 Subservicios de ingeniería
               </h2>
               <p className="mt-2 max-w-2xl text-sm text-ink-muted">
-                “Diseño de microgrids” incluye Problema/Solución provisto por el
-                cliente. “Diseño de proyectos…” no lo muestra (según alcance).
+                “Diseño de microgrids” incluye Problema/Solución provisto por el cliente. “Diseño de proyectos…” no lo
+                muestra (según alcance).
               </p>
             </div>
 
@@ -158,38 +159,26 @@ export default function IngenieriaPage() {
             {subservices.map((s) => (
               <div
                 key={s.title}
-                className="relative overflow-hidden rounded-3xl border border-surface-border bg-white/70 p-6 shadow-sm backdrop-blur"
+                id={toId(s.title)}
+                className="relative scroll-mt-24 overflow-hidden rounded-3xl border border-surface-border bg-white/70 p-6 shadow-sm backdrop-blur"
               >
                 <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-brand-blue/10 blur-3xl" />
                 <div className="pointer-events-none absolute -bottom-28 -left-28 h-72 w-72 rounded-full bg-brand-green/10 blur-3xl" />
 
                 <div className="relative">
-                  <h3 className="text-xl font-bold tracking-tight text-ink">
-                    {s.title}
-                  </h3>
+                  <h3 className="text-xl font-bold tracking-tight text-ink">{s.title}</h3>
+                  <p className="mt-2 max-w-3xl text-sm text-ink-muted">{s.desc}</p>
 
-                  {/* ✅ Descripción particular (propuesta) */}
-                  {"desc" in s && s.desc ? (
-                    <p className="mt-2 max-w-3xl text-sm text-ink-muted">
-                      {s.desc}
-                    </p>
-                  ) : null}
-
-                  {/* ✅ Problema / Solución SOLO si existe */}
-                  {"problem" in s && "solution" in s && (s as any).problem && (s as any).solution ? (
+                  {s.problem && s.solution ? (
                     <div className="mt-5 grid gap-3 sm:grid-cols-2">
                       <div className="rounded-2xl border border-surface-border bg-white/70 p-4 backdrop-blur">
-                        <p className="text-xs font-semibold uppercase tracking-wide text-ink-soft">
-                          Problema
-                        </p>
-                        <p className="mt-1 text-sm text-ink">{(s as any).problem}</p>
+                        <p className="text-xs font-semibold uppercase tracking-wide text-ink-soft">Problema</p>
+                        <p className="mt-1 text-sm text-ink">{s.problem}</p>
                       </div>
 
                       <div className="rounded-2xl border border-surface-border bg-white/70 p-4 backdrop-blur">
-                        <p className="text-xs font-semibold uppercase tracking-wide text-ink-soft">
-                          Solución
-                        </p>
-                        <p className="mt-1 text-sm text-ink">{(s as any).solution}</p>
+                        <p className="text-xs font-semibold uppercase tracking-wide text-ink-soft">Solución</p>
+                        <p className="mt-1 text-sm text-ink">{s.solution}</p>
                       </div>
                     </div>
                   ) : null}
@@ -223,8 +212,7 @@ export default function IngenieriaPage() {
                   Ingeniería para habilitar decisiones e implementación
                 </h2>
                 <p className="mt-2 text-sm text-ink-muted">
-                  Diseñamos con criterios técnicos y visión de rentabilidad para
-                  que avances con claridad.
+                  Diseñamos con criterios técnicos y visión de rentabilidad para que avances con claridad.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">

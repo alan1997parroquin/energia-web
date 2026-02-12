@@ -37,14 +37,24 @@ function anchorHref(pageHref: string, itemLabel: string) {
 
 export default function Header() {
   const [openMobile, setOpenMobile] = useState(false);
-  const [openDesktopMenu, setOpenDesktopMenu] = useState<null | "servicios">(null);
+
+  const [openDesktopMenu, setOpenDesktopMenu] = useState<null | "servicios">(
+    null
+  );
+  // 👇 solo controla la animación del panel (fade/slide)
   const [isServicesPanelVisible, setIsServicesPanelVisible] = useState(false);
 
   const closeTimer = useRef<number | null>(null);
+  const openTimer = useRef<number | null>(null);
+
   const desktopWrapRef = useRef<HTMLDivElement | null>(null);
 
-  const [openSubDesktop, setOpenSubDesktop] = useState<Record<string, boolean>>({});
+  // submenus desktop (acordeón por sección)
+  const [openSubDesktop, setOpenSubDesktop] = useState<Record<string, boolean>>(
+    {}
+  );
 
+  // mobile states
   const [mServicios, setMServicios] = useState(false);
   const [mTopOpen, setMTopOpen] = useState<string | null>(null);
   const [mSubOpen, setMSubOpen] = useState<string | null>(null);
@@ -63,7 +73,13 @@ export default function Header() {
       {
         label: "Estudios de prefactibilidad",
         href: consultoriaPages.pref,
-        items: ["Generación", "Carga", "Incremento de Demanda", "Migración", "Sistemas de Almacenamiento"].map((x) => ({
+        items: [
+          "Generación",
+          "Carga",
+          "Incremento de Demanda",
+          "Migración",
+          "Sistemas de Almacenamiento",
+        ].map((x) => ({
           label: x,
           href: anchorHref(consultoriaPages.pref, x),
         })),
@@ -85,17 +101,21 @@ export default function Header() {
       {
         label: "Anticipación estratégica de tendencias",
         href: consultoriaPages.ant,
-        items: ["Prospección de precios de energía (por nodo, hora y zona)", "Simulación de despacho a corto - mediano"].map(
-          (x) => ({
-            label: x,
-            href: anchorHref(consultoriaPages.ant, x),
-          })
-        ),
+        items: [
+          "Prospección de precios de energía (por nodo, hora y zona)",
+          "Simulación de despacho a corto - mediano",
+        ].map((x) => ({
+          label: x,
+          href: anchorHref(consultoriaPages.ant, x),
+        })),
       },
       {
         label: "Servicios de Ingeniería",
         href: consultoriaPages.ing,
-        items: ["Diseño de microgrids", "Diseño de proyectos de transición energética"].map((x) => ({
+        items: [
+          "Diseño de microgrids",
+          "Diseño de proyectos de transición energética",
+        ].map((x) => ({
           label: x,
           href: anchorHref(consultoriaPages.ing, x),
         })),
@@ -110,33 +130,49 @@ export default function Header() {
       },
     ];
 
-    const gestoriaSections: SubMenu[] = [
-      {
-        label: "CFE Baja tensión y media",
-        href: "/servicios/gestoria",
-        items: ["Prefactibilidad de carga", "Cambio de nombre", "Nuevo servicio", "Incremento de demanda", "Interconexión"].map(
-          (x) => ({ label: x, href: "/servicios/gestoria" })
-        ),
-      },
-      {
-        label: "CENACE y CFE > 1MW",
-        href: "/servicios/gestoria",
-        items: [
-          "Prefactibilidad de carga",
-          "Estrategia de promoción",
-          "Manejo de SIASIC",
-          "Modelo matemático",
-          "Perfiles de carga",
-          "Diseño de red interna",
-          "Seguimiento, atención y representación",
-          "Coordinación de adquisiciones",
-          "Coordinación del proyecto",
-          "Reuniones con CFE",
-          "Carpeta de proyecto",
-          "Demanda controlable",
-        ].map((x) => ({ label: x, href: "/servicios/gestoria" })),
-      },
-    ];
+    const gestoriaPages = {
+  cfe: "/servicios/gestoria/cfe-baja-tension-y-media",
+  cenace: "/servicios/gestoria/cenace-y-cfe-1mw",
+};
+
+const gestoriaSections: SubMenu[] = [
+  {
+    label: "CFE Baja tensión y media",
+    href: gestoriaPages.cfe,
+    items: [
+      "Prefactibilidad de carga",
+      "Cambio de nombre",
+      "Nuevo servicio",
+      "Incremento de demanda",
+      "Interconexión",
+    ].map((x) => ({
+      label: x,
+      href: anchorHref(gestoriaPages.cfe, x),
+    })),
+  },
+  {
+    label: "CENACE y CFE > 1MW",
+    href: gestoriaPages.cenace,
+    items: [
+      "Prefactibilidad",
+      "Estrategia de promocion",
+      "Manejo de SIASIC",
+      "Modelo matemático",
+      "Perfiles de carga",
+      "Diseño de red interna",
+      "Seguimiento, atención y representación",
+      "Coordinación de adquisiciones",
+      "Coordinación del proyecto",
+      "Reuniones con CFE",
+      "Carpeta de proyecto",
+      "Demanda controlable",
+    ].map((x) => ({
+      label: x,
+      href: anchorHref(gestoriaPages.cenace, x),
+    })),
+  },
+];
+
 
     const integradorItems: NestedItem[] = [
       "Estudio de viabilidad",
@@ -161,10 +197,30 @@ export default function Header() {
       label: "Servicios",
       href: "/servicios",
       columns: [
-        { type: "accordion", label: "Consultoría", href: "/servicios/consultoria", sections: consultoriaSections },
-        { type: "accordion", label: "Gestoría", href: "/servicios/gestoria", sections: gestoriaSections },
-        { type: "list", label: "Integrador Fotovoltaico", href: "/servicios/fotovoltaico", items: integradorItems },
-        { type: "list", label: "Capacitaciones", href: "/servicios/capacitacion", items: capacitacionItems },
+        {
+          type: "accordion",
+          label: "Consultoría",
+          href: "/servicios/consultoria",
+          sections: consultoriaSections,
+        },
+        {
+          type: "accordion",
+          label: "Gestoría",
+          href: "/servicios/gestoria",
+          sections: gestoriaSections,
+        },
+        {
+          type: "list",
+          label: "Integrador Fotovoltaico",
+          href: "/servicios/fotovoltaico",
+          items: integradorItems,
+        },
+        {
+          type: "list",
+          label: "Capacitaciones",
+          href: "/servicios/capacitacion",
+          items: capacitacionItems,
+        },
       ],
     };
   }, []);
@@ -175,18 +231,16 @@ export default function Header() {
 
     const hasHash = href.includes("#");
     if (!hasHash) {
-      setOpenDesktopMenu(null);
-      setIsServicesPanelVisible(false);
+      closeDesktopServices();
       setOpenMobile(false);
       return;
     }
 
     e.preventDefault();
-    setOpenDesktopMenu(null);
-    setIsServicesPanelVisible(false);
+    closeDesktopServices();
     setOpenMobile(false);
 
-    const [path, hash] = href.split("#");
+    const [, hash] = href.split("#");
     const id = hash?.trim();
 
     window.history.pushState(null, "", href);
@@ -194,23 +248,69 @@ export default function Header() {
     requestAnimationFrame(() => {
       if (!id) return;
       const el = document.getElementById(id);
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
     });
   };
+
+  // -------------------------
+  // Helpers: abrir/cerrar desktop smooth + reset submenus
+  // -------------------------
+  function clearTimers() {
+    if (closeTimer.current) window.clearTimeout(closeTimer.current);
+    if (openTimer.current) window.clearTimeout(openTimer.current);
+    closeTimer.current = null;
+    openTimer.current = null;
+  }
+
+  function closeDesktopServices() {
+    clearTimers();
+    // animación out
+    setIsServicesPanelVisible(false);
+    // reset de acordeones desktop (lo que pediste)
+    setOpenSubDesktop({});
+    // desmontar después del fade
+    window.setTimeout(() => {
+      setOpenDesktopMenu(null);
+    }, 180);
+  }
+
+  function safeCloseDesktopSoon() {
+    if (closeTimer.current) window.clearTimeout(closeTimer.current);
+    // un pelín más lento para que se sienta suave al salir
+    closeTimer.current = window.setTimeout(() => {
+      closeDesktopServices();
+    }, 220);
+  }
+
+  function safeOpenDesktopSmooth(menuKey: "servicios") {
+    // delay de apertura para evitar “se abre rapidísimo” con solo pasar el mouse
+    if (openTimer.current) window.clearTimeout(openTimer.current);
+    if (closeTimer.current) window.clearTimeout(closeTimer.current);
+
+    openTimer.current = window.setTimeout(() => {
+      setOpenDesktopMenu(menuKey);
+      // forzar que primero monte y luego anime
+      requestAnimationFrame(() => setIsServicesPanelVisible(true));
+    }, 140);
+  }
+
+  const topServiceLinkClass =
+    "text-xs font-semibold uppercase tracking-wide text-brand-green hover:text-brand-green-dark transition";
+
+  const itemLinkClass =
+    "block rounded-lg px-2 py-1.5 text-sm text-ink hover:bg-surface-soft whitespace-normal break-words";
 
   // Escape
   useEffect(() => {
     function onKeyDown(e: KeyboardEvent) {
       if (e.key === "Escape") {
         setOpenMobile(false);
-        setOpenDesktopMenu(null);
-        setIsServicesPanelVisible(false);
+        closeDesktopServices();
       }
     }
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Lock scroll mobile
@@ -228,33 +328,22 @@ export default function Header() {
       const el = desktopWrapRef.current;
       if (!el) return;
       if (!el.contains(e.target as Node)) {
-        setOpenDesktopMenu(null);
-        setIsServicesPanelVisible(false);
+        closeDesktopServices();
       }
     }
     window.addEventListener("pointerdown", onPointerDown);
     return () => window.removeEventListener("pointerdown", onPointerDown);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [openDesktopMenu]);
 
-  function safeCloseDesktopSoon() {
-    if (closeTimer.current) window.clearTimeout(closeTimer.current);
-    closeTimer.current = window.setTimeout(() => {
-      setIsServicesPanelVisible(false);
-      setOpenDesktopMenu(null);
-    }, 160);
-  }
-
-  function safeOpenDesktop(menuKey: "servicios") {
-    if (closeTimer.current) window.clearTimeout(closeTimer.current);
-    setOpenDesktopMenu(menuKey);
-    setIsServicesPanelVisible(true);
-  }
-
-  const topServiceLinkClass =
-    "text-xs font-semibold uppercase tracking-wide text-brand-green hover:text-brand-green-dark transition";
-
-  const itemLinkClass =
-    "block rounded-lg px-2 py-1.5 text-sm text-ink hover:bg-surface-soft whitespace-normal break-words";
+  // Cuando cierres MOBILE, resetea acordeones para que no se queden abiertos
+  useEffect(() => {
+    if (!openMobile) {
+      setMServicios(false);
+      setMTopOpen(null);
+      setMSubOpen(null);
+    }
+  }, [openMobile]);
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/70 backdrop-blur-md">
@@ -273,22 +362,42 @@ export default function Header() {
           </div>
           <div className="leading-tight">
             <p className="font-bold text-ink">Energía México</p>
-            <p className="text-xs text-ink-muted">Consultoría • FV • Capacitación</p>
+            <p className="text-xs text-ink-muted">
+              Consultoría • FV • Capacitación
+            </p>
           </div>
         </Link>
 
         {/* Desktop */}
         <div className="hidden items-center gap-4 md:flex">
-          <nav ref={desktopWrapRef} className="relative flex items-center gap-6 text-sm font-medium text-ink-muted">
+          <nav
+            ref={desktopWrapRef}
+            className="relative flex items-center gap-6 text-sm font-medium text-ink-muted"
+          >
             {/* Servicios */}
-            <div className="relative" onMouseEnter={() => safeOpenDesktop("servicios")} onMouseLeave={() => safeCloseDesktopSoon()}>
+            <div
+              className="relative"
+              onMouseEnter={() => safeOpenDesktopSmooth("servicios")}
+              onMouseLeave={() => safeCloseDesktopSoon()}
+            >
               <button
                 type="button"
                 onClick={() => {
-                  setOpenDesktopMenu((v) => (v === "servicios" ? null : "servicios"));
-                  setIsServicesPanelVisible((v) => !v);
+                  // toggle click (pero con animación + reset al cerrar)
+                  if (openDesktopMenu === "servicios") {
+                    closeDesktopServices();
+                  } else {
+                    safeOpenDesktopSmooth("servicios");
+                    // si abre por click, que sea inmediato (sin esperar el timer)
+                    if (openTimer.current) window.clearTimeout(openTimer.current);
+                    setOpenDesktopMenu("servicios");
+                    requestAnimationFrame(() => setIsServicesPanelVisible(true));
+                  }
                 }}
-                onFocus={() => safeOpenDesktop("servicios")}
+                onFocus={() => {
+                  // apertura suave también al focus
+                  safeOpenDesktopSmooth("servicios");
+                }}
                 aria-haspopup="menu"
                 aria-expanded={openDesktopMenu === "servicios"}
                 className="inline-flex items-center gap-2 transition hover:text-ink"
@@ -301,12 +410,17 @@ export default function Header() {
                   role="menu"
                   className={[
                     "fixed left-1/2 top-[72px] w-[min(1280px,96vw)] -translate-x-1/2 rounded-2xl border border-surface-border bg-white p-6 shadow-xl",
-                    "origin-top transition duration-200 ease-out",
+                    "origin-top transition-all duration-300 ease-out",
                     isServicesPanelVisible
                       ? "opacity-100 translate-y-0 scale-100 pointer-events-auto"
                       : "opacity-0 -translate-y-2 scale-[0.98] pointer-events-none",
                   ].join(" ")}
-                  onMouseEnter={() => safeOpenDesktop("servicios")}
+                  onMouseEnter={() => {
+                    // mantener abierto sin cerrar por timer
+                    if (closeTimer.current) window.clearTimeout(closeTimer.current);
+                    setOpenDesktopMenu("servicios");
+                    setIsServicesPanelVisible(true);
+                  }}
                   onMouseLeave={() => safeCloseDesktopSoon()}
                 >
                   <div className="max-h-[70vh] overflow-auto pr-2">
@@ -315,14 +429,22 @@ export default function Header() {
                         if (col.type === "list") {
                           return (
                             <div key={col.label} className="min-w-0">
-                              <Link href={col.href ?? "#"} onClick={() => setOpenDesktopMenu(null)} className={topServiceLinkClass}>
+                              <Link
+                                href={col.href ?? "#"}
+                                onClick={() => closeDesktopServices()}
+                                className={topServiceLinkClass}
+                              >
                                 {col.label}
                               </Link>
 
                               <ul className="mt-3 space-y-1">
                                 {col.items.map((it) => (
                                   <li key={it.label}>
-                                    <Link href={it.href ?? "#"} onClick={handleNav(it.href)} className={itemLinkClass}>
+                                    <Link
+                                      href={it.href ?? "#"}
+                                      onClick={handleNav(it.href)}
+                                      className={itemLinkClass}
+                                    >
                                       {it.label}
                                     </Link>
                                   </li>
@@ -334,7 +456,11 @@ export default function Header() {
 
                         return (
                           <div key={col.label} className="min-w-0">
-                            <Link href={col.href ?? "#"} onClick={() => setOpenDesktopMenu(null)} className={topServiceLinkClass}>
+                            <Link
+                              href={col.href ?? "#"}
+                              onClick={() => closeDesktopServices()}
+                              className={topServiceLinkClass}
+                            >
                               {col.label}
                             </Link>
 
@@ -348,10 +474,7 @@ export default function Header() {
                                     <div className="flex items-center justify-between gap-2">
                                       <Link
                                         href={sec.href ?? "#"}
-                                        onClick={() => {
-                                          setOpenDesktopMenu(null);
-                                          setIsServicesPanelVisible(false);
-                                        }}
+                                        onClick={() => closeDesktopServices()}
                                         className="min-w-0 flex-1 rounded-lg px-2 py-1.5 text-sm font-medium text-ink hover:bg-surface-soft"
                                       >
                                         {sec.label}
@@ -361,7 +484,10 @@ export default function Header() {
                                         type="button"
                                         className="rounded-lg px-2 py-1.5 text-xs font-semibold text-ink-muted hover:bg-surface-soft"
                                         onClick={() =>
-                                          setOpenSubDesktop((prev) => ({ ...prev, [key]: !prev[key] }))
+                                          setOpenSubDesktop((prev) => ({
+                                            ...prev,
+                                            [key]: !prev[key],
+                                          }))
                                         }
                                         aria-expanded={isOpen}
                                         aria-label={`Desplegar ${sec.label}`}
@@ -370,17 +496,29 @@ export default function Header() {
                                       </button>
                                     </div>
 
-                                    {isOpen && (
+                                    {/* ✅ animación del submenu (smooth) */}
+                                    <div
+                                      className={[
+                                        "overflow-hidden transition-all duration-250 ease-out",
+                                        isOpen
+                                          ? "max-h-[520px] opacity-100 translate-y-0"
+                                          : "max-h-0 opacity-0 -translate-y-1",
+                                      ].join(" ")}
+                                    >
                                       <ul className="mt-1 space-y-1 pl-2">
                                         {sec.items.map((it) => (
                                           <li key={it.label}>
-                                            <Link href={it.href ?? "#"} onClick={handleNav(it.href)} className={itemLinkClass}>
+                                            <Link
+                                              href={it.href ?? "#"}
+                                              onClick={handleNav(it.href)}
+                                              className={itemLinkClass}
+                                            >
                                               {it.label}
                                             </Link>
                                           </li>
                                         ))}
                                       </ul>
-                                    )}
+                                    </div>
                                   </div>
                                 );
                               })}
@@ -396,25 +534,10 @@ export default function Header() {
                     <Link
                       href="/servicios"
                       className="text-sm font-semibold text-ink hover:underline"
-                      onClick={() => {
-                        setOpenDesktopMenu(null);
-                        setIsServicesPanelVisible(false);
-                      }}
+                      onClick={() => closeDesktopServices()}
                     >
                       Ver todos los servicios
                     </Link>
-
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setOpenDesktopMenu(null);
-                        setIsServicesPanelVisible(false);
-                      }}
-                      className="rounded-xl border border-surface-border px-3 py-1.5 text-xs font-semibold text-ink hover:bg-surface-soft"
-                      aria-label="Cerrar menú"
-                    >
-                      ✕
-                    </button>
                   </div>
                 </div>
               )}
@@ -459,12 +582,24 @@ export default function Header() {
       {/* Mobile Drawer */}
       {openMobile && (
         <div className="fixed inset-0 z-50 md:hidden">
-          <button aria-label="Cerrar menú" onClick={() => setOpenMobile(false)} className="absolute inset-0 bg-black/40" />
-          <div className="absolute right-0 top-0 h-full w-[86%] max-w-sm bg-white shadow-xl">
-            <div className="flex items-center justify-between border-b border-surface-border px-6 py-4">
+          {/* ✅ overlay con blur suave para que NO se empalme texto */}
+          <button
+            aria-label="Cerrar menú"
+            onClick={() => setOpenMobile(false)}
+            className="absolute inset-0 bg-black/45 backdrop-blur-[2px]"
+          />
+          {/* ✅ panel con fondo sólido */}
+          <div className="absolute right-0 top-0 h-full w-[86%] max-w-sm bg-white/95 shadow-xl backdrop-blur">
+            <div className="flex items-center justify-between border-b border-surface-border bg-white/80 px-6 py-4 backdrop-blur">
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-green-soft">
-                  <Image src="/branding/energia-mexico-logo.png" alt="Energía México" width={34} height={34} className="object-contain" />
+                  <Image
+                    src="/branding/energia-mexico-logo.png"
+                    alt="Energía México"
+                    width={34}
+                    height={34}
+                    className="object-contain"
+                  />
                 </div>
                 <div className="leading-tight">
                   <p className="font-semibold text-ink">Menú</p>
@@ -474,7 +609,7 @@ export default function Header() {
               <button
                 onClick={() => setOpenMobile(false)}
                 aria-label="Cerrar"
-                className="rounded-xl border border-surface-border px-3 py-2 text-sm font-semibold text-ink hover:bg-surface-soft"
+                className="rounded-xl border border-surface-border bg-white px-3 py-2 text-sm font-semibold text-ink hover:bg-surface-soft"
               >
                 ✕
               </button>
@@ -483,12 +618,16 @@ export default function Header() {
             <nav className="px-6 py-4">
               <ul className="space-y-2">
                 <li>
-                  <Link href="/" onClick={() => setOpenMobile(false)} className="block rounded-xl px-3 py-3 font-semibold text-ink hover:bg-surface-soft">
+                  <Link
+                    href="/"
+                    onClick={() => setOpenMobile(false)}
+                    className="block rounded-xl px-3 py-3 font-semibold text-ink hover:bg-surface-soft"
+                  >
                     Inicio
                   </Link>
                 </li>
 
-                <li className="rounded-xl border border-surface-border">
+                <li className="rounded-xl border border-surface-border bg-white">
                   <button
                     type="button"
                     onClick={() => setMServicios((v) => !v)}
@@ -507,9 +646,16 @@ export default function Header() {
                           const isTopOpen = mTopOpen === topKey;
 
                           return (
-                            <div key={topKey} className="rounded-xl border border-surface-border">
+                            <div
+                              key={topKey}
+                              className="rounded-xl border border-surface-border bg-white"
+                            >
                               <div className="flex items-center justify-between px-3 py-2">
-                                <Link href={top.href ?? "#"} onClick={() => setOpenMobile(false)} className="text-sm font-semibold text-brand-green">
+                                <Link
+                                  href={top.href ?? "#"}
+                                  onClick={() => setOpenMobile(false)}
+                                  className="text-sm font-semibold text-brand-green"
+                                >
                                   {top.label}
                                 </Link>
 
@@ -517,9 +663,11 @@ export default function Header() {
                                   type="button"
                                   onClick={() => {
                                     setMSubOpen(null);
-                                    setMTopOpen((v) => (v === topKey ? null : topKey));
+                                    setMTopOpen((v) =>
+                                      v === topKey ? null : topKey
+                                    );
                                   }}
-                                  className="rounded-lg border border-surface-border px-2 py-1 text-xs font-semibold text-ink hover:bg-surface-soft"
+                                  className="rounded-lg border border-surface-border bg-white px-2 py-1 text-xs font-semibold text-ink hover:bg-surface-soft"
                                   aria-label={`Desplegar ${top.label}`}
                                 >
                                   {isTopOpen ? "–" : "+"}
@@ -532,7 +680,11 @@ export default function Header() {
                                     <ul className="space-y-1">
                                       {top.items.map((it) => (
                                         <li key={it.label}>
-                                          <Link href={it.href ?? "#"} onClick={() => setOpenMobile(false)} className="block rounded-xl px-3 py-2 text-sm text-ink hover:bg-surface-soft">
+                                          <Link
+                                            href={it.href ?? "#"}
+                                            onClick={() => setOpenMobile(false)}
+                                            className="block rounded-xl px-3 py-2 text-sm text-ink hover:bg-surface-soft"
+                                          >
                                             {it.label}
                                           </Link>
                                         </li>
@@ -545,15 +697,26 @@ export default function Header() {
                                         const isSubOpen = mSubOpen === subKey;
 
                                         return (
-                                          <div key={sec.label} className="rounded-xl bg-surface-soft/40">
+                                          <div
+                                            key={sec.label}
+                                            className="rounded-xl bg-surface-soft/40"
+                                          >
                                             <div className="flex items-center justify-between px-3 py-2">
-                                              <Link href={sec.href ?? "#"} onClick={() => setOpenMobile(false)} className="text-sm font-semibold text-ink">
+                                              <Link
+                                                href={sec.href ?? "#"}
+                                                onClick={() => setOpenMobile(false)}
+                                                className="text-sm font-semibold text-ink"
+                                              >
                                                 {sec.label}
                                               </Link>
 
                                               <button
                                                 type="button"
-                                                onClick={() => setMSubOpen((v) => (v === subKey ? null : subKey))}
+                                                onClick={() =>
+                                                  setMSubOpen((v) =>
+                                                    v === subKey ? null : subKey
+                                                  )
+                                                }
                                                 className="rounded-lg px-2 py-1 text-xs font-semibold text-ink-muted hover:bg-surface-soft"
                                                 aria-expanded={isSubOpen}
                                               >
@@ -565,7 +728,13 @@ export default function Header() {
                                               <ul className="space-y-1 pb-2">
                                                 {sec.items.map((it) => (
                                                   <li key={it.label}>
-                                                    <Link href={it.href ?? "#"} onClick={() => setOpenMobile(false)} className="block rounded-xl px-3 py-2 text-sm text-ink hover:bg-surface-soft">
+                                                    <Link
+                                                      href={it.href ?? "#"}
+                                                      onClick={() =>
+                                                        setOpenMobile(false)
+                                                      }
+                                                      className="block rounded-xl px-3 py-2 text-sm text-ink hover:bg-surface-soft"
+                                                    >
                                                       {it.label}
                                                     </Link>
                                                   </li>
@@ -584,7 +753,11 @@ export default function Header() {
                         })}
                       </div>
 
-                      <Link href="/servicios" onClick={() => setOpenMobile(false)} className="mt-3 block rounded-xl px-3 py-2 text-sm font-semibold text-ink hover:bg-surface-soft">
+                      <Link
+                        href="/servicios"
+                        onClick={() => setOpenMobile(false)}
+                        className="mt-3 block rounded-xl px-3 py-2 text-sm font-semibold text-ink hover:bg-surface-soft"
+                      >
                         Ver todos los servicios
                       </Link>
                     </div>
@@ -592,13 +765,21 @@ export default function Header() {
                 </li>
 
                 <li>
-                  <Link href="/nosotros" onClick={() => setOpenMobile(false)} className="block rounded-xl px-3 py-3 font-semibold text-ink hover:bg-surface-soft">
+                  <Link
+                    href="/nosotros"
+                    onClick={() => setOpenMobile(false)}
+                    className="block rounded-xl px-3 py-3 font-semibold text-ink hover:bg-surface-soft"
+                  >
                     Quiénes somos
                   </Link>
                 </li>
 
                 <li>
-                  <Link href="/contacto" onClick={() => setOpenMobile(false)} className="block rounded-xl px-3 py-3 font-semibold text-ink hover:bg-surface-soft">
+                  <Link
+                    href="/contacto"
+                    onClick={() => setOpenMobile(false)}
+                    className="block rounded-xl px-3 py-3 font-semibold text-ink hover:bg-surface-soft"
+                  >
                     Contacto
                   </Link>
                 </li>

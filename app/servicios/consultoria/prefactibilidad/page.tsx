@@ -25,6 +25,17 @@ const subservices = [
   },
 ];
 
+function toId(input: string) {
+  return input
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9\s-]/g, "")
+    .trim()
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-");
+}
+
 export default function PrefactibilidadPage() {
   return (
     <main className="relative isolate overflow-hidden bg-white">
@@ -38,11 +49,17 @@ export default function PrefactibilidadPage() {
       <div className="mx-auto max-w-7xl px-6 pt-32 pb-16 lg:pt-24">
         {/* Breadcrumb */}
         <div className="flex flex-wrap items-center gap-2 text-sm">
-          <Link href="/servicios" className="font-semibold text-brand-green hover:underline">
+          <Link
+            href="/servicios"
+            className="font-semibold text-brand-green hover:underline"
+          >
             Servicios
           </Link>
           <span className="text-ink-soft">/</span>
-          <Link href="/servicios/consultoria" className="font-semibold text-ink hover:underline">
+          <Link
+            href="/servicios/consultoria"
+            className="font-semibold text-ink hover:underline"
+          >
             Consultoría
           </Link>
           <span className="text-ink-soft">/</span>
@@ -58,25 +75,33 @@ export default function PrefactibilidadPage() {
               Estudios de prefactibilidad
             </h1>
             <p className="mt-4 max-w-2xl text-base text-ink-muted">
-              Un estudio rápido y de bajo costo para estimar complejidad, retos y viabilidad antes de invertir tiempo
-              y capital en estudios formales.
+              Un estudio rápido y de bajo costo para estimar complejidad, retos y
+              viabilidad antes de invertir tiempo y capital en estudios formales.
             </p>
 
             {/* Problema / Solución */}
             <div className="mt-6 grid max-w-2xl gap-3 sm:grid-cols-2">
               <div className="rounded-2xl border border-surface-border bg-white/70 p-4 backdrop-blur">
-                <p className="text-xs font-semibold uppercase tracking-wide text-ink-soft">Problema</p>
+                <p className="text-xs font-semibold uppercase tracking-wide text-ink-soft">
+                  Problema
+                </p>
                 <p className="mt-1 text-sm text-ink">
-                  Es necesario realizar estudios, para ello hay que pagar aproximadamente 321,000 MXN y esperar hasta
-                  40 días para tener una idea si el lugar en donde se pretende desarrollar el proyecto es viable.
+                  Es necesario realizar estudios, para ello hay que pagar
+                  aproximadamente 321,000 MXN y esperar hasta 40 días para tener
+                  una idea si el lugar en donde se pretende desarrollar el
+                  proyecto es viable.
                 </p>
               </div>
 
               <div className="rounded-2xl border border-surface-border bg-white/70 p-4 backdrop-blur">
-                <p className="text-xs font-semibold uppercase tracking-wide text-ink-soft">Solución</p>
+                <p className="text-xs font-semibold uppercase tracking-wide text-ink-soft">
+                  Solución
+                </p>
                 <p className="mt-1 text-sm text-ink">
-                  Estudio rápido de bajo costo que arroja en 5 días un estimado de la complejidad y retos a enfrentar;
-                  con lo que se paga a CENACE se pueden evaluar al menos 6 sitios distintos en menos de 20 días.
+                  Estudio rápido de bajo costo que arroja en 5 días un estimado
+                  de la complejidad y retos a enfrentar; con lo que se paga a
+                  CENACE se pueden evaluar al menos 6 sitios distintos en menos
+                  de 20 días.
                 </p>
               </div>
             </div>
@@ -113,7 +138,9 @@ export default function PrefactibilidadPage() {
               </div>
 
               <div className="p-5">
-                <p className="text-sm font-semibold text-ink">¿Qué obtienes en 5 días?</p>
+                <p className="text-sm font-semibold text-ink">
+                  ¿Qué obtienes en 5 días?
+                </p>
                 <ul className="mt-3 space-y-2 text-sm text-ink-muted">
                   <li className="flex gap-2">
                     <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-brand-green" />
@@ -149,7 +176,7 @@ export default function PrefactibilidadPage() {
         </section>
 
         {/* Subservicios */}
-        <section id="subservicios" className="mt-14">
+        <section id="subservicios" className="mt-14 scroll-mt-24">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="text-sm font-semibold text-brand-green">Alcances</p>
@@ -157,7 +184,8 @@ export default function PrefactibilidadPage() {
                 Subservicios de prefactibilidad
               </h2>
               <p className="mt-2 max-w-2xl text-sm text-ink-muted">
-                Selecciona el alcance que mejor describa tu necesidad. Si tu caso no encaja, lo ajustamos a la medida.
+                Selecciona el alcance que mejor describa tu necesidad. Si tu
+                caso no encaja, lo ajustamos a la medida.
               </p>
             </div>
 
@@ -173,14 +201,19 @@ export default function PrefactibilidadPage() {
             {subservices.map((s) => (
               <div
                 key={s.title}
-                className="relative overflow-hidden rounded-3xl border border-surface-border bg-white/70 p-6 shadow-sm backdrop-blur"
+                id={toId(s.title)}
+                className="relative scroll-mt-24 overflow-hidden rounded-3xl border border-surface-border bg-white/70 p-6 shadow-sm backdrop-blur"
               >
                 <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-brand-blue/10 blur-3xl" />
                 <div className="pointer-events-none absolute -bottom-28 -left-28 h-72 w-72 rounded-full bg-brand-green/10 blur-3xl" />
 
                 <div className="relative">
-                  <h3 className="text-xl font-bold tracking-tight text-ink">{s.title}</h3>
-                  <p className="mt-2 max-w-3xl text-sm text-ink-muted">{s.desc}</p>
+                  <h3 className="text-xl font-bold tracking-tight text-ink">
+                    {s.title}
+                  </h3>
+                  <p className="mt-2 max-w-3xl text-sm text-ink-muted">
+                    {s.desc}
+                  </p>
 
                   <div className="mt-5 flex flex-wrap gap-3">
                     <Link
@@ -211,8 +244,9 @@ export default function PrefactibilidadPage() {
                   Evalúa varios sitios antes de iniciar el estudio formal
                 </h2>
                 <p className="mt-2 text-sm text-ink-muted">
-                  Con prefactibilidad puedes comparar alternativas rápido y tomar mejores decisiones antes de pagar
-                  estudios de alto costo.
+                  Con prefactibilidad puedes comparar alternativas rápido y
+                  tomar mejores decisiones antes de pagar estudios de alto
+                  costo.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">

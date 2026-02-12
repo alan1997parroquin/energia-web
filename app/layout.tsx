@@ -15,6 +15,12 @@ export const metadata: Metadata = {
   title: "Energía México",
   description:
     "Consultoría y gestoría energética, integración fotovoltaica y capacitación.",
+  icons: {
+    icon: "/favicon/favicon.ico",
+    shortcut: "/favicon/favicon.ico",
+    // Si después agregas apple-touch-icon, descomenta:
+    // apple: "/favicon/icon-180.png",
+  },
 };
 
 export default function RootLayout({

@@ -9,7 +9,7 @@ type Slide = {
   eyebrow: string;
   title: string;
   subtitle: string;
-  img: string;
+  img: string; // ✅ AQUÍ se define la imagen por servicio
   href: string;
   bullets: { color: "green" | "blue" | "warning"; text: string }[];
   tag: string;
@@ -23,9 +23,7 @@ export default function Hero() {
         eyebrow: "Energía para empresas",
         title: "Consultoría eléctrica",
         subtitle: "Estrategia, costos y decisiones con datos en el MEM",
-        // ✅ Por ahora uso la misma imagen para evitar errores si no existen otras.
-        // Cambia después por: /imagen/hero/consultoria.jpg, etc.
-        img: "/imagen/hero/hero-energy.jpg",
+        img: "/imagen/services/consultoria.jpg", // ✅ CAMBIA ESTA RUTA por tu imagen de consultoría
         href: "/servicios/consultoria",
         tag: "Estrategia • MEM",
         bullets: [
@@ -39,7 +37,7 @@ export default function Hero() {
         eyebrow: "Trámites sin fricción",
         title: "Gestoría e interconexión",
         subtitle: "Acompañamiento técnico–regulatorio con CFE/CENACE",
-        img: "/imagen/hero/hero-energy.jpg",
+        img: "/imagen/services/interconexion.jpg", // ✅ CAMBIA ESTA RUTA por tu imagen de gestoría
         href: "/servicios/gestoria",
         tag: "Trámites • Cumplimiento",
         bullets: [
@@ -53,7 +51,7 @@ export default function Hero() {
         eyebrow: "Autoconsumo industrial y comercial",
         title: "Integrador fotovoltaico",
         subtitle: "Ingeniería, instalación e interconexión con ROI claro",
-        img: "/imagen/hero/hero-energy.jpg",
+        img: "/imagen/services/fotovoltaico.jpg", // ✅ CAMBIA ESTA RUTA por tu imagen FV
         href: "/servicios/fotovoltaico",
         tag: "Ingeniería • ROI",
         bullets: [
@@ -67,7 +65,7 @@ export default function Hero() {
         eyebrow: "Equipos que deciden mejor",
         title: "Capacitación energética",
         subtitle: "Talleres prácticos para energía, regulación y operación",
-        img: "/imagen/hero/hero-energy.jpg",
+        img: "/imagen/services/capacitacion.jpg", // ✅ CAMBIA ESTA RUTA por tu imagen de capacitación
         href: "/servicios/capacitacion",
         tag: "Talleres • Skills",
         bullets: [
@@ -85,13 +83,11 @@ export default function Hero() {
   const intervalRef = useRef<number | null>(null);
 
   useEffect(() => {
-    // respeta reduced motion: no auto-rotar
     const reduce =
       typeof window !== "undefined" &&
       window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
 
     if (reduce) return;
-
     if (paused) return;
 
     intervalRef.current = window.setInterval(() => {
@@ -121,7 +117,6 @@ export default function Hero() {
         <div className="absolute -bottom-28 -right-24 h-96 w-96 rounded-full bg-brand-green/15 blur-3xl" />
       </div>
 
-      {/* Padding top para que el header sticky no encime */}
       <div className="mx-auto max-w-7xl px-6 pt-24 pb-20 lg:pt-16">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           {/* LEFT */}
@@ -144,7 +139,6 @@ export default function Hero() {
             </p>
 
             <div className="flex flex-col gap-3 sm:flex-row">
-              {/* CTA principal */}
               <Link
                 href="/contacto"
                 className="inline-flex items-center justify-center rounded-xl bg-brand-green px-6 py-3 text-base font-semibold text-white shadow-md transition hover:bg-brand-green-dark hover:shadow-lg"
@@ -152,16 +146,14 @@ export default function Hero() {
                 Solicitar cotización
               </Link>
 
-              {/* CTA secundario */}
               <Link
-                href="/nuestras-soluciones"
+                href="/servicios"
                 className="inline-flex items-center justify-center rounded-xl border-2 border-brand-blue px-6 py-3 text-base font-semibold text-brand-blue bg-white transition hover:bg-brand-blue-soft"
               >
                 Ver soluciones
               </Link>
             </div>
 
-            {/* Trust row */}
             <div className="flex flex-wrap items-center gap-3 pt-2 text-sm text-slate-600">
               <span className="inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1.5 border border-slate-200">
                 <span className="h-2 w-2 rounded-full bg-brand-blue" />
@@ -178,7 +170,7 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* RIGHT (rotating window) */}
+          {/* RIGHT */}
           <div
             className="relative"
             onMouseEnter={() => setPaused(true)}
@@ -186,18 +178,11 @@ export default function Hero() {
             onFocusCapture={() => setPaused(true)}
             onBlurCapture={() => setPaused(false)}
           >
-            {/* “ventana” principal */}
             <div className="relative overflow-hidden rounded-3xl border border-brand-blue/15 bg-white/95 shadow-xl">
               {/* IMAGE HEADER */}
               <Link href={s.href} className="block">
                 <div className="relative h-60 w-full sm:h-72">
-                  <Image
-                    src={s.img}
-                    alt={s.title}
-                    fill
-                    className="object-cover"
-                    priority
-                  />
+                  <Image src={s.img} alt={s.title} fill className="object-cover" priority />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/15 to-transparent" />
 
                   <div className="absolute bottom-4 left-4 right-4">
@@ -211,30 +196,22 @@ export default function Hero() {
 
               {/* CONTENT */}
               <div className="p-6">
-                <div className="flex items-center justify-between gap-4">
-                  <div className="flex items-center gap-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-blue-soft">
-                      <Image
-                        src="/branding/energia-mexico-logo.png"
-                        alt="Energía México"
-                        width={40}
-                        height={40}
-                        className="object-contain"
-                      />
-                    </div>
-
-                    <div>
-                      <p className="text-base font-bold text-slate-900">{s.title}</p>
-                      <p className="text-sm text-slate-600">{s.subtitle}</p>
-                    </div>
+                {/* ❌ Quitamos el botón "Ver →" y dejamos solo el header */}
+                <div className="flex items-center gap-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-blue-soft">
+                    <Image
+                      src="/branding/energia-mexico-logo.png"
+                      alt="Energía México"
+                      width={40}
+                      height={40}
+                      className="object-contain"
+                    />
                   </div>
 
-                  <Link
-                    href={s.href}
-                    className="shrink-0 rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-800 transition hover:bg-slate-50"
-                  >
-                    Ver →
-                  </Link>
+                  <div>
+                    <p className="text-base font-bold text-slate-900">{s.title}</p>
+                    <p className="text-sm text-slate-600">{s.subtitle}</p>
+                  </div>
                 </div>
 
                 <ul className="mt-6 space-y-3 text-sm text-slate-700">
@@ -246,7 +223,7 @@ export default function Hero() {
                   ))}
                 </ul>
 
-                {/* mini “ventanas” clicables (como en tu imagen) */}
+                {/* mini “ventanas” clicables */}
                 <div className="mt-6 grid gap-2 sm:grid-cols-2">
                   {slides.map((item, idx) => {
                     const isActive = idx === active;
@@ -264,19 +241,16 @@ export default function Hero() {
                         aria-current={isActive ? "true" : "false"}
                       >
                         <div className="relative h-10 w-14 overflow-hidden rounded-xl border border-slate-200">
-                          <Image
-                            src={item.img}
-                            alt={item.title}
-                            fill
-                            className="object-cover"
-                          />
+                          <Image src={item.img} alt={item.title} fill className="object-cover" />
                         </div>
+
                         <div className="min-w-0 flex-1">
                           <p className="truncate text-sm font-semibold text-slate-900">
                             {item.title}
                           </p>
                           <p className="truncate text-xs text-slate-600">{item.tag}</p>
                         </div>
+
                         <Link
                           href={item.href}
                           className="rounded-xl px-2 py-1 text-xs font-semibold text-brand-blue opacity-0 transition group-hover:opacity-100"
@@ -289,25 +263,22 @@ export default function Hero() {
                   })}
                 </div>
 
-                {/* indicador simple */}
-                <div className="mt-4 flex items-center justify-between">
-                  <div className="flex gap-2">
-                    {slides.map((_, i) => (
-                      <button
-                        key={`dot-${i}`}
-                        type="button"
-                        onClick={() => setActive(i)}
-                        className={[
-                          "h-2.5 w-2.5 rounded-full transition",
-                          i === active ? "bg-brand-blue" : "bg-slate-300 hover:bg-slate-400",
-                        ].join(" ")}
-                        aria-label={`Ir a slide ${i + 1}`}
-                      />
-                    ))}
-                  </div>
-                  <p className="text-xs text-slate-500">
-                    {paused ? "Pausado" : "Cambia cada 5s"}
-                  </p>
+                {/* ❌ Quitamos el texto "Cambia cada 5s"/"Pausado" y dejamos solo los dots */}
+                <div className="mt-4 flex items-center gap-2">
+                  {slides.map((item, i) => (
+                    <button
+                      key={`dot-${item.key}`}
+                      type="button"
+                      onClick={() => setActive(i)}
+                      className={[
+                        "h-2 rounded-full transition",
+                        i === active
+                          ? "w-8 bg-brand-blue"
+                          : "w-2 bg-surface-border hover:bg-ink-soft",
+                      ].join(" ")}
+                      aria-label={`Ir a ${item.title}`}
+                    />
+                  ))}
                 </div>
               </div>
             </div>

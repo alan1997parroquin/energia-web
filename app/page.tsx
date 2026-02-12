@@ -3,7 +3,6 @@ import ServicesGrid from "@/components/ServicesGrid";
 import PainPoints from "@/components/PainPoints";
 import Process from "@/components/Process";
 import FinalCTA from "@/components/FinalCTA";
-import CasesSection from "@/components/CasesSection";
 import AboutSection from "@/components/AboutSection";
 
 export default function Home() {
@@ -14,7 +13,6 @@ export default function Home() {
       <AboutSection />
       <PainPoints />
       <Process />
-      <CasesSection />
       <FinalCTA />
     </main>
   );

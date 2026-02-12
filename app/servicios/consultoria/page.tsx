@@ -90,7 +90,7 @@ function Catalog({ items }: { items: Service[] }) {
               href={`#${current.slug}`}
               className="inline-flex items-center justify-center rounded-full border border-surface-border bg-white px-4 py-2 text-sm font-semibold text-ink hover:bg-surface-soft"
             >
-              Ir a sección ↓
+              Ir a sección 
             </Link>
           </div>
         </div>
@@ -201,7 +201,7 @@ function ServiceSection({ s, index }: { s: Service; index: number }) {
                   href={`/servicios/consultoria/${s.slug}`}
                   className="inline-flex items-center justify-center rounded-full bg-brand-green px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-brand-green-dark"
                 >
-                  Ver subservicios →
+                  Ver subservicios 
                 </Link>
               </div>
             </div>
@@ -356,7 +356,7 @@ export default function ConsultoriaLanding() {
                   href="#prefactibilidad"
                   className="inline-flex items-center justify-center rounded-full border border-surface-border bg-white px-5 py-2.5 text-sm font-semibold text-ink hover:bg-surface-soft"
                 >
-                  Ver servicios ↓
+                  Ver servicios 
                 </Link>
               </div>
             </div>

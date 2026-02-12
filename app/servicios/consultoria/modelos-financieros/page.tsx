@@ -11,7 +11,6 @@ const sharedSolution =
 const subservices = [
   {
     title: "Generación",
-    // ✅ Descripción particular (propuesta)
     desc: "Modelos financieros para proyectos de generación: supuestos claros, escenarios y sensibilidad para evaluar rentabilidad.",
   },
   {
@@ -19,6 +18,17 @@ const subservices = [
     desc: "Modelos financieros para microgrids: estructura de costos, operación, escenarios y rentabilidad bajo distintos supuestos.",
   },
 ];
+
+function toId(input: string) {
+  return input
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9\s-]/g, "")
+    .trim()
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-");
+}
 
 export default function ModelosFinancierosPage() {
   return (
@@ -33,17 +43,11 @@ export default function ModelosFinancierosPage() {
       <div className="mx-auto max-w-7xl px-6 pt-32 pb-16 lg:pt-24">
         {/* Breadcrumb */}
         <div className="flex flex-wrap items-center gap-2 text-sm">
-          <Link
-            href="/servicios"
-            className="font-semibold text-brand-green hover:underline"
-          >
+          <Link href="/servicios" className="font-semibold text-brand-green hover:underline">
             Servicios
           </Link>
           <span className="text-ink-soft">/</span>
-          <Link
-            href="/servicios/consultoria"
-            className="font-semibold text-ink hover:underline"
-          >
+          <Link href="/servicios/consultoria" className="font-semibold text-ink hover:underline">
             Consultoría
           </Link>
           <span className="text-ink-soft">/</span>
@@ -59,26 +63,20 @@ export default function ModelosFinancierosPage() {
               Modelos financieros
             </h1>
 
-            {/* ✅ Descripción general (propuesta) */}
             <p className="mt-4 max-w-2xl text-base text-ink-muted">
-              Modelos financieros para evaluar proyectos complejos con criterios
-              realistas: supuestos transparentes, escenarios, sensibilidad y
-              métricas para tomar decisiones de inversión.
+              Modelos financieros para evaluar proyectos complejos con criterios realistas: supuestos transparentes,
+              escenarios, sensibilidad y métricas para tomar decisiones de inversión.
             </p>
 
-            {/* ✅ Problema / Solución (cliente) — compartido */}
+            {/* Problema / Solución (cliente) — compartido */}
             <div className="mt-6 grid max-w-2xl gap-3 sm:grid-cols-2">
               <div className="rounded-2xl border border-surface-border bg-white/70 p-4 backdrop-blur">
-                <p className="text-xs font-semibold uppercase tracking-wide text-ink-soft">
-                  Problema
-                </p>
+                <p className="text-xs font-semibold uppercase tracking-wide text-ink-soft">Problema</p>
                 <p className="mt-1 text-sm text-ink">{sharedProblem}</p>
               </div>
 
               <div className="rounded-2xl border border-surface-border bg-white/70 p-4 backdrop-blur">
-                <p className="text-xs font-semibold uppercase tracking-wide text-ink-soft">
-                  Solución
-                </p>
+                <p className="text-xs font-semibold uppercase tracking-wide text-ink-soft">Solución</p>
                 <p className="mt-1 text-sm text-ink">{sharedSolution}</p>
               </div>
             </div>
@@ -150,7 +148,7 @@ export default function ModelosFinancierosPage() {
         </section>
 
         {/* Subservicios */}
-        <section id="subservicios" className="mt-14">
+        <section id="subservicios" className="mt-14 scroll-mt-24">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="text-sm font-semibold text-brand-green">Alcances</p>
@@ -158,8 +156,7 @@ export default function ModelosFinancierosPage() {
                 Subservicios de modelos financieros
               </h2>
               <p className="mt-2 max-w-2xl text-sm text-ink-muted">
-                El Problema/Solución aplica a ambos subservicios. Las descripciones
-                son propuestas iniciales y se pueden ajustar.
+                El Problema/Solución aplica a ambos subservicios. Las descripciones son propuestas iniciales y se pueden ajustar.
               </p>
             </div>
 
@@ -175,17 +172,14 @@ export default function ModelosFinancierosPage() {
             {subservices.map((s) => (
               <div
                 key={s.title}
-                className="relative overflow-hidden rounded-3xl border border-surface-border bg-white/70 p-6 shadow-sm backdrop-blur"
+                id={toId(s.title)}
+                className="relative scroll-mt-24 overflow-hidden rounded-3xl border border-surface-border bg-white/70 p-6 shadow-sm backdrop-blur"
               >
                 <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-brand-blue/10 blur-3xl" />
                 <div className="pointer-events-none absolute -bottom-28 -left-28 h-72 w-72 rounded-full bg-brand-green/10 blur-3xl" />
 
                 <div className="relative">
-                  <h3 className="text-xl font-bold tracking-tight text-ink">
-                    {s.title}
-                  </h3>
-
-                  {/* ✅ Descripción particular (propuesta) */}
+                  <h3 className="text-xl font-bold tracking-tight text-ink">{s.title}</h3>
                   <p className="mt-2 max-w-3xl text-sm text-ink-muted">{s.desc}</p>
 
                   <div className="mt-5 flex flex-wrap gap-3">
@@ -217,8 +211,7 @@ export default function ModelosFinancierosPage() {
                   Modelos realistas para decisiones de inversión
                 </h2>
                 <p className="mt-2 text-sm text-ink-muted">
-                  Integramos precio de energía y operación real para evaluar con
-                  escenarios claros.
+                  Integramos precio de energía y operación real para evaluar con escenarios claros.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">

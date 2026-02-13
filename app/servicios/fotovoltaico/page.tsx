@@ -7,14 +7,14 @@ import { useEffect, useMemo, useState } from "react";
 
 type Service = {
   slug:
-    | "estudio-de-viabilidad"
-    | "diseno-de-solucion"
-    | "ingenieria-detallada"
-    | "suministro-e-instalacion"
+    | "viabilidad"
+    | "diseno"
+    | "ingenieria"
+    | "instalacion"
     | "pruebas"
-    | "mantenimiento-preventivo-y-correctivo"
+    | "mantenimiento"
     | "financiamiento"
-    | "gestoria-de-cfe";
+    | "gestoria-cfe";
   title: string;
   desc: string;
   bullets: string[];
@@ -206,7 +206,7 @@ export default function FotovoltaicoLanding() {
   const services = useMemo<Service[]>(
     () => [
       {
-        slug: "estudio-de-viabilidad",
+        slug: "viabilidad",
         eyebrow: "Integrador Fotovoltaico",
         title: "Estudio de viabilidad",
         desc: "Validamos si el proyecto FV tiene sentido técnico y financiero: consumo, sitio, interconexión y escenarios de retorno.",
@@ -219,7 +219,7 @@ export default function FotovoltaicoLanding() {
         image: "/imagen/fotovoltaico/viabilidad.jpg",
       },
       {
-        slug: "diseno-de-solucion",
+        slug: "diseno",
         eyebrow: "Integrador Fotovoltaico",
         title: "Diseño de solución",
         desc: "Definimos la solución FV óptima: arquitectura, equipos, layout preliminar y estrategia de implementación.",
@@ -232,7 +232,7 @@ export default function FotovoltaicoLanding() {
         image: "/imagen/fotovoltaico/diseno.jpg",
       },
       {
-        slug: "ingenieria-detallada",
+        slug: "ingenieria",
         eyebrow: "Integrador Fotovoltaico",
         title: "Ingeniería detallada",
         desc: "Ingeniería para construir: criterios, planos y especificaciones para ejecución e interconexión.",
@@ -245,7 +245,7 @@ export default function FotovoltaicoLanding() {
         image: "/imagen/fotovoltaico/ingenieria.jpg",
       },
       {
-        slug: "suministro-e-instalacion",
+        slug: "instalacion",
         eyebrow: "Integrador Fotovoltaico",
         title: "Suministro e instalación",
         desc: "Ejecución del proyecto: suministro, logística, montaje y coordinación en sitio con control de calidad.",
@@ -271,7 +271,7 @@ export default function FotovoltaicoLanding() {
         image: "/imagen/fotovoltaico/pruebas.jpg",
       },
       {
-        slug: "mantenimiento-preventivo-y-correctivo",
+        slug: "mantenimiento",
         eyebrow: "Integrador Fotovoltaico",
         title: "Mantenimiento preventivo y correctivo",
         desc: "Cuidamos el desempeño del sistema con rutinas preventivas y atención correctiva para minimizar paros y pérdidas.",
@@ -297,7 +297,7 @@ export default function FotovoltaicoLanding() {
         image: "/imagen/fotovoltaico/financiamiento.jpg",
       },
       {
-        slug: "gestoria-de-cfe",
+        slug: "gestoria-cfe",
         eyebrow: "Integrador Fotovoltaico",
         title: "Gestoría de CFE",
         desc: "Acompañamiento para interconexión: requisitos, documentación, seguimiento y coordinación para avanzar sin fricciones.",
@@ -370,7 +370,7 @@ export default function FotovoltaicoLanding() {
                   Solicitar cotización
                 </Link>
                 <Link
-                  href="#estudio-de-viabilidad"
+                  href="#viabilidad"
                   className="inline-flex items-center justify-center rounded-full border border-surface-border bg-white px-5 py-2.5 text-sm font-semibold text-ink hover:bg-surface-soft"
                 >
                   Ver servicios

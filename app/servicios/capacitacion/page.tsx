@@ -8,10 +8,10 @@ import { useEffect, useMemo, useState } from "react";
 type Service = {
   slug:
     | "mem"
-    | "analisis-de-riesgos"
+    | "riesgos"
     | "calliope"
     | "certificaciones"
-    | "analisis-de-datos-mem";
+    | "datos";
   title: string;
   desc: string;
   bullets: string[];
@@ -216,7 +216,7 @@ export default function CapacitacionLanding() {
         image: "/imagen/capacitacion/mem1.jpg",
       },
       {
-        slug: "analisis-de-riesgos",
+        slug: "riesgos",
         eyebrow: "Capacitación",
         title: "Análisis de riesgos y oportunidades",
         desc: "Identifica impactos, riesgos regulatorios y oportunidades de ahorro/optimización con un enfoque claro para decisión ejecutiva.",
@@ -255,7 +255,7 @@ export default function CapacitacionLanding() {
         image: "/imagen/capacitacion/certificaciones1.jpg",
       },
       {
-        slug: "analisis-de-datos-mem",
+        slug: "datos",
         eyebrow: "Capacitación",
         title: "Análisis de datos MEM",
         desc: "Aprende a transformar datos del MEM en decisiones: limpieza, métricas, dashboards y conclusiones accionables.",

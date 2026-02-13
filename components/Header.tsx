@@ -3,6 +3,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
+
 
 type NestedItem = { label: string; href?: string };
 type SubMenu = {
@@ -175,23 +177,25 @@ const gestoriaSections: SubMenu[] = [
 
 
     const integradorItems: NestedItem[] = [
-      "Estudio de viabilidad",
-      "Diseño de solución",
-      "Ingeniería detallada",
-      "Suministro de instalación",
-      "Pruebas",
-      "Mantenimiento Preventivo y correctivo",
-      "Financiamiento",
-      "Gestoría de CFE",
-    ].map((x) => ({ label: x, href: "/servicios/fotovoltaico" }));
+  { label: "Estudio de viabilidad", href: "/servicios/fotovoltaico/viabilidad" },
+  { label: "Diseño de solución", href: "/servicios/fotovoltaico/diseno" },
+  { label: "Ingeniería detallada", href: "/servicios/fotovoltaico/ingenieria" },
+  { label: "Suministro e instalación", href: "/servicios/fotovoltaico/instalacion" },
+  { label: "Pruebas", href: "/servicios/fotovoltaico/pruebas" },
+  { label: "Mantenimiento preventivo y correctivo", href: "/servicios/fotovoltaico/mantenimiento" },
+  { label: "Financiamiento", href: "/servicios/fotovoltaico/financiamiento" },
+  { label: "Gestoría de CFE", href: "/servicios/fotovoltaico/gestoria-cfe" },
+];
+
 
     const capacitacionItems: NestedItem[] = [
-      "MEM",
-      "Análisis de riesgos y oportunidades",
-      "Modelo de despacho en Calliope",
-      "Cursos de preparación para certificaciones",
-      "Análisis de datos MEM",
-    ].map((x) => ({ label: x, href: "/servicios/capacitacion" }));
+  { label: "MEM", href: "/servicios/capacitacion/mem" },
+  { label: "Análisis de riesgos y oportunidades", href: "/servicios/capacitacion/riesgos" },
+  { label: "Modelo de despacho en Calliope", href: "/servicios/capacitacion/calliope" },
+  { label: "Cursos de preparación para certificaciones", href: "/servicios/capacitacion/certificaciones" },
+  { label: "Análisis de datos MEM", href: "/servicios/capacitacion/datos" },
+];
+
 
     return {
       label: "Servicios",

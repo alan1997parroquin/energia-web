@@ -5,7 +5,6 @@ import Image from "next/image";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 
-
 type NestedItem = { label: string; href?: string };
 type SubMenu = {
   label: string;
@@ -38,6 +37,8 @@ function anchorHref(pageHref: string, itemLabel: string) {
 }
 
 export default function Header() {
+  const router = useRouter();
+  const pathname = usePathname();
   const [openMobile, setOpenMobile] = useState(false);
 
   const [openDesktopMenu, setOpenDesktopMenu] = useState<null | "servicios">(
@@ -229,32 +230,41 @@ const gestoriaSections: SubMenu[] = [
     };
   }, []);
 
-  // ✅ Cierra el menú + scroll suave si hay hash
-  const handleNav = (href?: string) => (e: React.MouseEvent) => {
-    if (!href) return;
+ // ✅ Cierra el menú + navega bien si hay hash
+const handleNav = (href?: string) => (e: React.MouseEvent) => {
+  if (!href) return;
 
-    const hasHash = href.includes("#");
-    if (!hasHash) {
-      closeDesktopServices();
-      setOpenMobile(false);
-      return;
-    }
+  const hasHash = href.includes("#");
 
-    e.preventDefault();
+  // sin hash: deja el <Link> navegar normal
+  if (!hasHash) {
     closeDesktopServices();
     setOpenMobile(false);
+    return;
+  }
 
-    const [, hash] = href.split("#");
-    const id = hash?.trim();
+  e.preventDefault();
+  closeDesktopServices();
+  setOpenMobile(false);
 
-    window.history.pushState(null, "", href);
+  const [targetPath, hash] = href.split("#");
+  const id = (hash || "").trim();
 
-    requestAnimationFrame(() => {
-      if (!id) return;
-      const el = document.getElementById(id);
-      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
-  };
+  // ✅ Si cambia de página, usa Next router (esto arregla tu caso /nosotros -> /servicios/...)
+  if (targetPath && targetPath !== pathname) {
+    router.push(href);
+    return;
+  }
+
+  // ✅ Si estás en la misma página, solo scroll suave
+  if (!id) return;
+
+  requestAnimationFrame(() => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+};
+
 
   // -------------------------
   // Helpers: abrir/cerrar desktop smooth + reset submenus
@@ -350,7 +360,13 @@ const gestoriaSections: SubMenu[] = [
   }, [openMobile]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/70 backdrop-blur-md">
+    <header
+  className={[
+    "sticky top-0 z-50 border-b border-slate-200",
+    openMobile ? "bg-white shadow-sm" : "bg-white/70 backdrop-blur-md",
+  ].join(" ")}
+>
+
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4">
         {/* Brand */}
         <Link href="/" className="flex items-center gap-3">

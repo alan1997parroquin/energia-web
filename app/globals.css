@@ -3,6 +3,9 @@
 :root {
   --background: #ffffff;
   --foreground: #0f172a;
+
+  /* ✅ Offset global para anchors con header sticky */
+  --header-offset: 104px; /* prueba 104; si queda corto sube a 112, si sobra baja a 96/88 */
 }
 
 /* ✅ Tailwind v4 tokens */
@@ -47,9 +50,10 @@
   }
 }
 
-/* ✅ Scroll suave para anchors (#seccion) */
+/* ✅ Scroll suave para anchors (#seccion) + offset para sticky header */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: var(--header-offset);
 }
 
 body {

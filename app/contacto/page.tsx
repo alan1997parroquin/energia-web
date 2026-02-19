@@ -270,10 +270,10 @@ export default function ContactoPage() {
   }, [form.servicio]);
 
   // ✅ Requisito: correo o teléfono
-  const hasEmailOrPhone = form.email.trim().length > 0 || form.telefono.trim().length > 0;
+  const hasEmail = form.email.trim().length > 0;
 
   // Step 1
-  const canNextStep1 = form.nombre.trim().length > 0 && hasEmailOrPhone && form.servicio !== "";
+  const canNextStep1 = form.nombre.trim().length > 0 && hasEmail && form.servicio !== "";
 
   // Step 2: mínimo 1 foco + urgencia
   const canNextStep2 = form.foco.length >= 1 && form.urgencia !== "";
@@ -442,11 +442,12 @@ export default function ContactoPage() {
                     </div>
 
                     <div className="sm:col-span-1">
-                      <label className="text-sm font-semibold text-slate-900">Correo (opcional)</label>
+                      <label className="text-sm font-semibold text-slate-900">Correo </label>
                       <input
                         type="email"
                         value={form.email}
                         onChange={(e) => handleChange("email", e.target.value)}
+                        required
                         placeholder="correo@empresa.com"
                         className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-brand-blue/60"
                       />
@@ -461,12 +462,6 @@ export default function ContactoPage() {
                         className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-brand-blue/60"
                       />
                     </div>
-
-                    {!hasEmailOrPhone && (
-                      <div className="sm:col-span-2 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
-                        Necesitamos al menos <b>correo o teléfono</b> para poder contactarte.
-                      </div>
-                    )}
 
                     <div className="sm:col-span-2">
                       <label className="text-sm font-semibold text-slate-900">¿Qué necesitas?</label>

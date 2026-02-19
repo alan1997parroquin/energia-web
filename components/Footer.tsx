@@ -16,6 +16,37 @@ const links = {
   ],
 };
 
+// ✅ Tus links
+const LINKEDIN_URL = "https://www.linkedin.com/company/energia-m%C3%A9xico/posts/?feedView=all";
+const INSTAGRAM_URL =
+  "https://www.instagram.com/tomas.reyes.sanchez?igsh=MWo5a21obWVlajhtNQ==";
+// ⚠️ Cambia esto por el link real de Facebook (perfil o página)
+const FACEBOOK_URL = "https://web.facebook.com/profile.php?id=61556298763464";
+
+function InstagramIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
+      <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9A3.5 3.5 0 0 0 20 16.5v-9A3.5 3.5 0 0 0 16.5 4h-9ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.75-2.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z" />
+    </svg>
+  );
+}
+
+function LinkedInIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
+      <path d="M20.447 20.452H17.21v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.0V9h3.104v1.561h.045c.432-.817 1.49-1.679 3.065-1.679 3.276 0 3.879 2.157 3.879 4.962v6.608zM5.337 7.433a1.804 1.804 0 1 1 0-3.608 1.804 1.804 0 0 1 0 3.608zM6.956 20.452H3.717V9h3.239v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0z" />
+    </svg>
+  );
+}
+
+function FacebookIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
+      <path d="M22 12a10 10 0 1 0-11.563 9.875v-6.99H7.898V12h2.539V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.465h-1.26c-1.242 0-1.63.771-1.63 1.562V12h2.773l-.443 2.885h-2.33v6.99A10 10 0 0 0 22 12z" />
+    </svg>
+  );
+}
+
 export default function Footer() {
   const year = new Date().getFullYear();
 
@@ -97,7 +128,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* CTA box (verde más claro) */}
+          {/* CTA box */}
           <div className="rounded-3xl border border-brand-green/20 bg-brand-green-soft p-6">
             <p className="text-sm font-semibold text-brand-green-dark">Diagnóstico</p>
             <p className="mt-2 text-lg font-bold text-ink">
@@ -132,16 +163,58 @@ export default function Footer() {
             © {year} Energía México. Todos los derechos reservados.
           </p>
 
-          <div className="flex flex-wrap gap-4 text-xs">
-            <Link
-              href="/aviso-de-privacidad"
-              className="text-ink-soft hover:text-brand-green-dark"
-            >
-              Aviso de privacidad
-            </Link>
-            <Link href="/terminos" className="text-ink-soft hover:text-brand-green-dark">
-              Términos
-            </Link>
+          {/* Derecha: Búscanos + iconos + links legales */}
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-3 text-xs">
+            <div className="flex items-center gap-3">
+              <span className="text-ink-soft">Búscanos</span>
+
+              <div className="flex items-center gap-3">
+                <a
+                  href={LINKEDIN_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                  className="text-ink-soft transition hover:text-brand-green-dark"
+                >
+                  <LinkedInIcon className="h-5 w-5" />
+                </a>
+
+                <a
+                  href={INSTAGRAM_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  className="text-ink-soft transition hover:text-brand-green-dark"
+                >
+                  <InstagramIcon className="h-5 w-5" />
+                </a>
+
+                <a
+                  href={FACEBOOK_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook"
+                  className="text-ink-soft transition hover:text-brand-green-dark"
+                >
+                  <FacebookIcon className="h-5 w-5" />
+                </a>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-4">
+              <Link
+                href="/aviso-de-privacidad"
+                className="text-ink-soft hover:text-brand-green-dark"
+              >
+                Aviso de privacidad
+              </Link>
+              <Link
+                href="/terminos"
+                className="text-ink-soft hover:text-brand-green-dark"
+              >
+                Términos
+              </Link>
+            </div>
           </div>
         </div>
       </div>

@@ -197,22 +197,33 @@ export default function Hero() {
               {/* CONTENT */}
               <div className="p-6">
                 {/* ❌ Quitamos el botón "Ver →" y dejamos solo el header */}
-                <div className="flex items-center gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-blue-soft">
-                    <Image
-                      src="/branding/energia-mexico-logo.png"
-                      alt="Energía México"
-                      width={40}
-                      height={40}
-                      className="object-contain"
-                    />
-                  </div>
+                <div className="flex items-start justify-between gap-4">
+  <div className="flex items-center gap-4">
+    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-blue-soft">
+      <Image
+        src="/branding/energia-mexico-logo.png"
+        alt="Energía México"
+        width={40}
+        height={40}
+        className="object-contain"
+      />
+    </div>
 
-                  <div>
-                    <p className="text-base font-bold text-slate-900">{s.title}</p>
-                    <p className="text-sm text-slate-600">{s.subtitle}</p>
-                  </div>
-                </div>
+    <div className="min-w-0">
+      <p className="text-base font-bold text-slate-900">{s.title}</p>
+      <p className="text-sm text-slate-600">{s.subtitle}</p>
+    </div>
+  </div>
+
+  {/* ✅ Botón "Ver más" */}
+  <Link
+    href={s.href}
+    className="shrink-0 rounded-full bg-brand-green px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-green-dark"
+  >
+    Ver más
+  </Link>
+</div>
+
 
                 <ul className="mt-6 space-y-3 text-sm text-slate-700">
                   {s.bullets.map((b, i) => (

@@ -10,6 +10,10 @@ const modules = [
 ];
 
 export default function CapacitacionRiesgosPage() {
+  // YouTube (SAE / oportunidades)
+  const YT_URL = "https://youtu.be/03jlWG0L6JQ";
+  const YT_EMBED = "https://www.youtube-nocookie.com/embed/03jlWG0L6JQ?rel=0&modestbranding=1";
+
   return (
     <main className="relative isolate overflow-hidden bg-white">
       <div className="absolute inset-0 -z-10">
@@ -20,9 +24,13 @@ export default function CapacitacionRiesgosPage() {
 
       <div className="mx-auto max-w-7xl px-6 pt-32 pb-16 lg:pt-24">
         <div className="flex flex-wrap items-center gap-2 text-sm">
-          <Link href="/servicios" className="font-semibold text-brand-green hover:underline">Servicios</Link>
+          <Link href="/servicios" className="font-semibold text-brand-green hover:underline">
+            Servicios
+          </Link>
           <span className="text-ink-soft">/</span>
-          <Link href="/servicios/capacitacion" className="font-semibold text-ink hover:underline">Capacitación</Link>
+          <Link href="/servicios/capacitacion" className="font-semibold text-ink hover:underline">
+            Capacitación
+          </Link>
           <span className="text-ink-soft">/</span>
           <span className="font-semibold text-ink">Análisis de riesgos y oportunidades</span>
         </div>
@@ -40,10 +48,16 @@ export default function CapacitacionRiesgosPage() {
             </p>
 
             <div className="mt-7 flex flex-wrap gap-3">
-              <Link href="/contacto" className="inline-flex items-center justify-center rounded-full bg-brand-blue px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-brand-blue-dark">
+              <Link
+                href="/contacto"
+                className="inline-flex items-center justify-center rounded-full bg-brand-blue px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-brand-blue-dark"
+              >
                 Solicitar capacitación
               </Link>
-              <Link href="/servicios/capacitacion" className="inline-flex items-center justify-center rounded-full border border-surface-border bg-white px-5 py-2.5 text-sm font-semibold text-ink hover:bg-surface-soft">
+              <Link
+                href="/servicios/capacitacion"
+                className="inline-flex items-center justify-center rounded-full border border-surface-border bg-white px-5 py-2.5 text-sm font-semibold text-ink hover:bg-surface-soft"
+              >
                 Volver a Capacitación
               </Link>
             </div>
@@ -65,16 +79,31 @@ export default function CapacitacionRiesgosPage() {
               <div className="p-5">
                 <p className="text-sm font-semibold text-ink">¿Qué obtienes?</p>
                 <ul className="mt-3 space-y-2 text-sm text-ink-muted">
-                  <li className="flex gap-2"><span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-brand-green" /><span>Mapa de riesgos y mitigaciones</span></li>
-                  <li className="flex gap-2"><span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-brand-green" /><span>Oportunidades típicas por perfil</span></li>
-                  <li className="flex gap-2"><span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-brand-green" /><span>Checklist de decisiones</span></li>
+                  <li className="flex gap-2">
+                    <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-brand-green" />
+                    <span>Mapa de riesgos y mitigaciones</span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-brand-green" />
+                    <span>Oportunidades típicas por perfil</span>
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-brand-green" />
+                    <span>Checklist de decisiones</span>
+                  </li>
                 </ul>
 
                 <div className="mt-5 flex flex-wrap gap-2">
-                  <Link href="/contacto" className="inline-flex items-center justify-center rounded-full bg-brand-green px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-brand-green-dark">
+                  <Link
+                    href="/contacto"
+                    className="inline-flex items-center justify-center rounded-full bg-brand-green px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-brand-green-dark"
+                  >
                     Hablar con un asesor
                   </Link>
-                  <Link href="/servicios/capacitacion" className="inline-flex items-center justify-center rounded-full border border-surface-border bg-white px-4 py-2 text-sm font-semibold text-ink hover:bg-surface-soft">
+                  <Link
+                    href="/servicios/capacitacion"
+                    className="inline-flex items-center justify-center rounded-full border border-surface-border bg-white px-4 py-2 text-sm font-semibold text-ink hover:bg-surface-soft"
+                  >
                     Ver cursos
                   </Link>
                 </div>
@@ -83,6 +112,119 @@ export default function CapacitacionRiesgosPage() {
           </div>
         </section>
 
+        {/* VIDEO (estilo card) */}
+        <section className="mt-14">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="text-sm font-semibold text-brand-green">Video</p>
+              <h2 className="mt-1 text-2xl font-bold tracking-tight text-ink">Potencial de México para los SAE</h2>
+              <p className="mt-2 max-w-2xl text-sm text-ink-muted">
+                Contexto de almacenamiento (SAE) como oportunidad: señales, beneficios, consideraciones y decisiones típicas.
+              </p>
+            </div>
+
+            <Link
+              href="/contacto"
+              className="inline-flex items-center justify-center rounded-full border border-surface-border bg-white px-5 py-2.5 text-sm font-semibold text-ink hover:bg-surface-soft"
+            >
+              Cotizar
+            </Link>
+          </div>
+
+          <div className="mt-8 grid gap-6 lg:grid-cols-12">
+            {/* Video */}
+            <div className="lg:col-span-7">
+              <div className="relative overflow-hidden rounded-3xl border border-surface-border bg-white/70 shadow-sm backdrop-blur">
+                <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-brand-blue/10 blur-3xl" />
+                <div className="pointer-events-none absolute -bottom-28 -left-28 h-72 w-72 rounded-full bg-brand-green/10 blur-3xl" />
+
+                <div className="relative p-4 sm:p-5">
+                  <div className="relative w-full overflow-hidden rounded-2xl border border-surface-border bg-black/5">
+                    <div className="relative w-full pt-[56.25%]">
+                      <iframe
+                        className="absolute inset-0 h-full w-full"
+                        src={YT_EMBED}
+                        title="Potencial de México para los SAE"
+                        loading="lazy"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerPolicy="strict-origin-when-cross-origin"
+                        allowFullScreen
+                      />
+                    </div>
+                  </div>
+
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    <Link
+                      href={YT_URL}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center justify-center rounded-full bg-brand-blue px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-brand-blue-dark"
+                    >
+                      Ver en YouTube
+                    </Link>
+                    <Link
+                      href="/contacto"
+                      className="inline-flex items-center justify-center rounded-full border border-surface-border bg-white px-4 py-2 text-sm font-semibold text-ink hover:bg-surface-soft"
+                    >
+                      Solicitar esta capacitación
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Card lateral */}
+            <div className="lg:col-span-5">
+              <div className="relative overflow-hidden rounded-3xl border border-surface-border bg-white/70 p-6 shadow-sm backdrop-blur">
+                <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-brand-blue/10 blur-3xl" />
+                <div className="pointer-events-none absolute -bottom-28 -left-28 h-72 w-72 rounded-full bg-brand-green/10 blur-3xl" />
+
+                <div className="relative">
+                  <p className="text-sm font-semibold text-ink">¿Qué verás en el video?</p>
+
+                  <ul className="mt-3 space-y-2 text-sm text-ink-muted">
+                    <li className="flex gap-2">
+                      <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-brand-green" />
+                      <span>Panorama y potencial del almacenamiento (SAE)</span>
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-brand-green" />
+                      <span>Oportunidades típicas y trade-offs</span>
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-brand-green" />
+                      <span>Señales de riesgo y criterios para decidir</span>
+                    </li>
+                  </ul>
+
+                  <div className="mt-5 rounded-2xl border border-surface-border bg-white/70 p-4 backdrop-blur">
+                    <p className="text-xs font-semibold uppercase tracking-wide text-ink-soft">Recomendación</p>
+                    <p className="mt-1 text-sm text-ink">
+                      Si estás evaluando inversión, integramos riesgos + escenarios y salimos con un checklist de decisión (técnico + financiero).
+                    </p>
+                  </div>
+
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    <Link
+                      href="/contacto"
+                      className="inline-flex items-center justify-center rounded-full bg-brand-green px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-brand-green-dark"
+                    >
+                      Hablar con un asesor
+                    </Link>
+                    <Link
+                      href="/servicios/capacitacion"
+                      className="inline-flex items-center justify-center rounded-full border border-surface-border bg-white px-4 py-2 text-sm font-semibold text-ink hover:bg-surface-soft"
+                    >
+                      Ver más cursos
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Contenido */}
         <section className="mt-14">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
@@ -93,14 +235,20 @@ export default function CapacitacionRiesgosPage() {
               </p>
             </div>
 
-            <Link href="/contacto" className="inline-flex items-center justify-center rounded-full border border-surface-border bg-white px-5 py-2.5 text-sm font-semibold text-ink hover:bg-surface-soft">
+            <Link
+              href="/contacto"
+              className="inline-flex items-center justify-center rounded-full border border-surface-border bg-white px-5 py-2.5 text-sm font-semibold text-ink hover:bg-surface-soft"
+            >
               Cotizar
             </Link>
           </div>
 
           <div className="mt-8 space-y-6">
             {modules.map((m) => (
-              <div key={m.title} className="relative overflow-hidden rounded-3xl border border-surface-border bg-white/70 p-6 shadow-sm backdrop-blur">
+              <div
+                key={m.title}
+                className="relative overflow-hidden rounded-3xl border border-surface-border bg-white/70 p-6 shadow-sm backdrop-blur"
+              >
                 <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-brand-blue/10 blur-3xl" />
                 <div className="pointer-events-none absolute -bottom-28 -left-28 h-72 w-72 rounded-full bg-brand-green/10 blur-3xl" />
                 <div className="relative">
@@ -108,10 +256,16 @@ export default function CapacitacionRiesgosPage() {
                   <p className="mt-2 max-w-3xl text-sm text-ink-muted">{m.desc}</p>
 
                   <div className="mt-5 flex flex-wrap gap-3">
-                    <Link href="/contacto" className="inline-flex items-center justify-center rounded-full bg-brand-blue px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-brand-blue-dark">
+                    <Link
+                      href="/contacto"
+                      className="inline-flex items-center justify-center rounded-full bg-brand-blue px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-brand-blue-dark"
+                    >
                       Solicitar curso
                     </Link>
-                    <Link href="/contacto" className="inline-flex items-center justify-center rounded-full border border-surface-border bg-white px-4 py-2 text-sm font-semibold text-ink hover:bg-surface-soft">
+                    <Link
+                      href="/contacto"
+                      className="inline-flex items-center justify-center rounded-full border border-surface-border bg-white px-4 py-2 text-sm font-semibold text-ink hover:bg-surface-soft"
+                    >
                       Hacer una pregunta
                     </Link>
                   </div>
@@ -126,13 +280,21 @@ export default function CapacitacionRiesgosPage() {
             <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
               <div>
                 <h2 className="text-2xl font-bold tracking-tight text-ink">Reduce riesgo antes de invertir</h2>
-                <p className="mt-2 text-sm text-ink-muted">Te ayudamos a identificar riesgos y oportunidades con enfoque práctico.</p>
+                <p className="mt-2 text-sm text-ink-muted">
+                  Te ayudamos a identificar riesgos y oportunidades con enfoque práctico.
+                </p>
               </div>
               <div className="flex flex-wrap gap-3">
-                <Link href="/contacto" className="inline-flex items-center justify-center rounded-full bg-brand-green px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-brand-green-dark">
+                <Link
+                  href="/contacto"
+                  className="inline-flex items-center justify-center rounded-full bg-brand-green px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-brand-green-dark"
+                >
                   Contactar
                 </Link>
-                <Link href="/servicios/capacitacion" className="inline-flex items-center justify-center rounded-full border border-surface-border bg-white px-5 py-2.5 text-sm font-semibold text-ink hover:bg-surface-soft">
+                <Link
+                  href="/servicios/capacitacion"
+                  className="inline-flex items-center justify-center rounded-full border border-surface-border bg-white px-5 py-2.5 text-sm font-semibold text-ink hover:bg-surface-soft"
+                >
                   Volver a Capacitación
                 </Link>
               </div>

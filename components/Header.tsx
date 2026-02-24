@@ -600,224 +600,224 @@ const handleNav = (href?: string) => (e: React.MouseEvent) => {
       </div>
 
       {/* Mobile Drawer */}
-      {openMobile && (
-        <div className="fixed inset-0 z-50 md:hidden">
-          {/* ✅ overlay con blur suave para que NO se empalme texto */}
-          <button
-            aria-label="Cerrar menú"
-            onClick={() => setOpenMobile(false)}
-            className="absolute inset-0 bg-black/45 backdrop-blur-[2px]"
-          />
-          {/* ✅ panel con fondo sólido */}
-          <div className="absolute right-0 top-0 h-full w-[86%] max-w-sm bg-white/95 shadow-xl backdrop-blur">
-            <div className="flex items-center justify-between border-b border-surface-border bg-white/80 px-6 py-4 backdrop-blur">
-              <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-green-soft">
-                  <Image
-                    src="/branding/energia-mexico-logo.png"
-                    alt="Energía México"
-                    width={34}
-                    height={34}
-                    className="object-contain"
-                  />
-                </div>
-                <div className="leading-tight">
-                  <p className="font-semibold text-ink">Menú</p>
-                  <p className="text-xs text-ink-muted">Energía México</p>
-                </div>
-              </div>
-              <button
+{openMobile && (
+  <div className="fixed inset-0 z-50 md:hidden">
+    {/* ✅ overlay con blur suave */}
+    <button
+      aria-label="Cerrar menú"
+      onClick={() => setOpenMobile(false)}
+      className="absolute inset-0 bg-black/45 backdrop-blur-[2px]"
+    />
+
+    {/* ✅ Panel (con scroll interno) */}
+    <div className="absolute right-0 top-0 flex h-full w-[86%] max-w-sm flex-col bg-white shadow-xl">
+      {/* Header del panel (fijo arriba) */}
+      <div className="flex items-center justify-between border-b border-surface-border px-6 py-4">
+        <div className="flex items-center gap-3">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-green-soft">
+            <Image
+              src="/branding/energia-mexico-logo.png"
+              alt="Energía México"
+              width={34}
+              height={34}
+              className="object-contain"
+            />
+          </div>
+          <div className="leading-tight">
+            <p className="font-semibold text-ink">Menú</p>
+            <p className="text-xs text-ink-muted">Energía México</p>
+          </div>
+        </div>
+
+        <button
+          onClick={() => setOpenMobile(false)}
+          aria-label="Cerrar"
+          className="rounded-xl border border-surface-border bg-white px-3 py-2 text-sm font-semibold text-ink hover:bg-surface-soft"
+        >
+          ✕
+        </button>
+      </div>
+
+      {/* ✅ Contenido scrolleable */}
+      <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain [-webkit-overflow-scrolling:touch]">
+        <nav className="px-6 py-4">
+          <ul className="space-y-2">
+            <li>
+              <Link
+                href="/"
                 onClick={() => setOpenMobile(false)}
-                aria-label="Cerrar"
-                className="rounded-xl border border-surface-border bg-white px-3 py-2 text-sm font-semibold text-ink hover:bg-surface-soft"
+                className="block rounded-xl px-3 py-3 font-semibold text-ink hover:bg-surface-soft"
               >
-                ✕
+                Inicio
+              </Link>
+            </li>
+
+            <li className="rounded-xl border border-surface-border bg-white">
+              <button
+                type="button"
+                onClick={() => setMServicios((v) => !v)}
+                className="flex w-full items-center justify-between px-3 py-3 font-semibold text-ink"
+                aria-expanded={mServicios}
+              >
+                <span>Servicios</span>
+                <span className="text-sm">{mServicios ? "–" : "+"}</span>
               </button>
-            </div>
 
-            <nav className="px-6 py-4">
-              <ul className="space-y-2">
-                <li>
-                  <Link
-                    href="/"
-                    onClick={() => setOpenMobile(false)}
-                    className="block rounded-xl px-3 py-3 font-semibold text-ink hover:bg-surface-soft"
-                  >
-                    Inicio
-                  </Link>
-                </li>
+              {mServicios && (
+                <div className="px-2 pb-2">
+                  <div className="space-y-2">
+                    {menu.columns.map((top) => {
+                      const topKey = top.label;
+                      const isTopOpen = mTopOpen === topKey;
 
-                <li className="rounded-xl border border-surface-border bg-white">
-                  <button
-                    type="button"
-                    onClick={() => setMServicios((v) => !v)}
-                    className="flex w-full items-center justify-between px-3 py-3 font-semibold text-ink"
-                    aria-expanded={mServicios}
-                  >
-                    <span>Servicios</span>
-                    <span className="text-sm">{mServicios ? "–" : "+"}</span>
-                  </button>
-
-                  {mServicios && (
-                    <div className="px-2 pb-2">
-                      <div className="space-y-2">
-                        {menu.columns.map((top) => {
-                          const topKey = top.label;
-                          const isTopOpen = mTopOpen === topKey;
-
-                          return (
-                            <div
-                              key={topKey}
-                              className="rounded-xl border border-surface-border bg-white"
+                      return (
+                        <div
+                          key={topKey}
+                          className="rounded-xl border border-surface-border bg-white"
+                        >
+                          <div className="flex items-center justify-between px-3 py-2">
+                            <Link
+                              href={top.href ?? "#"}
+                              onClick={() => setOpenMobile(false)}
+                              className="text-sm font-semibold text-brand-green"
                             >
-                              <div className="flex items-center justify-between px-3 py-2">
-                                <Link
-                                  href={top.href ?? "#"}
-                                  onClick={() => setOpenMobile(false)}
-                                  className="text-sm font-semibold text-brand-green"
-                                >
-                                  {top.label}
-                                </Link>
+                              {top.label}
+                            </Link>
 
-                                <button
-                                  type="button"
-                                  onClick={() => {
-                                    setMSubOpen(null);
-                                    setMTopOpen((v) =>
-                                      v === topKey ? null : topKey
-                                    );
-                                  }}
-                                  className="rounded-lg border border-surface-border bg-white px-2 py-1 text-xs font-semibold text-ink hover:bg-surface-soft"
-                                  aria-label={`Desplegar ${top.label}`}
-                                >
-                                  {isTopOpen ? "–" : "+"}
-                                </button>
-                              </div>
+                            <button
+                              type="button"
+                              onClick={() => {
+                                setMSubOpen(null);
+                                setMTopOpen((v) => (v === topKey ? null : topKey));
+                              }}
+                              className="rounded-lg border border-surface-border bg-white px-2 py-1 text-xs font-semibold text-ink hover:bg-surface-soft"
+                              aria-label={`Desplegar ${top.label}`}
+                            >
+                              {isTopOpen ? "–" : "+"}
+                            </button>
+                          </div>
 
-                              {isTopOpen && (
-                                <div className="px-2 pb-2">
-                                  {top.type === "list" ? (
-                                    <ul className="space-y-1">
-                                      {top.items.map((it) => (
-                                        <li key={it.label}>
+                          {isTopOpen && (
+                            <div className="px-2 pb-2">
+                              {top.type === "list" ? (
+                                <ul className="space-y-1">
+                                  {top.items.map((it) => (
+                                    <li key={it.label}>
+                                      <Link
+                                        href={it.href ?? "#"}
+                                        onClick={() => setOpenMobile(false)}
+                                        className="block rounded-xl px-3 py-2 text-sm text-ink hover:bg-surface-soft"
+                                      >
+                                        {it.label}
+                                      </Link>
+                                    </li>
+                                  ))}
+                                </ul>
+                              ) : (
+                                <div className="space-y-2">
+                                  {top.sections.map((sec) => {
+                                    const subKey = `${top.label}__${sec.label}`;
+                                    const isSubOpen = mSubOpen === subKey;
+
+                                    return (
+                                      <div
+                                        key={sec.label}
+                                        className="rounded-xl bg-surface-soft/40"
+                                      >
+                                        <div className="flex items-center justify-between px-3 py-2">
                                           <Link
-                                            href={it.href ?? "#"}
+                                            href={sec.href ?? "#"}
                                             onClick={() => setOpenMobile(false)}
-                                            className="block rounded-xl px-3 py-2 text-sm text-ink hover:bg-surface-soft"
+                                            className="text-sm font-semibold text-ink"
                                           >
-                                            {it.label}
+                                            {sec.label}
                                           </Link>
-                                        </li>
-                                      ))}
-                                    </ul>
-                                  ) : (
-                                    <div className="space-y-2">
-                                      {top.sections.map((sec) => {
-                                        const subKey = `${top.label}__${sec.label}`;
-                                        const isSubOpen = mSubOpen === subKey;
 
-                                        return (
-                                          <div
-                                            key={sec.label}
-                                            className="rounded-xl bg-surface-soft/40"
+                                          <button
+                                            type="button"
+                                            onClick={() =>
+                                              setMSubOpen((v) => (v === subKey ? null : subKey))
+                                            }
+                                            className="rounded-lg px-2 py-1 text-xs font-semibold text-ink-muted hover:bg-surface-soft"
+                                            aria-expanded={isSubOpen}
                                           >
-                                            <div className="flex items-center justify-between px-3 py-2">
-                                              <Link
-                                                href={sec.href ?? "#"}
-                                                onClick={() => setOpenMobile(false)}
-                                                className="text-sm font-semibold text-ink"
-                                              >
-                                                {sec.label}
-                                              </Link>
+                                            {isSubOpen ? "▴" : "▾"}
+                                          </button>
+                                        </div>
 
-                                              <button
-                                                type="button"
-                                                onClick={() =>
-                                                  setMSubOpen((v) =>
-                                                    v === subKey ? null : subKey
-                                                  )
-                                                }
-                                                className="rounded-lg px-2 py-1 text-xs font-semibold text-ink-muted hover:bg-surface-soft"
-                                                aria-expanded={isSubOpen}
-                                              >
-                                                {isSubOpen ? "▴" : "▾"}
-                                              </button>
-                                            </div>
-
-                                            {isSubOpen && (
-                                              <ul className="space-y-1 pb-2">
-                                                {sec.items.map((it) => (
-                                                  <li key={it.label}>
-                                                    <Link
-                                                      href={it.href ?? "#"}
-                                                      onClick={() =>
-                                                        setOpenMobile(false)
-                                                      }
-                                                      className="block rounded-xl px-3 py-2 text-sm text-ink hover:bg-surface-soft"
-                                                    >
-                                                      {it.label}
-                                                    </Link>
-                                                  </li>
-                                                ))}
-                                              </ul>
-                                            )}
-                                          </div>
-                                        );
-                                      })}
-                                    </div>
-                                  )}
+                                        {isSubOpen && (
+                                          <ul className="space-y-1 pb-2">
+                                            {sec.items.map((it) => (
+                                              <li key={it.label}>
+                                                <Link
+                                                  href={it.href ?? "#"}
+                                                  onClick={() => setOpenMobile(false)}
+                                                  className="block rounded-xl px-3 py-2 text-sm text-ink hover:bg-surface-soft"
+                                                >
+                                                  {it.label}
+                                                </Link>
+                                              </li>
+                                            ))}
+                                          </ul>
+                                        )}
+                                      </div>
+                                    );
+                                  })}
                                 </div>
                               )}
                             </div>
-                          );
-                        })}
-                      </div>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
 
-                      <Link
-                        href="/servicios"
-                        onClick={() => setOpenMobile(false)}
-                        className="mt-3 block rounded-xl px-3 py-2 text-sm font-semibold text-ink hover:bg-surface-soft"
-                      >
-                        Ver todos los servicios
-                      </Link>
-                    </div>
-                  )}
-                </li>
-
-                <li>
                   <Link
-                    href="/nosotros"
+                    href="/servicios"
                     onClick={() => setOpenMobile(false)}
-                    className="block rounded-xl px-3 py-3 font-semibold text-ink hover:bg-surface-soft"
+                    className="mt-3 block rounded-xl px-3 py-2 text-sm font-semibold text-ink hover:bg-surface-soft"
                   >
-                    Quiénes somos
+                    Ver todos los servicios
                   </Link>
-                </li>
+                </div>
+              )}
+            </li>
 
-                <li>
-                  <Link
-                    href="/contacto"
-                    onClick={() => setOpenMobile(false)}
-                    className="block rounded-xl px-3 py-3 font-semibold text-ink hover:bg-surface-soft"
-                  >
-                    Contacto
-                  </Link>
-                </li>
-              </ul>
+            <li>
+              <Link
+                href="/nosotros"
+                onClick={() => setOpenMobile(false)}
+                className="block rounded-xl px-3 py-3 font-semibold text-ink hover:bg-surface-soft"
+              >
+                Quiénes somos
+              </Link>
+            </li>
 
-              <div className="mt-6 space-y-3">
-                <Link
-                  href="/contacto"
-                  onClick={() => setOpenMobile(false)}
-                  className="block w-full rounded-xl bg-brand-green px-4 py-3 text-center text-sm font-semibold text-white shadow-sm transition hover:bg-brand-green-dark"
-                >
-                  Solicitar cotización
-                </Link>
-              </div>
-            </nav>
+            <li>
+              <Link
+                href="/contacto"
+                onClick={() => setOpenMobile(false)}
+                className="block rounded-xl px-3 py-3 font-semibold text-ink hover:bg-surface-soft"
+              >
+                Contacto
+              </Link>
+            </li>
+          </ul>
+
+          <div className="mt-6 space-y-3">
+            <Link
+              href="/contacto"
+              onClick={() => setOpenMobile(false)}
+              className="block w-full rounded-xl bg-brand-green px-4 py-3 text-center text-sm font-semibold text-white shadow-sm transition hover:bg-brand-green-dark"
+            >
+              Solicitar cotización
+            </Link>
           </div>
-        </div>
-      )}
+        </nav>
+      </div>
+    </div>
+  </div>
+)}
     </header>
   );
 }

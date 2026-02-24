@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const links = {
   servicios: [
@@ -63,9 +64,15 @@ export default function Footer() {
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-green/15">
-                <span className="text-sm font-bold text-brand-green-dark">EM</span>
-              </div>
+              <div className="relative h-10 w-10 overflow-hidden rounded-xl bg-brand-green/15">
+                  <Image
+                    src="/branding/energia-mexico-logo.png"
+                    alt="Energía México"
+                    fill
+                    className="object-contain p-1"
+                    priority={false}
+                  />
+                </div>
               <div>
                 <p className="text-base font-bold text-ink">Energía México</p>
                 <p className="text-sm text-ink-muted">
@@ -82,7 +89,6 @@ export default function Footer() {
             {/* Contact mini */}
             <div className="rounded-2xl border border-surface-border bg-surface-soft p-4 text-sm">
               <p className="font-semibold text-ink">Contacto</p>
-              <p className="mt-1 text-ink-muted">Cobertura: México</p>
               <p className="mt-1 text-ink-muted">
                 Email:{" "}
                 <span className="font-medium text-ink">tomas@energia-mexico.com</span>
@@ -166,7 +172,7 @@ export default function Footer() {
           {/* Derecha: Búscanos + iconos + links legales */}
           <div className="flex flex-wrap items-center gap-x-6 gap-y-3 text-xs">
             <div className="flex items-center gap-3">
-              <span className="text-ink-soft">Búscanos</span>
+              <span className="text-ink-soft">Búscanos en</span>
 
               <div className="flex items-center gap-3">
                 <a

@@ -5,7 +5,7 @@ import Image from "next/image";
 const services = [
   {
     title: "Consultoría",
-    desc: "Optimización de costos, estrategia de suministro y análisis para mejores decisiones energéticas.",
+    desc: "En el complejo ecosistema del Mercado Eléctrico Mayorista (MEM) en México, transformamos datos técnicos en ventajas competitivas y rentabilidad financiera. Nuestra consultoría abarca todo el ciclo de vida de un proyecto energético, combinando rigor científico con una visión de negocio clara para inversionistas y operadores.",
     href: "/servicios/consultoria",
     icon: "🧠",
     img: "/imagen/services/consultoria.jpg",
@@ -13,7 +13,7 @@ const services = [
   },
   {
     title: "Gestoría",
-    desc: "Trámites, interconexión y acompañamiento técnico-regulatorio para avanzar sin fricciones.",
+    desc: "Garantizamos la correcta ejecución y cumplimiento normativo de tus proyectos eléctricos en México. Nos especializamos en la gestión integral ante la Comisión Federal de Electricidad (CFE) y el Centro Nacional de Control de Energía (CENACE), eliminando barreras burocráticas y asegurando tiempos eficientes de conexión.",
     href: "/servicios/gestoria",
     icon: "🧾",
     img: "/imagen/services/interconexion.jpg",
@@ -21,7 +21,7 @@ const services = [
   },
   {
     title: "Integrador Fotovoltaico",
-    desc: "Evaluación, ingeniería, interconexión e instalación para autoconsumo industrial y comercial.",
+    desc: "Diseñamos, instalamos y gestionamos proyectos de energía solar de alta eficiencia, garantizando la máxima rentabilidad y el cumplimiento normativo. Transformamos tu techo o terreno en una fuente de ahorro y sostenibilidad mediante una solución integral de principio a fin.",
     href: "/servicios/fotovoltaico",
     icon: "☀️",
     img: "/imagen/services/fotovoltaico.jpg",
@@ -29,7 +29,7 @@ const services = [
   },
   {
     title: "Capacitación Energética",
-    desc: "Programas técnicos y ejecutivos a la medida para fortalecer capacidades internas.",
+    desc: "Potenciamos el conocimiento técnico y estratégico de tu equipo de trabajo para tomar decisiones acertadas en un sector en constante evolución. Diseñamos cursos prácticos y profundos basados en la operación real del Mercado Eléctrico Mayorista (MEM) y las normativas de CFE y CENACE.",
     href: "/servicios/capacitacion",
     icon: "🎓",
     img: "/imagen/services/capacitacion.jpg",
@@ -39,7 +39,7 @@ const services = [
 
 export default function ServicesGrid() {
   return (
-    <section className="bg-surface-soft border-t border-surface-border">
+    <section className="relative bg-surface-soft border-t border-surface-border">
       {/* fondo suave */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-brand-blue-soft/30 via-white to-white" />
 
@@ -49,7 +49,7 @@ export default function ServicesGrid() {
           <div className="max-w-2xl">
             <p className="text-sm font-semibold text-brand-blue">Servicios</p>
             <h2 className="mt-2 text-3xl font-bold tracking-tight text-slate-900">
-              Soluciones clave para empresas en México
+              Conoce nuestros servicios en consultoría energética
             </h2>
             <p className="mt-2 text-sm leading-relaxed text-slate-600">
               De la estrategia a la ejecución: claridad técnica, cumplimiento y
@@ -73,11 +73,8 @@ export default function ServicesGrid() {
               href={s.href}
               className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue/40"
             >
-              {/* Imagen (más baja para card rectangular) */}
-              
-              <div className="relative h-60 w-full sm:h-64 lg:h-72">
-  
-                
+              {/* ✅ Imagen más alta para que quepa el texto */}
+              <div className="relative h-72 w-full sm:h-80 lg:h-96">
                 <Image
                   src={s.img}
                   alt={s.title}
@@ -87,8 +84,8 @@ export default function ServicesGrid() {
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 />
 
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-transparent" />
+                {/* ✅ Overlay más oscuro para legibilidad */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent" />
 
                 {/* Tag */}
                 <div className="absolute left-3 top-3 inline-flex max-w-[calc(100%-1.5rem)] items-center gap-2 rounded-full bg-white/90 px-3 py-1 text-[11px] font-semibold text-slate-900 shadow-sm backdrop-blur">
@@ -101,7 +98,9 @@ export default function ServicesGrid() {
                   <h3 className="text-base font-bold text-white sm:text-lg">
                     {s.title}
                   </h3>
-                  <p className="mt-1 line-clamp-2 text-xs text-white/85 sm:text-sm">
+
+                  {/* ✅ Más líneas y más legible */}
+                  <p className="mt-2 line-clamp-9 text-xs leading-relaxed text-white/90 sm:text-sm">
                     {s.desc}
                   </p>
                 </div>
@@ -114,9 +113,6 @@ export default function ServicesGrid() {
                   <span className="inline-block h-1.5 w-1.5 rounded-full bg-brand-green" />
                 </span>
 
-                <span className="text-sm text-slate-400 transition group-hover:text-brand-blue">
-                  →
-                </span>
               </div>
 
               {/* Accent line */}

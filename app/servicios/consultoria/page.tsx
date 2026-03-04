@@ -219,12 +219,7 @@ export default function ConsultoriaLanding() {
         slug: "prefactibilidad",
         eyebrow: "Consultoría",
         title: "Estudios de prefactibilidad",
-        desc: "Evaluamos viabilidad técnica y económica antes de invertir: alcance, riesgos, restricciones y próximos pasos.",
-        problem:
-          "Es necesario realizar estudios, para ello hay que pagar aproximadamente 321,000 MXN y esperar hasta 40 días para tener una idea si el lugar en donde se pretende desarrollar el proyecto es viable.",
-        solution:
-          "Estudio rápido de bajo costo que arroja en 5 días un estimado de la complejidad y retos a enfrentar; con lo que se paga a CENACE se pueden evaluar al menos 6 sitios distintos en menos de 20 días.",
-
+        desc: "Optimiza tu presupuesto de inversión con nuestro análisis técnico-económico de alta velocidad. Mientras que los procesos tradicionales son lentos, nosotros entregamos un estudio de prefactibilidad de bajo costo en solo 5 días, revelando la complejidad técnica y los retos regulatorios de tu proyecto.",
         bullets: [
           "Generación",
           "Carga",
@@ -238,13 +233,11 @@ export default function ConsultoriaLanding() {
         slug: "estudios-especificos",
         eyebrow: "Consultoría",
         title: "Estudios específicos",
-        desc: "Análisis puntuales para resolver preguntas concretas del negocio y del mercado eléctrico con datos y criterio técnico.",
+        desc: "Mediante estadística descriptiva e inferencial, transformamos millones de datos del Mercado Eléctrico Mayorista (MEM) en decisiones de negocio rentables y con una base técnica sólida.",
         bullets: [
-          "Análisis de mercado eléctrico mayorista",
-          "Contratos de cobertura eléctrica",
+          "Análisis de MEM",
           "Análisis de consumo",
           "Asesoría de migración a MEM",
-          "Investigación a la medida",
         ],
         image: "/imagen/consultoria/estudios-especificos.jpg",
       },
@@ -315,12 +308,15 @@ export default function ConsultoriaLanding() {
               </div>
 
               <h1 className="mt-3 text-4xl font-bold tracking-tight text-ink sm:text-5xl">
-                Consultoría energética para decisiones claras y rentables
+                Consultoría de Energía: Interconexión y Modelos Matemáticos para Proyectos en México
               </h1>
 
               <p className="mt-4 max-w-2xl text-base text-ink-muted">
-                Toma decisiones energéticas con claridad: análisis técnico,
-                financiero y estratégico para reducir riesgos y mejorar resultados.
+                Optimiza tu inversión en el Mercado Eléctrico Mayorista (MEM) 
+                mediante un análisis integral diseñado para reducir riesgos y 
+                maximizar resultados. No solo entregamos datos; utilizamos modelos 
+                matemáticos avanzados y estadística inferencial para transformar la 
+                complejidad técnica en una hoja de ruta financiera clara.
               </p>
 
               {/* mini métricas */}
@@ -328,19 +324,19 @@ export default function ConsultoriaLanding() {
                 <div className="rounded-2xl border border-surface-border bg-white/70 px-4 py-3 backdrop-blur">
                   <p className="text-xs font-semibold text-ink-soft">Enfoque</p>
                   <p className="mt-1 text-sm font-semibold text-ink">
-                    Técnico + Financiero
+                    Reducción de Riesgos Financieros
                   </p>
                 </div>
                 <div className="rounded-2xl border border-surface-border bg-white/70 px-4 py-3 backdrop-blur">
                   <p className="text-xs font-semibold text-ink-soft">Resultado</p>
                   <p className="mt-1 text-sm font-semibold text-ink">
-                    Menos riesgo
+                    Mejora de Resultados Operativos
                   </p>
                 </div>
                 <div className="rounded-2xl border border-surface-border bg-white/70 px-4 py-3 backdrop-blur">
                   <p className="text-xs font-semibold text-ink-soft">Formato</p>
                   <p className="mt-1 text-sm font-semibold text-ink">
-                    Estudios y acompañamiento
+                    Aseguramiento de Cumplimiento
                   </p>
                 </div>
               </div>

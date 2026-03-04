@@ -3,6 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
+import type { Metadata } from "next";
+
 
 type Slide = {
   key: string;
@@ -13,6 +15,13 @@ type Slide = {
   href: string;
   bullets: { color: "green" | "blue" | "warning"; text: string }[];
   tag: string;
+};
+
+export const metadata: Metadata = {
+  title: "Consultoría en Mercado Eléctrico Mayorista México | Energia México",
+  description:
+    "Expertos en el Mercado Eléctrico Mayorista (MEM). Ofrecemos estudios de prefactibilidad, gestión de interconexión ante CFE/CENACE y análisis de precios marginales.",
+  keywords: ["mercado eléctrico mayorista", "cfe", "cenace", "estudios de prefactibilidad", "MEM","interconexión"],
 };
 
 export default function Hero() {
@@ -127,16 +136,31 @@ export default function Hero() {
             </div>
 
             <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-5xl">
-              Consultoría eléctrica y datos para decidir con certeza en el{" "}
-              <span className="text-brand-blue">Mercado Eléctrico Mexicano</span>
+              Consultoría en eléctricidad especilizada en{" "}
+              <span className="text-brand-blue">Mercado Eléctrico Mayorisata</span>
             </h1>
 
+           
             <p className="text-lg leading-relaxed text-slate-700">
-              Convertimos{" "}
-              <span className="font-semibold text-slate-900">datos técnicos</span>{" "}
-              y del sistema eléctrico en decisiones claras: interconexión, nuevas
-              cargas, generación y transición energética con sustento y viabilidad.
+              Especialistas en{" "}
+              <span className="font-semibold text-slate-900">consultoría de energía</span>{" "}
+              y análisis de datos del 
+              <span className="font-semibold text-slate-900"> Mercado Eléctrico Mayorista.</span>{" "}
+              Facilitamos la toma de decisiones energéticas mediante
+              <span className="font-semibold text-slate-900"> estudios de prefactibilidad</span>{" "}
+              precisos para la instalación de nueva carga o
+              <span className="font-semibold text-slate-900"> generación de energía eléctrica.</span>{" "}
+              Optimizamos su relación con
+              <span className="font-semibold text-slate-900"> CENACE y CFE,</span>{" "}
+              gestionando procesos críticos de
+              <span className="font-semibold text-slate-900"> interconexión eléctrica</span>{" "}
+              y
+              <span className="font-semibold text-slate-900"> transición energética</span>{" "}
+              apoyados en
+              <span className="font-semibold text-slate-900"> modelos matemáticos</span>{" "}
+              que garantizan una operación sustentable y eficiente en México.
             </p>
+
 
             <div className="flex flex-col gap-3 sm:flex-row">
               <Link
@@ -199,15 +223,7 @@ export default function Hero() {
                 {/* ❌ Quitamos el botón "Ver →" y dejamos solo el header */}
                 <div className="flex items-start justify-between gap-4">
   <div className="flex items-center gap-4">
-    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-blue-soft">
-      <Image
-        src="/branding/energia-mexico-logo.png"
-        alt="Energía México"
-        width={40}
-        height={40}
-        className="object-contain"
-      />
-    </div>
+    
 
     <div className="min-w-0">
       <p className="text-base font-bold text-slate-900">{s.title}</p>

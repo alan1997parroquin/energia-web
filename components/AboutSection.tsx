@@ -18,14 +18,15 @@ export default function AboutSection() {
             <p className="text-sm font-semibold text-brand-green">Nosotros</p>
 
             <h2 className="mt-2 text-3xl font-bold tracking-tight text-ink lg:text-4xl">
-              Claridad y estrategia para que tu proyecto sí se concrete
+              Claridad y estrategia en el Mercado Eléctrico Mayorista para concretar tu proyecto
             </h2>
 
             <p className="mt-4 text-base leading-relaxed text-ink-muted">
-              Energía México surge gracias a la necesidad de encontrar un
-              servicio completamente especializado que cubra con las necesidades
-              desde usuarios, inversionistas y emprendedores que requieran
-              energía eléctrica o generar la suya propia.
+              Energía México surge para resolver la necesidad de un servicio especializado 
+              en el Mercado Eléctrico Mayorista. Cubrimos los requerimientos de usuarios, 
+              inversionistas y emprendedores que buscan optimizar su generación de energía o 
+              realizar con éxito una solicitud de servicio CFE.
+
             </p>
 
             {/* Small cards */}
@@ -70,7 +71,7 @@ export default function AboutSection() {
               "
             >
               <h3 className="text-lg font-semibold text-ink">
-                Mejoramos la tasa de éxito a través de:
+                Ya sea que busques implementar energía solar en México, energía eólica o sistemas de almacenamiento, mejoramos tu tasa de éxito a través de:
               </h3>
 
               <ul className="mt-5 space-y-4">
@@ -80,11 +81,14 @@ export default function AboutSection() {
                   </span>
                   <div>
                     <p className="font-medium text-ink">
-                      Consultoría personalizada
+                      Consultoría de Energía y Modelos Matemáticos
                     </p>
                     <p className="text-sm text-ink-muted">
-                      Acompañamiento experto según el tipo de usuario y objetivo
-                      del proyecto.
+                      Acompañamiento experto basado en un modelo matemático robusto 
+                      para predecir escenarios. Te explicamos qué es un modelo matemático 
+                      aplicado a tu rentabilidad y cómo los diferentes tipos de modelos 
+                      matemáticos aseguran decisiones informadas.
+
                     </p>
                   </div>
                 </li>
@@ -95,11 +99,14 @@ export default function AboutSection() {
                   </span>
                   <div>
                     <p className="font-medium text-ink">
-                      Análisis preventivo y preliminar
+                      Análisis de Prefactibilidad y Diagnóstico CFE
                     </p>
                     <p className="text-sm text-ink-muted">
-                      Detectamos riesgos y viabilidad antes de avanzar con la
-                      solicitud.
+                      Detectamos riesgos y viabilidad antes de procesar 
+                      cualquier solicitud de energía CFE. Analizamos las normas de 
+                      CFE para instalaciones eléctricas y los requisitos de las subestaciones 
+                      eléctricas CFE para evitar retrasos en tu acometida eléctrica.
+
                     </p>
                   </div>
                 </li>
@@ -110,11 +117,15 @@ export default function AboutSection() {
                   </span>
                   <div>
                     <p className="font-medium text-ink">
-                      Estrategia de promoción específica
+                      Estrategia de Interconexión CFE y Promoción
                     </p>
                     <p className="text-sm text-ink-muted">
-                      Una ruta clara para presentar, justificar y sostener el
-                      proyecto con datos.
+                      Trazamos una ruta clara para gestionar tu interconexión 
+                      CFE y la solicitud de interconexión CFE. Preparamos el 
+                      formato de solicitud de servicio de energía eléctrica CFE y 
+                      la documentación técnica para CENACE México, justificando el
+                       proyecto con datos de generación de energía eléctrica reales.
+
                     </p>
                   </div>
                 </li>
@@ -122,11 +133,12 @@ export default function AboutSection() {
 
               <div className="mt-8 rounded-2xl bg-surface-soft p-5">
                 <p className="text-sm leading-relaxed text-ink-muted">
-                  Somos un equipo altamente capacitado, con más de{" "}
+                  Somos un equipo altamente capacitado con más de{" "}
                   <span className="font-semibold text-ink">23 años</span> de
-                  experiencia, para entregar los mejores resultados. No dudes en
-                  contactarnos ahora mismo y empieza a tomar decisiones
-                  informadas y basadas en datos reales.
+                  experiencia en la Comisión Federal de Electricidad (CFE) 
+                  y el MEM. No dejes tu inversión al azar; utiliza nuestra 
+                  consultoría administrativa y técnica para empezar a tomar 
+                  decisiones basadas en microgrids y eficiencia energética.
                 </p>
 
                 <div className="mt-5 flex flex-wrap gap-3">
@@ -147,11 +159,7 @@ export default function AboutSection() {
               </div>
             </div>
 
-            <p className="mt-4 text-xs text-ink-soft">
-              *Nota: el porcentaje es un mensaje comercial. Si después quieres,
-              lo convertimos en un “dato con fuente” y lo citamos en la sección
-              de Insights.
-            </p>
+            
           </div>
         </div>
       </div>

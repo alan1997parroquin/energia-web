@@ -12,14 +12,67 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Energía México",
+  metadataBase: new URL("https://energia-web.vercel.app"),
+
+  title: {
+    default: "Energía México",
+    template: "%s | Energía México",
+  },
+
   description:
-    "Consultoría y gestoría energética, integración fotovoltaica y capacitación.",
+    "Consultoría y gestoría energética en México: estudios de prefactibilidad, interconexión ante CFE/CENACE, integración fotovoltaica y capacitación para el MEM.",
+
+  keywords: [
+    "mercado eléctrico mayorista",
+    "MEM",
+    "CENACE",
+    "CFE",
+    "prefactibilidad",
+    "interconexión",
+    "fotovoltaico",
+    "gestoría energética",
+    "consultoría energética",
+  ],
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+
+  alternates: {
+    canonical: "/",
+  },
+
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName: "Energía México",
+    locale: "es_MX",
+    title: "Energía México",
+    description:
+      "Consultoría y gestoría energética en México: estudios de prefactibilidad, interconexión ante CFE/CENACE, integración fotovoltaica y capacitación para el MEM.",
+    images: [
+      {
+        url: "/og/og-home.jpg", // 👉 crea este archivo en /public/og/og-home.jpg (1200x630)
+        width: 1200,
+        height: 630,
+        alt: "Energía México",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Energía México",
+    description:
+      "Consultoría y gestoría energética en México: prefactibilidad, interconexión CFE/CENACE, FV y capacitación MEM.",
+    images: ["/og/og-home.jpg"],
+  },
+
   icons: {
     icon: "/favicon/favicon.ico",
     shortcut: "/favicon/favicon.ico",
-    // Si después agregas apple-touch-icon, descomenta:
-    // apple: "/favicon/icon-180.png",
+    // apple: "/favicon/apple-touch-icon.png",
   },
 };
 

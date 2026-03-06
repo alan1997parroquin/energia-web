@@ -169,10 +169,7 @@ export default function CfeBajaTensionYMediaPage() {
               <h2 className="mt-1 text-2xl font-bold tracking-tight text-ink">
                 Subservicios de CFE baja tensión y media
               </h2>
-              <p className="mt-2 max-w-2xl text-sm text-ink-muted">
-                El Problema/Solución es el mismo para este bloque. Las descripciones son propuestas
-                iniciales y se pueden ajustar.
-              </p>
+            
             </div>
 
             <Link

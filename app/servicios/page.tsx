@@ -1,6 +1,34 @@
 // app/servicios/page.tsx
 import Link from "next/link";
 import { Brain, FileText, Sun, GraduationCap, Search, Map, Handshake } from "lucide-react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Servicios | Energía México",
+  description:
+    "Soluciones energéticas para empresas en México: consultoría en MEM, gestoría CFE/CENACE, integrador fotovoltaico y capacitación energética.",
+  keywords: [
+    "Energía México",
+    "servicios energéticos",
+    "consultoría MEM",
+    "mercado eléctrico mayorista",
+    "gestoría CFE",
+    "gestoría CENACE",
+    "interconexión eléctrica",
+    "integrador fotovoltaico",
+    "capacitación energética",
+  ],
+  alternates: { canonical: "/servicios" },
+  openGraph: {
+    title: "Servicios | Energía México",
+    description:
+      "Consultoría, gestoría, fotovoltaico y capacitación para empresas en México.",
+    url: "/servicios",
+    siteName: "Energía México",
+    locale: "es_MX",
+    type: "website",
+  },
+};
 
 export default function ServiciosPage() {
   const services = [

@@ -2,26 +2,53 @@
 import Link from "next/link";
 import Image from "next/image";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Estudio de Prefactibilidad Eléctrica: Validación de Sitios y Nodos",
+  description:
+    "¿Qué es un estudio de prefactibilidad y por qué lo necesitas? Evaluamos la viabilidad de tu proyecto ante CFE y CENACE en tiempo récord. Reduce riesgos aquí.",
+  keywords: [
+    "MEM",
+    "demanda electrica",
+    "mercado eléctrico mayorista",
+    "CENACE",
+    "CFE",
+    "modelos matemáticos",
+    "consultoría de energía",
+    "interconexión",
+  ],
+  alternates: { canonical: "/servicios/consultoria/prefactibilidad" },
+  openGraph: {
+    title:
+      "Estudio de Prefactibilidad Eléctrica: Validación de Sitios y Nodos | Energía México",
+    description:
+      "¿Qué es un estudio de prefactibilidad y por qué lo necesitas? Evaluamos la viabilidad de tu proyecto ante CFE y CENACE en tiempo récord. Reduce riesgos aquí.",
+    url: "/servicios/consultoria/prefactibilidad",
+    type: "website",
+  },
+};
+
 const subservices = [
   {
-    title: "Generación",
-    desc: "Estimación rápida de viabilidad para proyectos de generación: retos, complejidad y posibles restricciones del sitio.",
+    title: "Análisis de Nodo para Generación (Centrales Eléctricas y Renovables)",
+    desc: "Para desarrolladores de generación de energía eléctrica, realizamos un análisis técnico-estratégico del nodo para determinar la viabilidad de inyección a la red de CFE. Evaluamos la tendencia del mix energético y la presencia de otros activos de generación en la zona para identificar posibles riesgos de congestión o curtailment. Este estudio incluye proyecciones de precios de energía y la identificación de la subestación eléctrica óptima, entregando conclusiones sólidas que respaldan tu modelo financiero ante inversionistas y autoridades regulatorias.",
   },
   {
-    title: "Carga",
-    desc: "Evaluación preliminar para nuevas cargas o expansiones: impacto en demanda, requerimientos y ruta crítica.",
+    title: "Análisis de Nodo para Cargas Industriales",
+    desc: "Si tu proyecto representa una demanda de energía significativa, validamos tu modelo económico mediante un estudio profundo del nodo de interconexión asignado por CENACE. Analizamos los precios marginales locales (LMP) históricos y generamos una proyección de costos para identificar la subestación más idónea. Evaluamos el mix de generación en la zona para asegurar fuentes de suministro competitivas, permitiéndote prever el monto de inversión y los niveles de tensión necesarios para una operación eficiente y sin sobrecostos en el Mercado Eléctrico Mayorista.",
   },
   {
-    title: "Incremento de demanda",
-    desc: "Análisis inicial para identificar la complejidad del incremento y los puntos críticos antes de iniciar trámites formales.",
+    title: "Incremento de Demanda Eléctrica",
+    desc: "Realizamos un diagnóstico técnico-legal para evaluar la factibilidad de aumentar tu carga ante la red de CFE. Mediante un análisis de puntos críticos y capacidad en subestaciones eléctricas, identificamos la complejidad del proceso antes de iniciar trámites formales. Aseguramos que tu incremento de demanda cumpla con el Código de Red, evitando multas y garantizando la continuidad operativa de tu proyecto industrial o comercial.",
   },
   {
-    title: "Migración",
-    desc: "Revisión rápida de implicaciones técnicas y regulatorias para definir el camino más conveniente para migrar.",
+    title: "Migración de Proyectos de Energía",
+    desc: "Evaluamos las implicaciones técnicas y regulatorias para definir la ruta más rentable en la migración de tus contratos actuales. Analizamos el costo-beneficio de transitar hacia la figura de Usuario Calificado, gestionando los requisitos ante CENACE y CFE Energía. Simplificamos la transición para que tu proyecto aproveche las ventajas competitivas del Mercado Eléctrico Mayorista con el menor riesgo posible.",
   },
   {
-    title: "Sistemas de almacenamiento",
-    desc: "Exploración preliminar de baterías: alcances, consideraciones técnicas y viabilidad por objetivos operativos.",
+    title: "Sistemas de Almacenamiento de Energía",
+    desc: "Implementamos soluciones de sistemas de almacenamiento para optimizar tu perfil de consumo, realizar arbitraje de energía y asegurar el respaldo ante fallas de red. Analizamos la integración tecnológica con energía solar y otras fuentes de generación de energía eléctrica, permitiéndote gestionar picos de demanda y mejorar la calidad de potencia bajo los estándares más exigentes del sector eléctrico mexicano.",
   },
 ];
 
@@ -66,109 +93,114 @@ export default function PrefactibilidadPage() {
           <span className="font-semibold text-ink">Prefactibilidad</span>
         </div>
 
-        {/* HERO */}
-        <section className="mt-8 grid items-start gap-10 lg:grid-cols-12">
-          {/* Left */}
-          <div className="lg:col-span-7">
-            <p className="text-sm font-semibold text-brand-green">Consultoría</p>
-            <h1 className="mt-2 text-4xl font-bold tracking-tight text-ink sm:text-5xl">
-              Estudios de prefactibilidad
-            </h1>
-            <p className="mt-4 max-w-2xl text-base text-ink-muted">
-              Un estudio rápido y de bajo costo para estimar complejidad, retos y
-              viabilidad antes de invertir tiempo y capital en estudios formales.
-            </p>
+        {/* HERO con imagen a la derecha */}
+        <section className="mt-8">
+          <div className="mt-6 grid items-start gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(360px,0.85fr)] lg:gap-12">
+            <div>
+              <p className="text-sm font-semibold text-brand-green">Consultoría</p>
 
-            {/* Problema / Solución */}
-            <div className="mt-6 grid max-w-2xl gap-3 sm:grid-cols-2">
-              <div className="rounded-2xl border border-surface-border bg-white/70 p-4 backdrop-blur">
-                <p className="text-xs font-semibold uppercase tracking-wide text-ink-soft">
-                  Problema
-                </p>
-                <p className="mt-1 text-sm text-ink">
-                  Es necesario realizar estudios, para ello hay que pagar
-                  aproximadamente 321,000 MXN y esperar hasta 40 días para tener
-                  una idea si el lugar en donde se pretende desarrollar el
-                  proyecto es viable.
-                </p>
-              </div>
+              <div className="mt-2 max-w-none">
+                <h1 className="text-4xl font-bold tracking-tight text-ink sm:text-5xl">
+                  Estudios de <span className="text-brand-blue">prefactibilidad</span>
+                </h1>
 
-              <div className="rounded-2xl border border-surface-border bg-white/70 p-4 backdrop-blur">
-                <p className="text-xs font-semibold uppercase tracking-wide text-ink-soft">
-                  Solución
-                </p>
-                <p className="mt-1 text-sm text-ink">
-                  Estudio rápido de bajo costo que arroja en 5 días un estimado
-                  de la complejidad y retos a enfrentar; con lo que se paga a
-                  CENACE se pueden evaluar al menos 6 sitios distintos en menos
-                  de 20 días.
-                </p>
-              </div>
-            </div>
+                <p className="mt-4 text-base text-ink-muted">
+                    Maximiza la rentabilidad de tu capital mediante un estudio de
+                    prefactibilidad ágil diseñado para identificar la viabilidad
+                    técnica y los retos operativos de tu proyecto. Antes de
+                    comprometer recursos en trámites formales ante{" "}
+                    <span className="font-semibold text-brand-green">CENACE</span>,
+                    validamos el potencial de tu ubicación utilizando{" "}
+                    <span className="font-semibold text-brand-green">
+                      modelos matemáticos
+                    </span>{" "}
+                    basados en información pública estratégica.
+                  </p>
 
-            {/* CTAs */}
-            <div className="mt-7 flex flex-wrap gap-3">
-              <Link
-                href="/contacto"
-                className="inline-flex items-center justify-center rounded-full bg-brand-blue px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-brand-blue-dark"
-              >
-                Solicitar diagnóstico
-              </Link>
-              <Link
-                href="#subservicios"
-                className="inline-flex items-center justify-center rounded-full border border-surface-border bg-white px-5 py-2.5 text-sm font-semibold text-ink hover:bg-surface-soft"
-              >
-                Ver subservicios ↓
-              </Link>
-            </div>
-          </div>
+                  <p className="mt-6 text-base text-ink-muted">
+                    Nuestro informe ejecutivo proporciona claridad inmediata sobre
+                    un sitio específico, detallando:
+                  </p>
 
-          {/* Right visual */}
-          <div className="lg:col-span-5">
-            <div className="relative overflow-hidden rounded-3xl border border-surface-border bg-white/75 shadow-sm backdrop-blur">
-              <div className="relative h-52 w-full sm:h-64">
-                <Image
-                  src="/imagen/consultoria/prefactibilidad.jpg"
-                  alt="Estudios de prefactibilidad"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
-              </div>
-
-              <div className="p-5">
-                <p className="text-sm font-semibold text-ink">
-                  ¿Qué obtienes en 5 días?
-                </p>
-                <ul className="mt-3 space-y-2 text-sm text-ink-muted">
-                  <li className="flex gap-2">
-                    <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-brand-green" />
-                    <span>Estimado de complejidad y principales retos</span>
+                <ul className="mt-4 space-y-3 text-sm text-ink-muted">
+                  <li className="flex gap-3">
+                    <span className="mt-0.5 flex-none text-brand-green">✅</span>
+                    <span>
+                      <strong className="font-semibold text-ink">
+                        Infraestructura de Red:
+                      </strong>{" "}
+                      Localización de subestaciones eléctricas{" "}
+                      <span className="font-semibold text-brand-green">CFE</span>{" "}
+                      cercanas y análisis de capacidad.
+                    </span>
                   </li>
-                  <li className="flex gap-2">
-                    <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-brand-green" />
-                    <span>Riesgos y restricciones por tipo de proyecto</span>
+
+                  <li className="flex gap-3">
+                    <span className="mt-0.5 flex-none text-brand-green">✅</span>
+                    <span>
+                      <strong className="font-semibold text-ink">
+                        Factibilidad Técnica:
+                      </strong>{" "}
+                      Determinación de los niveles de tensión disponibles para{" "}
+                      <span className="font-semibold text-brand-green">
+                        interconexión
+                      </span>{" "}
+                      o carga.
+                    </span>
                   </li>
-                  <li className="flex gap-2">
-                    <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-brand-green" />
-                    <span>Recomendación de siguientes pasos</span>
+
+                  <li className="flex gap-3">
+                    <span className="mt-0.5 flex-none text-brand-green">✅</span>
+                    <span>
+                      <strong className="font-semibold text-ink">
+                        Diagnóstico Estratégico:
+                      </strong>{" "}
+                      Conclusiones preliminares y comentarios expertos sobre la
+                      viabilidad del sitio desde una perspectiva eléctrica y
+                      regulatoria.
+                    </span>
                   </li>
                 </ul>
 
-                <div className="mt-5 flex flex-wrap gap-2">
+                      <p className="mt-6 text-base text-ink-muted">
+                        Optimiza tu toma de decisiones con un diagnóstico que reduce
+                        la incertidumbre y acelera tu entrada al{" "}
+                        <span className="font-semibold text-brand-green">MEM</span> con{" "}
+                        <span className="font-semibold text-brand-green">
+                          consultoría de energía
+                        </span>
+                        .
+                      </p>
+
+                {/* CTAs */}
+                <div className="mt-8 flex flex-wrap gap-3">
                   <Link
                     href="/contacto"
-                    className="inline-flex items-center justify-center rounded-full bg-brand-green px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-brand-green-dark"
+                    className="inline-flex items-center justify-center rounded-full bg-brand-blue px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-brand-blue-dark"
                   >
-                    Hablar con un consultor
+                    Solicitar diagnóstico
                   </Link>
+
                   <Link
-                    href="/servicios/consultoria"
-                    className="inline-flex items-center justify-center rounded-full border border-surface-border bg-white px-4 py-2 text-sm font-semibold text-ink hover:bg-surface-soft"
+                    href="#subservicios"
+                    className="inline-flex items-center justify-center rounded-full border border-surface-border bg-white px-5 py-2.5 text-sm font-semibold text-ink hover:bg-surface-soft"
                   >
-                    Volver a Consultoría
+                    Ver subservicios
                   </Link>
+                </div>
+              </div>
+            </div>
+
+            <div className="lg:pt-6">
+              <div className="overflow-hidden rounded-[2rem] border border-surface-border bg-white shadow-sm">
+                <div className="relative aspect-[4/3] w-full">
+                  <Image
+                    src="/imagen/consultoria/prefactibilidad.jpg"
+                    alt="Equipo técnico evaluando prefactibilidad eléctrica en campo"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
                 </div>
               </div>
             </div>
@@ -179,22 +211,15 @@ export default function PrefactibilidadPage() {
         <section id="subservicios" className="mt-14 scroll-mt-24">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <p className="text-sm font-semibold text-brand-green">Alcances</p>
+              <p className="text-sm font-semibold text-brand-green">Estudios</p>
               <h2 className="mt-1 text-2xl font-bold tracking-tight text-ink">
-                Subservicios de prefactibilidad
+                Conoce nuestra variedad de estudios
               </h2>
               <p className="mt-2 max-w-2xl text-sm text-ink-muted">
                 Selecciona el alcance que mejor describa tu necesidad. Si tu
                 caso no encaja, lo ajustamos a la medida.
               </p>
             </div>
-
-            <Link
-              href="/contacto"
-              className="inline-flex items-center justify-center rounded-full border border-surface-border bg-white px-5 py-2.5 text-sm font-semibold text-ink hover:bg-surface-soft"
-            >
-              Cotizar
-            </Link>
           </div>
 
           <div className="mt-8 space-y-6">
@@ -211,7 +236,7 @@ export default function PrefactibilidadPage() {
                   <h3 className="text-xl font-bold tracking-tight text-ink">
                     {s.title}
                   </h3>
-                  <p className="mt-2 max-w-3xl text-sm text-ink-muted">
+                  <p className="mt-2 max-w-none text-sm leading-relaxed text-ink-muted">
                     {s.desc}
                   </p>
 

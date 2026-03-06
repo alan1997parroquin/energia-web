@@ -1,17 +1,10 @@
 // app/servicios/capacitacion/page.tsx
-"use client";
-
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useMemo, useState } from "react";
 
 type Service = {
-  slug:
-    | "mem"
-    | "riesgos"
-    | "calliope"
-    | "certificaciones"
-    | "datos";
+  slug: "mem" | "riesgos" | "calliope" | "certificaciones" | "datos";
   title: string;
   desc: string;
   bullets: string[];
@@ -19,96 +12,22 @@ type Service = {
   image: string;
 };
 
-const ROTATE_MS = 5000;
-
-function Catalog({ items, baseHref }: { items: Service[]; baseHref: string }) {
-  const [active, setActive] = useState(0);
-
-  useEffect(() => {
-    const t = window.setInterval(() => {
-      setActive((p) => (p + 1) % items.length);
-    }, ROTATE_MS);
-    return () => window.clearInterval(t);
-  }, [items.length]);
-
-  const current = items[active];
-
-  return (
-    <div className="relative overflow-hidden rounded-3xl border border-surface-border bg-white/75 shadow-sm backdrop-blur">
-      {/* Foto superior */}
-      <div className="relative h-44 w-full sm:h-52">
-        <Image
-          src={current.image}
-          alt={current.title}
-          fill
-          className="object-cover"
-          priority={active === 0}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/25 via-transparent to-transparent" />
-
-        <div className="absolute bottom-4 left-4 right-4">
-          <p className="text-xs font-semibold uppercase tracking-wide text-white/80">
-            Catálogo de capacitación
-          </p>
-          <p className="mt-1 text-sm font-semibold text-white/90">
-            {current.eyebrow}
-          </p>
-          <h3 className="mt-1 text-xl font-bold tracking-tight text-white">
-            {current.title}
-          </h3>
-        </div>
-      </div>
-
-      {/* Contenido */}
-      <div className="relative p-5">
-        <div key={current.slug} className="animate-[fadeIn_.35s_ease-out]">
-          <p className="text-sm text-ink-muted">{current.desc}</p>
-
-          <ul className="mt-4 space-y-2 text-sm text-ink-muted">
-            {current.bullets.slice(0, 3).map((b) => (
-              <li key={b} className="flex gap-2">
-                <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-brand-blue" />
-                <span className="min-w-0">{b}</span>
-              </li>
-            ))}
-          </ul>
-
-          <div className="mt-5 flex flex-wrap gap-2">
-            <Link
-              href={`${baseHref}/${current.slug}`}
-              className="inline-flex items-center justify-center rounded-full bg-brand-blue px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-brand-blue-dark"
-            >
-              Ver detalle
-            </Link>
-
-            <Link
-              href={`#${current.slug}`}
-              className="inline-flex items-center justify-center rounded-full border border-surface-border bg-white px-4 py-2 text-sm font-semibold text-ink hover:bg-surface-soft"
-            >
-              Ir a sección
-            </Link>
-          </div>
-        </div>
-
-        {/* Dots */}
-        <div className="mt-5 flex items-center gap-2">
-          {items.map((_, i) => (
-            <button
-              key={i}
-              type="button"
-              onClick={() => setActive(i)}
-              aria-label={`Ver ${items[i].title}`}
-              className={`h-2.5 w-2.5 rounded-full border border-surface-border transition ${
-                i === active ? "bg-brand-blue" : "bg-white hover:bg-surface-soft"
-              }`}
-            />
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
+export const metadata: Metadata = {
+  title: "Capacitación energética | Energía México",
+  description:
+    "Capacitación energética para equipos técnicos y de decisión: MEM, riesgos y oportunidades, Calliope, certificaciones y análisis de datos del mercado.",
+  keywords: [
+    "capacitación energética",
+    "MEM",
+    "Mercado Eléctrico Mayorista",
+    "Calliope",
+    "certificaciones",
+    "análisis de datos MEM",
+    "riesgos y oportunidades",
+    "Energía México",
+  ],
+  alternates: { canonical: "/servicios/capacitacion" },
+};
 
 function ServiceSection({
   s,
@@ -200,76 +119,76 @@ function ServiceSection({
 export default function CapacitacionLanding() {
   const baseHref = "/servicios/capacitacion";
 
-  const services = useMemo<Service[]>(
-    () => [
-      {
-        slug: "mem",
-        eyebrow: "Capacitación",
-        title: "Mercado Eléctrico Mayorista (MEM)",
-        desc: "Fundamentos y operación del MEM para equipos técnicos y de negocio: conceptos, actores, liquidaciones y decisiones informadas.",
-        bullets: [
-          "Conceptos clave y estructura del MEM",
-          "Actores, roles y obligaciones",
-          "Lectura de información y señales de mercado",
-          "Casos prácticos para tu industria",
-        ],
-        image: "/imagen/capacitacion/mem1.jpg",
-      },
-      {
-        slug: "riesgos",
-        eyebrow: "Capacitación",
-        title: "Análisis de riesgos y oportunidades",
-        desc: "Identifica impactos, riesgos regulatorios y oportunidades de ahorro/optimización con un enfoque claro para decisión ejecutiva.",
-        bullets: [
-          "Mapa de riesgos (técnicos, económicos y regulatorios)",
-          "Oportunidades de optimización por perfil",
-          "Priorización y plan de acción",
-          "Indicadores de seguimiento",
-        ],
-        image: "/imagen/capacitacion/riesgos1.jpg",
-      },
-      {
-        slug: "calliope",
-        eyebrow: "Capacitación",
-        title: "Modelo de despacho en Calliope",
-        desc: "Introducción práctica a modelado y simulación para escenarios de despacho: bases, datos, supuestos y lectura de resultados.",
-        bullets: [
-          "Estructura del modelo y variables",
-          "Datos de entrada y supuestos",
-          "Ejecución de escenarios",
-          "Interpretación de resultados",
-        ],
-        image: "/imagen/capacitacion/calliope1.jpg",
-      },
-      {
-        slug: "certificaciones",
-        eyebrow: "Capacitación",
-        title: "Preparación para certificaciones",
-        desc: "Entrenamiento orientado a evaluación: temario, ejercicios, práctica y guía para acelerar el avance del equipo.",
-        bullets: [
-          "Ruta de estudio y temario guiado",
-          "Ejercicios tipo examen",
-          "Sesiones de dudas",
-          "Recomendaciones y mejores prácticas",
-        ],
-        image: "/imagen/capacitacion/certificaciones1.jpg",
-      },
-      {
-        slug: "datos",
-        eyebrow: "Capacitación",
-        title: "Análisis de datos MEM",
-        desc: "Aprende a transformar datos del MEM en decisiones: limpieza, métricas, dashboards y conclusiones accionables.",
-        bullets: [
-          "Fuentes y obtención de datos",
-          "Limpieza y estructura (bases)",
-          "Métricas útiles para decisiones",
-          "Visualización y storytelling",
-        ],
-        image: "/imagen/capacitacion/datos1.jpg",
-      },
-    ],
-    []
-  );
+  const services: Service[] = [
+    {
+      slug: "mem",
+      eyebrow: "Capacitación",
+      title: "Mercado Eléctrico Mayorista (MEM)",
+      desc: "Fundamentos y operación del MEM para equipos técnicos y de negocio: conceptos, actores, liquidaciones y decisiones informadas.",
+      bullets: [
+        "Conceptos clave y estructura del MEM",
+        "Actores, roles y obligaciones",
+        "Lectura de información y señales de mercado",
+        "Casos prácticos para tu industria",
+      ],
+      image: "/imagen/capacitacion/mem1.jpg",
+    },
+    {
+      slug: "riesgos",
+      eyebrow: "Capacitación",
+      title: "Análisis de riesgos y oportunidades",
+      desc: "Identifica impactos, riesgos regulatorios y oportunidades de ahorro/optimización con un enfoque claro para decisión ejecutiva.",
+      bullets: [
+        "Mapa de riesgos (técnicos, económicos y regulatorios)",
+        "Oportunidades de optimización por perfil",
+        "Priorización y plan de acción",
+        "Indicadores de seguimiento",
+      ],
+      image: "/imagen/capacitacion/riesgos1.jpg",
+    },
+    {
+      slug: "calliope",
+      eyebrow: "Capacitación",
+      title: "Modelo de despacho en Calliope",
+      desc: "Introducción práctica a modelado y simulación para escenarios de despacho: bases, datos, supuestos y lectura de resultados.",
+      bullets: [
+        "Estructura del modelo y variables",
+        "Datos de entrada y supuestos",
+        "Ejecución de escenarios",
+        "Interpretación de resultados",
+      ],
+      image: "/imagen/capacitacion/calliope1.jpg",
+    },
+    {
+      slug: "certificaciones",
+      eyebrow: "Capacitación",
+      title: "Preparación para certificaciones",
+      desc: "Entrenamiento orientado a evaluación: temario, ejercicios, práctica y guía para acelerar el avance del equipo.",
+      bullets: [
+        "Ruta de estudio y temario guiado",
+        "Ejercicios tipo examen",
+        "Sesiones de dudas",
+        "Recomendaciones y mejores prácticas",
+      ],
+      image: "/imagen/capacitacion/certificaciones1.jpg",
+    },
+    {
+      slug: "datos",
+      eyebrow: "Capacitación",
+      title: "Análisis de datos MEM",
+      desc: "Aprende a transformar datos del MEM en decisiones: limpieza, métricas, dashboards y conclusiones accionables.",
+      bullets: [
+        "Fuentes y obtención de datos",
+        "Limpieza y estructura (bases)",
+        "Métricas útiles para decisiones",
+        "Visualización y storytelling",
+      ],
+      image: "/imagen/capacitacion/datos1.jpg",
+    },
+  ];
+
+  // tarjeta “foto fija” (elige la que más te guste para el hero)
+  const hero = services[0]; // mem por defecto
 
   return (
     <main className="relative isolate overflow-hidden bg-white">
@@ -342,9 +261,21 @@ export default function CapacitacionLanding() {
               </div>
             </div>
 
-            {/* Right */}
+            {/* Right (foto fija) */}
             <div className="lg:col-span-5">
-              <Catalog items={services} baseHref={baseHref} />
+              <div className="relative overflow-hidden rounded-3xl border border-surface-border bg-white/75 shadow-sm backdrop-blur">
+                {/* FOTO (solo imagen) */}
+                <div className="relative h-56 w-full sm:h-64">
+                  <Image
+                    src="/imagen/capacitacion/mem1.jpg" // ✅ cambia aquí por la imagen que quieras
+                    alt="Capacitación Energética"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/5 to-transparent" />
+                </div>   
+              </div>
             </div>
           </div>
         </div>

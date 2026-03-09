@@ -2,46 +2,73 @@
 import Link from "next/link";
 import Image from "next/image";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Consultoría MEM: Análisis de Mercado y Migración",
+  description:
+    "Optimizamos tu estrategia en el Mercado Eléctrico Mayorista. Análisis de contratos PPA, consumo de energía y asesoría para migración al MEM con datos reales.",
+  keywords: [
+    "MEM",
+    "demanda electrica",
+    "mercado eléctrico mayorista",
+    "CENACE",
+    "CFE",
+    "modelos matemáticos",
+    "consultoría de energía",
+    "interconexión",
+  ],
+  alternates: { canonical: "/servicios/consultoria/prefactibilidad" },
+  openGraph: {
+    title:
+      "Consultoría MEM: Análisis de Mercado y Migración | Energía México",
+    description:
+      "¿Qué es un estudio de prefactibilidad y por qué lo necesitas? Evaluamos la viabilidad de tu proyecto ante CFE y CENACE en tiempo récord. Reduce riesgos aquí.",
+    url: "/servicios/consultoria/prefactibilidad",
+    type: "website",
+  },
+};
+
 const subservices = [
   {
-    title: "Análisis de mercado Eléctrico Mayorista",
+    title: "Análisis de Mercado Electrico Mayorista (MEM)",
     desc: "Convertimos datos del MEM en información útil: precios, nodos, tendencias y escenarios para decidir con claridad.",
     problem:
-      "Aunque la información de mercado es pública y disponible, no es sencillo realizar un análisis que ayude a comprender su dinámica.",
+      "La saturación de datos públicos del mercado eléctrico hace que entender su dinámica sea casi imposible sin las herramientas adecuadas.",
     solution:
-      "A través de estadística descriptiva e inferencial procesamos millones de datos para convertirlos en decisiones informadas y valiosas.",
+      "Mediante estadística descriptiva e inferencial, procesamos millones de datos del MEM para convertirlos en inteligencia de negocio. Aplicamos un modelo matemático avanzado para analizar tendencias y precios marginales locales (LMP), permitiéndote tomar decisiones informadas sobre compra, venta y riesgos energéticos.",
   },
   {
-    title: "Investigación específica (cualquier cosa no listada)",
-    desc: "Estudios a la medida para responder preguntas específicas del negocio: definimos alcance, método y entregables claros.",
+    title: "Investigación Específica y Consultoría a Medida",
+    desc: "Estudios personalizados para preguntas puntuales: análisis de tecnologías, auditorías regulatorias, y más, con enfoque comercial.",
     problem:
-      "La oferta de servicios de consultoría en México está muy definida, y enfocada a soluciones técnicas complejas y difíciles de entender, lo que hace difícil encontrar el balance adecuado entre investigación y valor comercial.",
+      "La mayoría de los consultores ofrecen soluciones rígidas y excesivamente técnicas que descuidan el valor comercial y el retorno de inversión.",
     solution:
-      "Desarrollamos estudios orientados a decisiones de negocio y no solo técnicas, dando la posibilidad de evaluar proyectos desde el punto de vista del inversionista con un lenguaje sencillo pero con una base técnica sólida y confiable.",
+      "Desarrollamos estudios personalizados orientados a decisiones de negocio. Hablamos el lenguaje del inversionista con una base técnica sólida. Ya sea un análisis de nuevas tecnologías o una auditoría regulatoria única, entregamos resultados accionables, sencillos y confiables.",
   },
   {
-    title: "Análisis de contrato de cobertura eléctrica",
+    title: "Análisis de Contratos de Cobertura Eléctrica (PPA)",
     desc: "Interpretación técnica y financiera de coberturas: entendimiento de cláusulas, pagos, riesgos y mitigaciones.",
     problem:
-      "En México para poder interpretar un contrato de cobertura se requiere de un alto grado de especialización en materia de mercados eléctricos combinada con una comprensión de limitantes técnicas. Los usuarios finales no pueden tener dicho perfil y se enfrentan a contratos que no son su negocio principal.",
+      "Interpretar un contrato de cobertura requiere una especialización híbrida entre derecho energético y técnica eléctrica que la mayoría de las empresas no posee.",
     solution:
-      "Interpretamos clausulas complejas, calculos de pagos, y prevenimos a los usuarios finales de posibles riesgos y su mitigación ante el nuevo contexto como usuario calificado.",
+      "Actuamos como tu brazo técnico para interpretar cláusulas complejas y esquemas de pagos. Protegemos tus intereses ante el nuevo contexto de Usuario Calificado, mitigando riesgos financieros y asegurando que los términos del contrato estén alineados con tu core business.",
   },
   {
-    title: "Análisis de consumo",
+    title: "Análisis de Consumo y Eficiencia Energética",
     desc: "Diagnóstico de consumo y demanda: patrones, desviaciones y oportunidades de mejora con impacto real en costo.",
     problem:
-      "Los usuarios de energía eléctrica, ven el pago de su factura como un mal necesario, como una caja negra que solo puede ser interpretada como CFE, al fin y al cabo no es su core business el análisis de su consumo.",
+      "Muchas empresas ven su factura eléctrica como una (caja negra) inevitable, ignorando que el gasto energético es una de las mayores fugas de capital.",
     solution:
-      "Detectamos oportunidades de mejora con baja inversión pero con grandes impactos a través de modificación de patrones de consumo si el proceso lo permite, y detectamos de manera sencilla en donde están las fugas de dinero que se pueden evitar.",
+      "Desmitificamos tu recibo y analizamos tus patrones de consumo de energía. Detectamos oportunidades de mejora con baja inversión que generan grandes impactos financieros. Identificamos fugas de dinero y optimizamos tus procesos para reducir costos sin afectar tu productividad.",
   },
   {
-    title: "Asesoría de Migración a MEM",
+    title: "Asesoría y Migración a MEM",
     desc: "Acompañamiento para evaluar y ejecutar migración: requisitos, ruta de trabajo, riesgos y decisión informada.",
     problem:
-      "El proceso parece abrumador, con mas de 100 documentos que conforman el sector eléctrico mexicano, es difícil perder el rumbo.",
+      "Con una regulación de más de 100 documentos y lineamientos, el camino hacia el Mercado Eléctrico Mayorista parece una ruta imposible de navegar.",
     solution:
-      "Lo simplificamos todo, nuestro interés es que se tomen decisiones informadas, no lograr migraciones, al MEM, te decimos si te conviene o no y lo realizamos todo por ti.",
+      "Simplificamos la transición. Nuestro enfoque no es forzar la migración, sino decirte con honestidad si te conviene o no. Si la viabilidad es positiva, gestionamos todo el proceso por ti, desde el análisis técnico hasta el cumplimiento ante CENACE, dándote total claridad en cada paso.",
   },
 ];
 
@@ -73,114 +100,84 @@ export default function EstudiosEspecificosPage() {
             Servicios
           </Link>
           <span className="text-ink-soft">/</span>
-          <Link href="/servicios/consultoria" className="font-semibold text-ink hover:underline">
+          <Link href="/servicios/consultoria" className="font-semibold text-brand-green hover:underline">
             Consultoría
           </Link>
           <span className="text-ink-soft">/</span>
           <span className="font-semibold text-ink">Estudios específicos</span>
         </div>
 
-        {/* HERO */}
-        <section className="mt-8 grid items-start gap-10 lg:grid-cols-12">
-          {/* Left */}
-          <div className="lg:col-span-7">
-            <p className="text-sm font-semibold text-brand-green">Consultoría</p>
-            <h1 className="mt-2 text-4xl font-bold tracking-tight text-ink sm:text-5xl">
-              Estudios específicos
-            </h1>
+   {/* HERO */}
+<section className="mt-8">
+  <div className="mt-6 grid items-start gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(360px,0.85fr)] lg:gap-12">
+    {/* Left */}
+    <div>
+      <p className="text-sm font-semibold text-brand-green">Consultoría</p>
+      <h1 className="mt-2 text-4xl font-bold tracking-tight text-ink sm:text-5xl">
+        <span className="text-brand-blue">Estudios de Especialidad</span>: Inteligencia de Datos para el Sector Eléctrico
+      </h1>
 
-            <p className="mt-4 max-w-2xl text-base text-ink-muted">
-              Estudios puntuales para responder preguntas concretas con base técnica sólida, lenguaje claro y foco en
-              decisiones de negocio. Desde análisis del MEM y coberturas, hasta consumo y migración, aterrizamos
-              información compleja en conclusiones accionables.
-            </p>
+      <p className="mt-4 max-w-2xl text-base text-ink-muted">
+        Transformamos la complejidad técnica del sector
+        energético en activos estratégicos para tu empresa.
+        Ofrecemos estudios puntuales analizando los componentes
+        críticos (técnicos, económicos y regulatorios) para responder
+        a las preguntas específicas de tu negocio. A diferencia de un
+        análisis superficial, realizamos un estudio de cobertura y consumo
+        profunda del{" "}
+        <span className="font-semibold text-brand-green">
+          Mercado Eléctrico Mayorista
+        </span>
+        : esto nos permite diseñar
+        la estrategia de suministro y el modelo de cobertura idóneo que el
+        perfil de consumo de energía de tu proyecto requiere para maximizar su rentabilidad.
+      </p>
 
-            <div className="mt-7 flex flex-wrap gap-3">
-              <Link
-                href="/contacto"
-                className="inline-flex items-center justify-center rounded-full bg-brand-blue px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-brand-blue-dark"
-              >
-                Solicitar diagnóstico
-              </Link>
-              <Link
-                href="#subservicios"
-                className="inline-flex items-center justify-center rounded-full border border-surface-border bg-white px-5 py-2.5 text-sm font-semibold text-ink hover:bg-surface-soft"
-              >
-                Ver subservicios ↓
-              </Link>
-            </div>
-          </div>
+      <div className="mt-7 flex flex-wrap gap-3">
+        <Link
+          href="/contacto"
+          className="inline-flex items-center justify-center rounded-full bg-brand-blue px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-brand-blue-dark"
+        >
+          Solicitar diagnóstico
+        </Link>
+        <Link
+          href="#subservicios"
+          className="inline-flex items-center justify-center rounded-full border border-surface-border bg-white px-5 py-2.5 text-sm font-semibold text-ink hover:bg-surface-soft"
+        >
+          Ver subservicios
+        </Link>
+      </div>
+    </div>
 
-          {/* Right visual */}
-          <div className="lg:col-span-5">
-            <div className="relative overflow-hidden rounded-3xl border border-surface-border bg-white/75 shadow-sm backdrop-blur">
-              <div className="relative h-52 w-full sm:h-64">
-                <Image
-                  src="/imagen/consultoria/estudios-especificos.jpg"
-                  alt="Estudios específicos"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
-              </div>
-
-              <div className="p-5">
-                <p className="text-sm font-semibold text-ink">¿Qué incluye?</p>
-                <ul className="mt-3 space-y-2 text-sm text-ink-muted">
-                  <li className="flex gap-2">
-                    <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-brand-green" />
-                    <span>Alcance claro y entregables definidos</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-brand-green" />
-                    <span>Base técnica sólida + lenguaje ejecutivo</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-brand-green" />
-                    <span>Recomendaciones accionables para decidir</span>
-                  </li>
-                </ul>
-
-                <div className="mt-5 flex flex-wrap gap-2">
-                  <Link
-                    href="/contacto"
-                    className="inline-flex items-center justify-center rounded-full bg-brand-green px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-brand-green-dark"
-                  >
-                    Hablar con un consultor
-                  </Link>
-                  <Link
-                    href="/servicios/consultoria"
-                    className="inline-flex items-center justify-center rounded-full border border-surface-border bg-white px-4 py-2 text-sm font-semibold text-ink hover:bg-surface-soft"
-                  >
-                    Volver a Consultoría
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
+    {/* Right visual */}
+    <div className="lg:pt-6">
+      <div className="overflow-hidden rounded-[2rem] border border-surface-border bg-white shadow-sm">
+        <div className="relative aspect-[4/3] w-full">
+          <Image
+            src="/imagen/consultoria/estudios-especificos.jpg"
+            alt="Análisis de datos e inteligencia para el sector eléctrico"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
         {/* Subservicios */}
         <section id="subservicios" className="mt-14 scroll-mt-24">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="text-sm font-semibold text-brand-green">Alcances</p>
               <h2 className="mt-1 text-2xl font-bold tracking-tight text-ink">
-                Subservicios de estudios específicos
+                Conoce nuestros servicios en estudios de especilidad
               </h2>
               <p className="mt-2 max-w-2xl text-sm text-ink-muted">
                 Cada subservicio incluye Problema/Solución provisto por el cliente. Las descripciones son propuestas
                 iniciales y se pueden ajustar.
               </p>
             </div>
-
-            <Link
-              href="/contacto"
-              className="inline-flex items-center justify-center rounded-full border border-surface-border bg-white px-5 py-2.5 text-sm font-semibold text-ink hover:bg-surface-soft"
-            >
-              Cotizar
-            </Link>
           </div>
 
           <div className="mt-8 space-y-6">
@@ -196,7 +193,7 @@ export default function EstudiosEspecificosPage() {
                 <div className="relative">
                   <h3 className="text-xl font-bold tracking-tight text-ink">{s.title}</h3>
 
-                  <p className="mt-2 max-w-3xl text-sm text-ink-muted">{s.desc}</p>
+                  <p className="mt-2 max-w-none text-sm leading-relaxed text-ink-muted">{s.desc}</p>
 
                   <div className="mt-5 grid gap-3 sm:grid-cols-2">
                     <div className="rounded-2xl border border-surface-border bg-white/70 p-4 backdrop-blur">

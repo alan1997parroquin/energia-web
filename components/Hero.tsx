@@ -124,11 +124,7 @@ export default function Hero() {
         <div className="grid items-center gap-12 lg:grid-cols-2">
           {/* LEFT */}
           <div className="space-y-6">
-            <div className="inline-flex items-center gap-3 rounded-full border border-slate-200 bg-white/90 px-4 py-2 text-sm text-slate-700 shadow-sm backdrop-blur">
-              <span className="h-2 w-2 rounded-full bg-brand-green" />
-              Consultoría • Fotovoltaico • Capacitación
-            </div>
-
+           
             <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-5xl">
               Consultoría en eléctricidad especilizada en{" "}
               <span className="text-brand-blue">Mercado Eléctrico Mayorista </span>

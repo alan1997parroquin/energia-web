@@ -207,13 +207,13 @@ export default function ConsultoriaLanding() {
             <div className="lg:col-span-7">
               {/* Breadcrumb + pill */}
               <div className="flex flex-wrap items-center gap-2">
-                <p className="text-sm font-semibold text-brand-green">Servicios</p>
+                <Link href="/servicios" className="font-semibold text-brand-green hover:underline">
+                  Servicios
+                </Link>
                 <span className="text-ink-soft">/</span>
                 <p className="text-sm font-semibold text-ink">Consultoría</p>
 
-                <span className="ml-2 rounded-full border border-surface-border bg-white/70 px-3 py-1 text-xs font-semibold text-ink">
-                  Diagnóstico • Estrategia • Modelos
-                </span>
+                
               </div>
 
               <h1 className="mt-3 text-4xl font-bold tracking-tight text-ink sm:text-5xl">

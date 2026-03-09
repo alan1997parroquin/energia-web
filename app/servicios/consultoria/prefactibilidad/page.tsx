@@ -40,7 +40,7 @@ const subservices = [
   },
   {
     title: "Incremento de Demanda Eléctrica",
-    desc: "Realizamos un diagnóstico técnico-legal para evaluar la factibilidad de aumentar tu carga ante la red de CFE. Mediante un análisis de puntos críticos y capacidad en subestaciones eléctricas, identificamos la complejidad del proceso antes de iniciar trámites formales. Aseguramos que tu incremento de demanda cumpla con el Código de Red, evitando multas y garantizando la continuidad operativa de tu proyecto industrial o comercial.",
+    desc: "Realizamos un diagnóstico técnico-ejecutivo para evaluar la factibilidad de aumentar tu carga ante la red de CFE. Mediante un análisis de puntos críticos y capacidad en subestaciones eléctricas, identificamos la complejidad del proceso antes de iniciar trámites formales. Aseguramos que tu incremento de demanda cumpla con el Código de Red, evitando multas y garantizando la continuidad operativa de tu proyecto industrial o comercial.",
   },
   {
     title: "Migración de Proyectos de Energía",
@@ -85,7 +85,7 @@ export default function PrefactibilidadPage() {
           <span className="text-ink-soft">/</span>
           <Link
             href="/servicios/consultoria"
-            className="font-semibold text-ink hover:underline"
+            className="font-semibold text-brand-green hover:underline"
           >
             Consultoría
           </Link>

@@ -210,9 +210,7 @@ export default function CapacitacionLanding() {
                 <span className="text-ink-soft">/</span>
                 <p className="text-sm font-semibold text-ink">Capacitación</p>
 
-                <span className="ml-2 rounded-full border border-surface-border bg-white/70 px-3 py-1 text-xs font-semibold text-ink">
-                  MEM • Datos • Formación
-                </span>
+                
               </div>
 
               <h1 className="mt-3 text-4xl font-bold tracking-tight text-ink sm:text-5xl">

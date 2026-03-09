@@ -1,22 +1,51 @@
 // app/servicios/consultoria/anticipacion/page.tsx
 import Link from "next/link";
 import Image from "next/image";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Sistemas de Almacenamiento de Energía e Incremento de Demanda CFE",
+  description:
+    "Estrategias para incremento de carga y sistemas de almacenamiento de energía. Cumplimiento de Código de Red y optimización de perfiles de consumo.",
+  keywords: [
+    "MEM",
+    "demanda electrica",
+    "mercado eléctrico mayorista",
+    "CENACE",
+    "CFE",
+    "modelos matemáticos",
+    "consultoría de energía",
+    "interconexión",
+    "simulación de despacho",
+    "forecasts",
+    "prospección de precios"
+  ],
+  alternates: { canonical: "/servicios/consultoria/anticipacion" },
+  openGraph: {
+    title:
+      "Sistemas de Almacenamiento de Energía y Incremento de Demanda CFE | Energía México",
+    description:
+      "Estrategias para incremento de carga y sistemas de almacenamiento de energía. Cumplimiento de Código de Red y optimización de perfiles de consumo.",
+    url: "/servicios/consultoria/anticipacion",
+    type: "website",
+  },
+};
 
 const subservices = [
   {
-    title: "Prospección de precios de energía (por nodo, hora y zona)",
+    title: "Prospección de Precios de Energía (PML)",
     desc: "Forecasts y escenarios de precio con granularidad por nodo/hora/zona para planear inversiones y estrategia comercial.",
     problem:
-      "No existen forecast de precios de mercados públicos con la granularidad necesaria que requiere un modelo financiero de mediano o largo plazo, accesar a uno es muy caro y es necesario comprar mucha información difícil de procesar.",
+      "Los pronósticos de mercado públicos carecen de la granularidad necesaria (nodo, hora, zona) para un modelo financiero robusto de mediano o largo plazo. Además, adquirir software especializado es costoso y requiere procesar volúmenes masivos de datos inaccesibles para la mayoría de las empresas.",
     solution:
-      "Adaptamos un proceso de forecasts complejo y extenso a las necesidades particulares, te brindamos información del nodo, zona o generación que te interese, solo pagas por lo que necesitas, pero con un respaldo sólido que puedan entender inversionistas y técnicos.",
+      "La Solución: Adaptamos procesos complejos de prospección de precios a tus necesidades específicas. Entregamos forecasts y escenarios de precio con granularidad horaria por nodo o zona de carga/generación. Obtienes la información precisa que tu proyecto requiere, respaldada por un análisis sólido y transparente que inversionistas y técnicos pueden validar para sus proyecciones de flujo de caja.",
   },
   {
-    title: "Simulación de despacho a corto - mediano",
+    title: "Simulación de Despacho (Corto y Mediano Plazo)",
     desc: "Simulación de despacho para evaluar rentabilidad y riesgos con escenarios sobre proyectos actuales y futuros.",
-    problem: "Se utilizan modelos financieros simplistas para proyectos complejos de energía.",
+    problem: "La mayoría de los proyectos energéticos fracasan o pierden rentabilidad por utilizar modelos financieros simplistas que no consideran la dinámica real de la red eléctrica.",
     solution:
-      "Simulamos el proyecto en conjunto con los proyectos actuales y futuros, con diversos escenarios, brindamos transparencia en si tu proyecto es o no rentable.",
+      "Evaluamos la rentabilidad y los riesgos mediante una simulación de despacho avanzada. Integramos tu proyecto en un entorno que simula la interacción con centrales actuales y futuras bajo diversos escenarios de mercado. No entregamos una (caja negra); brindamos transparencia total sobre la viabilidad de tu inversión, permitiéndote ajustar tu estrategia comercial antes de comprometer capital.",
   },
 ];
 
@@ -48,7 +77,7 @@ export default function AnticipacionPage() {
             Servicios
           </Link>
           <span className="text-ink-soft">/</span>
-          <Link href="/servicios/consultoria" className="font-semibold text-ink hover:underline">
+          <Link href="/servicios/consultoria" className="font-semibold text-brand-green hover:underline">
             Consultoría
           </Link>
           <span className="text-ink-soft">/</span>
@@ -56,103 +85,65 @@ export default function AnticipacionPage() {
         </div>
 
         {/* HERO */}
-        <section className="mt-8 grid items-start gap-10 lg:grid-cols-12">
-          {/* Left */}
-          <div className="lg:col-span-7">
-            <p className="text-sm font-semibold text-brand-green">Consultoría</p>
-            <h1 className="mt-2 text-4xl font-bold tracking-tight text-ink sm:text-5xl">
-              Anticipación estratégica de tendencias
-            </h1>
+<section className="mt-8">
+  <div className="mt-6 grid items-start gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(360px,0.85fr)] lg:gap-12">
+    {/* Left */}
+    <div>
+      <p className="text-sm font-semibold text-brand-green">Consultoría</p>
+      <h1 className="mt-2 text-4xl font-bold tracking-tight text-ink sm:text-5xl">
+  <span className="text-brand-blue">Anticipación estratégica </span>de tendencias
+</h1>
 
-            <p className="mt-4 max-w-2xl text-base text-ink-muted">
-              Planeación con escenarios para decidir con anticipación. Integramos forecasts y simulación de despacho
-              para dar transparencia a la rentabilidad y al riesgo en proyectos complejos de energía.
-            </p>
+      <p className="mt-4 max-w-2xl text-base text-ink-muted">
+        <span className="text-brand-green">Modelos matemáticos avanzados</span> para asegurar la rentabilidad de tus activos en el sector eléctrico.
+      </p>
 
-            <div className="mt-7 flex flex-wrap gap-3">
-              <Link
-                href="/contacto"
-                className="inline-flex items-center justify-center rounded-full bg-brand-blue px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-brand-blue-dark"
-              >
-                Solicitar diagnóstico
-              </Link>
-              <Link
-                href="#subservicios"
-                className="inline-flex items-center justify-center rounded-full border border-surface-border bg-white px-5 py-2.5 text-sm font-semibold text-ink hover:bg-surface-soft"
-              >
-                Ver subservicios ↓
-              </Link>
-            </div>
-          </div>
+      <div className="mt-7 flex flex-wrap gap-3">
+        <Link
+          href="/contacto"
+          className="inline-flex items-center justify-center rounded-full bg-brand-blue px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-brand-blue-dark"
+        >
+          Solicitar diagnóstico
+        </Link>
+        <Link
+          href="#subservicios"
+          className="inline-flex items-center justify-center rounded-full border border-surface-border bg-white px-5 py-2.5 text-sm font-semibold text-ink hover:bg-surface-soft"
+        >
+          Ver subservicios
+        </Link>
+      </div>
+    </div>
 
-          {/* Right visual */}
-          <div className="lg:col-span-5">
-            <div className="relative overflow-hidden rounded-3xl border border-surface-border bg-white/75 shadow-sm backdrop-blur">
-              <div className="relative h-52 w-full sm:h-64">
-                <Image
-                  src="/imagen/consultoria/anticipacion.jpg"
-                  alt="Anticipación estratégica de tendencias"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
-              </div>
-
-              <div className="p-5">
-                <p className="text-sm font-semibold text-ink">¿Qué incluye?</p>
-                <ul className="mt-3 space-y-2 text-sm text-ink-muted">
-                  <li className="flex gap-2">
-                    <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-brand-green" />
-                    <span>Forecasts adaptados a necesidades específicas</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-brand-green" />
-                    <span>Simulación con escenarios (corto–mediano)</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-brand-green" />
-                    <span>Transparencia en rentabilidad y riesgos</span>
-                  </li>
-                </ul>
-
-                <div className="mt-5 flex flex-wrap gap-2">
-                  <Link
-                    href="/contacto"
-                    className="inline-flex items-center justify-center rounded-full bg-brand-green px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-brand-green-dark"
-                  >
-                    Hablar con un consultor
-                  </Link>
-                  <Link
-                    href="/servicios/consultoria"
-                    className="inline-flex items-center justify-center rounded-full border border-surface-border bg-white px-4 py-2 text-sm font-semibold text-ink hover:bg-surface-soft"
-                  >
-                    Volver a Consultoría
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+    {/* Right visual */}
+    <div className="lg:pt-6">
+      <div className="overflow-hidden rounded-[2rem] border border-surface-border bg-white shadow-sm">
+        <div className="relative aspect-[4/3] w-full">
+          <Image
+            src="/imagen/consultoria/anticipacion.jpg"
+            alt="Anticipación estratégica de tendencias"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
         {/* Subservicios */}
         <section id="subservicios" className="mt-14 scroll-mt-24">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="text-sm font-semibold text-brand-green">Alcances</p>
-              <h2 className="mt-1 text-2xl font-bold tracking-tight text-ink">Subservicios de anticipación</h2>
+              <h2 className="mt-1 text-2xl font-bold tracking-tight text-ink">Conoce nuestros servicios de anticipación de tendencias</h2>
               <p className="mt-2 max-w-2xl text-sm text-ink-muted">
                 Cada subservicio incluye Problema/Solución provisto por el cliente. Las descripciones son propuestas
                 iniciales y se pueden ajustar.
               </p>
             </div>
 
-            <Link
-              href="/contacto"
-              className="inline-flex items-center justify-center rounded-full border border-surface-border bg-white px-5 py-2.5 text-sm font-semibold text-ink hover:bg-surface-soft"
-            >
-              Cotizar
-            </Link>
+           
           </div>
 
           <div className="mt-8 space-y-6">

@@ -4,8 +4,8 @@ import Image from "next/image";
 
 const subservices = [
   {
-    title: "Diseño de microgrids",
-    desc: "Diseño conceptual y técnico para microgrids: arquitectura, operación, criterios y viabilidad orientada a rentabilidad.",
+    title: "Diseño Conceptual y Técnico para Microgrids",
+    desc: "El diseño de microgrids constituye la creación de sistemas energéticos locales inteligentes que integran generación renovable, sistemas de almacenamiento de energía y una gestión de carga avanzada. En un entorno donde las prospecciones energéticas pueden carecer de realismo frente a la regulación estatal actual, evaluamos cada proyecto bajo escenarios complejos, asegurando la compatibilidad de la zona y una estrategia de implementación sólida que transforme la eficiencia y la sostenibilidad en una ventaja competitiva medible.",
     problem:
       "Existe un proceso complejo para la implementación de proyectos de autoabasto aislado, las prospecciones de retorno de inversión pueden carecer de realismo frente a un escenario complejo con una participación activa del estado.",
     solution:
@@ -46,7 +46,7 @@ export default function IngenieriaPage() {
             Servicios
           </Link>
           <span className="text-ink-soft">/</span>
-          <Link href="/servicios/consultoria" className="font-semibold text-ink hover:underline">
+          <Link href="/servicios/consultoria" className="font-semibold text-brand-green hover:underline">
             Consultoría
           </Link>
           <span className="text-ink-soft">/</span>
@@ -54,84 +54,56 @@ export default function IngenieriaPage() {
         </div>
 
         {/* HERO */}
-        <section className="mt-8 grid items-start gap-10 lg:grid-cols-12">
-          {/* Left */}
-          <div className="lg:col-span-7">
-            <p className="text-sm font-semibold text-brand-green">Consultoría</p>
-            <h1 className="mt-2 text-4xl font-bold tracking-tight text-ink sm:text-5xl">
-              Servicios de Ingeniería
-            </h1>
+<section className="mt-8">
+  <div className="mt-6 grid items-start gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(360px,0.85fr)] lg:gap-12">
+    {/* Left */}
+    <div>
+      <p className="text-sm font-semibold text-brand-green">Consultoría</p>
+      <h1 className="mt-2 text-4xl font-bold tracking-tight text-ink sm:text-5xl">
+  Servicios de <span className="text-brand-blue">Ingeniería</span>
+</h1>
 
-            <p className="mt-4 max-w-2xl text-base text-ink-muted">
-              Diseño conceptual y técnico para habilitar proyectos energéticos. Aterrizamos arquitectura, criterios de
-              operación, riesgos y siguientes pasos con una visión integral (técnica + rentabilidad).
-            </p>
+      <p className="mt-4 max-w-2xl text-base text-ink-muted">
+  Evaluamos y diseñamos estos{" "}
+  <span className="font-semibold text-brand-green">proyectos</span> en función de la{" "}
+  <span className="font-semibold text-brand-green">rentabilidad</span> para los{" "}
+  <span className="font-semibold text-brand-green">inversionistas</span>, sumado a la{" "}
+  <span className="font-semibold text-brand-green">compatibilidad de la zona</span> y{" "}
+  <span className="font-semibold text-brand-green">estrategia de promoción</span> del proyecto.
+</p>
 
-            <div className="mt-7 flex flex-wrap gap-3">
-              <Link
-                href="/contacto"
-                className="inline-flex items-center justify-center rounded-full bg-brand-blue px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-brand-blue-dark"
-              >
-                Solicitar diagnóstico
-              </Link>
-              <Link
-                href="#subservicios"
-                className="inline-flex items-center justify-center rounded-full border border-surface-border bg-white px-5 py-2.5 text-sm font-semibold text-ink hover:bg-surface-soft"
-              >
-                Ver subservicios ↓
-              </Link>
-            </div>
-          </div>
+      <div className="mt-7 flex flex-wrap gap-3">
+        <Link
+          href="/contacto"
+          className="inline-flex items-center justify-center rounded-full bg-brand-blue px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-brand-blue-dark"
+        >
+          Solicitar diagnóstico
+        </Link>
+        <Link
+          href="#subservicios"
+          className="inline-flex items-center justify-center rounded-full border border-surface-border bg-white px-5 py-2.5 text-sm font-semibold text-ink hover:bg-surface-soft"
+        >
+          Ver subservicios
+        </Link>
+      </div>
+    </div>
 
-          {/* Right visual */}
-          <div className="lg:col-span-5">
-            <div className="relative overflow-hidden rounded-3xl border border-surface-border bg-white/75 shadow-sm backdrop-blur">
-              <div className="relative h-52 w-full sm:h-64">
-                <Image
-                  src="/imagen/consultoria/ingenieria.jpg"
-                  alt="Servicios de Ingeniería"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
-              </div>
-
-              <div className="p-5">
-                <p className="text-sm font-semibold text-ink">¿Qué incluye?</p>
-                <ul className="mt-3 space-y-2 text-sm text-ink-muted">
-                  <li className="flex gap-2">
-                    <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-brand-green" />
-                    <span>Diseño conceptual y criterios de operación</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-brand-green" />
-                    <span>Viabilidad técnica orientada a rentabilidad</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-brand-green" />
-                    <span>Ruta y siguientes pasos</span>
-                  </li>
-                </ul>
-
-                <div className="mt-5 flex flex-wrap gap-2">
-                  <Link
-                    href="/contacto"
-                    className="inline-flex items-center justify-center rounded-full bg-brand-green px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-brand-green-dark"
-                  >
-                    Hablar con un consultor
-                  </Link>
-                  <Link
-                    href="/servicios/consultoria"
-                    className="inline-flex items-center justify-center rounded-full border border-surface-border bg-white px-4 py-2 text-sm font-semibold text-ink hover:bg-surface-soft"
-                  >
-                    Volver a Consultoría
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+    {/* Right visual */}
+    <div className="lg:pt-6">
+      <div className="overflow-hidden rounded-[2rem] border border-surface-border bg-white shadow-sm">
+        <div className="relative aspect-[4/3] w-full">
+          <Image
+            src="/imagen/consultoria/ingenieria.jpg"
+            alt="Servicios de Ingeniería"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
         {/* Subservicios */}
         <section id="subservicios" className="mt-14 scroll-mt-24">
@@ -139,20 +111,11 @@ export default function IngenieriaPage() {
             <div>
               <p className="text-sm font-semibold text-brand-green">Alcances</p>
               <h2 className="mt-1 text-2xl font-bold tracking-tight text-ink">
-                Subservicios de ingeniería
+                Conoce nuestros servicios de ingenieria en negocios
               </h2>
-              <p className="mt-2 max-w-2xl text-sm text-ink-muted">
-                “Diseño de microgrids” incluye Problema/Solución provisto por el cliente. “Diseño de proyectos…” no lo
-                muestra (según alcance).
-              </p>
+              
             </div>
 
-            <Link
-              href="/contacto"
-              className="inline-flex items-center justify-center rounded-full border border-surface-border bg-white px-5 py-2.5 text-sm font-semibold text-ink hover:bg-surface-soft"
-            >
-              Cotizar
-            </Link>
           </div>
 
           <div className="mt-8 space-y-6">
@@ -167,8 +130,8 @@ export default function IngenieriaPage() {
 
                 <div className="relative">
                   <h3 className="text-xl font-bold tracking-tight text-ink">{s.title}</h3>
-                  <p className="mt-2 max-w-3xl text-sm text-ink-muted">{s.desc}</p>
-
+                  
+                  <p className="mt-2 max-w-none text-sm leading-relaxed text-ink-muted">{s.desc}</p>
                   {s.problem && s.solution ? (
                     <div className="mt-5 grid gap-3 sm:grid-cols-2">
                       <div className="rounded-2xl border border-surface-border bg-white/70 p-4 backdrop-blur">

@@ -111,19 +111,23 @@ export default function Hero() {
     return "bg-warning";
   };
 
-  return (
-    <section className="bg-white">
-      {/* Background decoration (claro) */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-blue-soft via-white to-white" />
-        <div className="absolute -top-24 -left-24 h-80 w-80 rounded-full bg-brand-blue/15 blur-3xl" />
-        <div className="absolute -bottom-28 -right-24 h-96 w-96 rounded-full bg-brand-green/15 blur-3xl" />
-      </div>
+      return (
+  <section className="relative overflow-hidden bg-white">
+    {/* Background decoration (claro) */}
+    <div className="absolute inset-0 -z-10">
+      <div className="absolute inset-0 bg-gradient-to-b from-brand-blue-soft via-white to-white" />
+      <div className="absolute -top-24 -left-24 h-80 w-80 rounded-full bg-brand-blue/15 blur-3xl" />
+      <div className="absolute -bottom-28 -right-24 h-96 w-96 rounded-full bg-brand-green/15 blur-3xl" />
+    </div>
+
+
+
+
 
       <div className="mx-auto max-w-7xl px-6 pt-24 pb-20 lg:pt-16">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           {/* LEFT */}
-          <div className="space-y-6">
+          <div className="min-w-0 space-y-6">
            
             <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-5xl">
               Consultoría en electricidad especializada en{" "}
@@ -186,7 +190,7 @@ export default function Hero() {
 
           {/* RIGHT */}
           <div
-            className="relative"
+            className="relative min-w-0"
             onMouseEnter={() => setPaused(true)}
             onMouseLeave={() => setPaused(false)}
             onFocusCapture={() => setPaused(true)}

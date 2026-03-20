@@ -4,31 +4,26 @@
   --background: #ffffff;
   --foreground: #0f172a;
 
-  /* ✅ Offset global para anchors con header sticky */
-  --header-offset: 104px; /* prueba 104; si queda corto sube a 112, si sobra baja a 96/88 */
+  /* Offset global para anchors con header sticky */
+  --header-offset: 104px;
 }
 
-/* ✅ Tailwind v4 tokens */
+/* Tailwind v4 tokens */
 @theme inline {
-  /* Base tokens */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
-  /* ✅ Brand Blue */
   --color-brand-blue: #1f4fd8;
   --color-brand-blue-dark: #153a9b;
   --color-brand-blue-soft: #eaf0ff;
 
-  /* ✅ Brand Green */
   --color-brand-green: #2ead4a;
   --color-brand-green-dark: #1e7f35;
   --color-brand-green-soft: #e8f7ed;
 
-  /* ✅ Warning */
   --color-warning: #f5b301;
   --color-warning-soft: #fff4d6;
 
-  /* ✅ Neutros */
   --color-ink: #0f172a;
   --color-ink-muted: #475569;
   --color-ink-soft: #64748b;
@@ -37,7 +32,6 @@
   --color-surface-soft: #f8fafc;
   --color-surface-border: #e2e8f0;
 
-  /* ✅ Fonts */
   --font-sans: var(--font-inter);
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
@@ -50,13 +44,15 @@
   }
 }
 
-/* ✅ Scroll suave para anchors (#seccion) + offset para sticky header */
 html {
   scroll-behavior: smooth;
   scroll-padding-top: var(--header-offset);
+  overflow-x: hidden;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
+  overflow-x: hidden;
+  max-width: 100%;
 }

@@ -122,7 +122,9 @@ export default function RootLayout({
         />
       </head>
 
-      <body className={`${inter.className} min-h-screen bg-white text-gray-900`}>
+      <body
+        className={`${inter.className} min-h-screen overflow-x-hidden bg-white text-gray-900`}
+      >
         <noscript>
           <iframe
             src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}

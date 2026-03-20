@@ -126,16 +126,16 @@ export default function Hero() {
           <div className="space-y-6">
            
             <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-5xl">
-              Consultoría en eléctricidad especilizada en{" "}
+              Consultoría en electricidad especializada en{" "}
               <span className="text-brand-blue">Mercado Eléctrico Mayorista </span>
             </h1>
 
            
            <p className="text-lg leading-relaxed text-slate-700">
               Especialistas en{" "}
-              <span className="font-semibold text-brand-green">consultoría de energía </span>{" "}
+              <span className="font-semibold text-brand-green">consultoría de energía</span>{" "}
               y análisis de datos del
-              <span className="font-semibold text-brand-green"> Mercado Eléctrico Mayorista.</span>{" "}
+              <span className="font-semibold text-brand-green">Mercado Eléctrico Mayorista.</span>{" "}
               Facilitamos la toma de decisiones energéticas mediante
               <span className="font-semibold text-brand-green"> estudios de prefactibilidad</span>{" "}
               precisos para la instalación de nueva carga o

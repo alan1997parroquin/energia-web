@@ -107,7 +107,6 @@ export default function RootLayout({
   return (
     <html lang="es" className={inter.variable}>
       <head>
-          <!-- Google Tag Manager -->
                   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
                     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
                     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -117,7 +116,6 @@ export default function RootLayout({
       </head>
 
       <body className={`${inter.className} min-h-screen bg-white text-gray-900`}>
-        <!-- Google Tag Manager (noscript) -->
        <noscript>
               <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TF5BZSGC"
                height="0" width="0" style="display:none;visibility:hidden"></iframe>

@@ -12,7 +12,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://energia-web.vercel.app"),
+  metadataBase: new URL("https://www.energia-mexico.com"),
 
   title: {
     default: "Energía México",
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
       "Consultoría y gestoría energética en México: estudios de prefactibilidad, interconexión ante CFE/CENACE, integración fotovoltaica y capacitación para el MEM.",
     images: [
       {
-        url: "/og/og-home.jpg", // 👉 crea este archivo en /public/og/og-home.jpg (1200x630)
+        url: "/og/og-home.jpg",
         width: 1200,
         height: 630,
         alt: "Energía México",
@@ -72,7 +72,6 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon/favicon.ico",
     shortcut: "/favicon/favicon.ico",
-    // apple: "/favicon/apple-touch-icon.png",
   },
 };
 

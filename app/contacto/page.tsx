@@ -124,7 +124,7 @@ export default function ContactoPage() {
 
   // ⚠️ Ajusta cuando tengas los datos reales
   const WHATSAPP_NUMBER = "5215575007413";
-  const EMAIL_TO = "alan.parroquin@energia-mexico.com";
+  const EMAIL_TO = "tomas@energia-mexico.com";
 
   const handleChange = <K extends keyof FormState>(key: K, value: FormState[K]) => {
     setForm((prev) => ({ ...prev, [key]: value }));

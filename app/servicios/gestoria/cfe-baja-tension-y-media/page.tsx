@@ -278,13 +278,7 @@ export default function CfeBajaTensionYMediaPage() {
                       Solicitar trámite
                     </Link>
 
-                    {/* útil si luego quieres copiar/pegar el link exacto */}
-                    <Link
-                      href={`/servicios/gestoria/cfe-baja-tension-y-media#${s.id}`}
-                      className="inline-flex items-center justify-center rounded-full border border-surface-border bg-white px-4 py-2 text-sm font-semibold text-ink hover:bg-surface-soft"
-                    >
-                      Copiar enlace
-                    </Link>
+                    
                   </div>
                 </div>
               </div>

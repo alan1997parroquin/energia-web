@@ -477,12 +477,7 @@ export default function CenaceCfe1mwPage() {
           >
             Solicitar trámite
           </Link>
-          <Link
-            href={`/servicios/gestoria/cenace-y-cfe-1mw#${s.id}`}
-            className="inline-flex items-center justify-center rounded-full border border-surface-border bg-white px-4 py-2 text-sm font-semibold text-ink hover:bg-surface-soft"
-          >
-            Copiar enlace
-          </Link>
+          
         </div>
       </div>
     </div>

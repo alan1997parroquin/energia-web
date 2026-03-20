@@ -11,17 +11,15 @@ const links = {
   ],
   empresa: [
     { label: "Quiénes somos", href: "/nosotros" },
-    { label: "Casos de éxito", href: "/casos" },
-    { label: "Recursos", href: "/recursos" },
     { label: "Contacto", href: "/contacto" },
   ],
 };
 
 // ✅ Tus links
-const LINKEDIN_URL = "https://www.linkedin.com/company/energia-m%C3%A9xico/posts/?feedView=all";
+const LINKEDIN_URL =
+  "https://www.linkedin.com/company/energia-m%C3%A9xico/posts/?feedView=all";
 const INSTAGRAM_URL =
   "https://www.instagram.com/tomas.reyes.sanchez?igsh=MWo5a21obWVlajhtNQ==";
-// ⚠️ Cambia esto por el link real de Facebook (perfil o página)
 const FACEBOOK_URL = "https://web.facebook.com/profile.php?id=61556298763464";
 
 function InstagramIcon(props: React.SVGProps<SVGSVGElement>) {
@@ -65,14 +63,14 @@ export default function Footer() {
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <div className="relative h-10 w-10 overflow-hidden rounded-xl bg-brand-green/15">
-                  <Image
-                    src="/branding/energia-mexico-logo.png"
-                    alt="Energía México"
-                    fill
-                    className="object-contain p-1"
-                    priority={false}
-                  />
-                </div>
+                <Image
+                  src="/branding/energia-mexico-logo.png"
+                  alt="Energía México"
+                  fill
+                  className="object-contain p-1"
+                  priority={false}
+                />
+              </div>
               <div>
                 <p className="text-base font-bold text-ink">Energía México</p>
                 <p className="text-sm text-ink-muted">
@@ -151,12 +149,7 @@ export default function Footer() {
               >
                 Solicitar diagnóstico
               </Link>
-              <Link
-                href="/recursos"
-                className="inline-flex items-center justify-center rounded-xl border border-surface-border bg-white px-5 py-3 text-sm font-semibold text-ink shadow-sm transition hover:bg-surface-soft"
-              >
-                Ver recursos
-              </Link>
+              
             </div>
 
             <div className="mt-6 h-2 w-full rounded-full bg-gradient-to-r from-brand-green-dark via-brand-green to-[#583F66]" />

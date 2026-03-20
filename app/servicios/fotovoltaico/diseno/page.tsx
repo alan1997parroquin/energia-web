@@ -78,7 +78,7 @@ export default function DisenoPage() {
                   </Link>
                   <Link href="/servicios/fotovoltaico/ingenieria" className="inline-flex items-center justify-center rounded-full border border-surface-border bg-white px-4 py-2 text-sm font-semibold text-ink hover:bg-surface-soft">
                     Siguiente: Ingeniería →
-                  </Link>
+                  </Link>          
                 </div>
               </div>
             </div>

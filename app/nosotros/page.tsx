@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import NosotrosClient from "./NosotrosClient";
 
 export const metadata: Metadata = {
-  title: "Nosotros | Consultoría Energética en México | Energía México",
+  title: "Nosotros | Consultoría Energética en México",
   description:
     "Conoce a Energía México, firma de consultoría energética especializada en mercado eléctrico mexicano, interconexión, nuevas cargas, prefactibilidad y estrategia técnico-regulatoria.",
   keywords: [

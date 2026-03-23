@@ -12,7 +12,7 @@ import {
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Servicios de Consultoría Energética | Energía México",
+  title: "Servicios de Consultoría Energética",
   description:
     "Conoce los servicios de Energía México: consultoría en Mercado Eléctrico Mexicano, gestoría ante CFE y CENACE, integración fotovoltaica y capacitación energética para empresas.",
   keywords: [
@@ -129,7 +129,7 @@ export default function ServiciosPage() {
             </Link>
 
             <a
-              href="https://wa.me/5215578403155?text=Hola%20me%20interesa%20una%20asesor%C3%ADa%20con%20Energ%C3%ADa%20M%C3%A9xico"
+              href="https://wa.me/525575007413?text=Hola%2C%20me%20interesa%20una%20asesor%C3%ADa%20con%20Energ%C3%ADa%20M%C3%A9xico"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center justify-center rounded-xl border border-surface-border bg-white px-6 py-3 text-base font-semibold text-ink shadow-sm transition hover:bg-surface-soft"
@@ -243,7 +243,7 @@ export default function ServiciosPage() {
             </Link>
 
             <a
-              href="https://wa.me/5215578403155?text=Hola%20me%20interesa%20una%20asesor%C3%ADa%20con%20Energ%C3%ADa%20M%C3%A9xico"
+              href="https://wa.me/525575007413?text=Hola%2C%20me%20interesa%20una%20asesor%C3%ADa%20con%20Energ%C3%ADa%20M%C3%A9xico"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center justify-center rounded-xl border border-white/30 bg-transparent px-6 py-3 text-base font-semibold text-white shadow-sm transition hover:bg-white/10"

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ContactoClient from "./ContactoClient";
 
 export const metadata: Metadata = {
-  title: "Contacto | Diagnóstico Energético para Empresas | Energía México",
+  title: "Contacto | Diagnóstico Energético para Empresas",
   description:
     "Agenda un diagnóstico energético con Energía México. Cuéntanos tu caso y te ayudamos con consultoría, gestoría, integración fotovoltaica o capacitación especializada.",
   keywords: [

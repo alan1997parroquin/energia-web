@@ -1,32 +1,67 @@
 // app/servicios/page.tsx
 import Link from "next/link";
-import { Brain, FileText, Sun, GraduationCap, Search, Map, Handshake } from "lucide-react";
+import {
+  Brain,
+  FileText,
+  Sun,
+  GraduationCap,
+  Search,
+  Map,
+  Handshake,
+} from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Servicios | Energía México",
+  title: "Servicios de Consultoría Energética | Energía México",
   description:
-    "Soluciones energéticas para empresas en México: consultoría en MEM, gestoría CFE/CENACE, integrador fotovoltaico y capacitación energética.",
+    "Conoce los servicios de Energía México: consultoría en Mercado Eléctrico Mexicano, gestoría ante CFE y CENACE, integración fotovoltaica y capacitación energética para empresas.",
   keywords: [
     "Energía México",
-    "servicios energéticos",
-    "consultoría MEM",
+    "servicios de consultoría energética",
+    "consultoría energética en México",
+    "mercado eléctrico mexicano",
     "mercado eléctrico mayorista",
+    "consultoría MEM",
     "gestoría CFE",
     "gestoría CENACE",
     "interconexión eléctrica",
     "integrador fotovoltaico",
+    "energía solar para empresas",
     "capacitación energética",
+    "prefactibilidad energética",
+    "nuevas cargas eléctricas",
+    "transición energética México",
   ],
-  alternates: { canonical: "/servicios" },
+  alternates: {
+    canonical: "https://www.energia-mexico.com/servicios",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
-    title: "Servicios | Energía México",
+    title: "Servicios de Consultoría Energética | Energía México",
     description:
-      "Consultoría, gestoría, fotovoltaico y capacitación para empresas en México.",
-    url: "/servicios",
+      "Consultoría, gestoría, integración fotovoltaica y capacitación para empresas en México.",
+    url: "https://www.energia-mexico.com/servicios",
     siteName: "Energía México",
     locale: "es_MX",
     type: "website",
+    images: [
+      {
+        url: "https://www.energia-mexico.com/imagen/services/consultoria.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Servicios de Energía México",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Servicios de Consultoría Energética | Energía México",
+    description:
+      "Consultoría, gestoría, integración fotovoltaica y capacitación para empresas en México.",
+    images: ["https://www.energia-mexico.com/imagen/services/consultoria.jpg"],
   },
 };
 
@@ -71,7 +106,7 @@ export default function ServiciosPage() {
         <div className="absolute -bottom-28 -right-24 h-96 w-96 rounded-full bg-brand-green/10 blur-3xl" />
       </div>
 
-      <div className="mx-auto w-full max-w-7xl px-6 py-16 space-y-16">
+      <div className="mx-auto w-full max-w-7xl space-y-16 px-6 py-16">
         {/* Header */}
         <section className="max-w-3xl">
           <p className="text-sm font-semibold text-brand-green">Servicios</p>
@@ -120,7 +155,6 @@ export default function ServiciosPage() {
                   className="group rounded-3xl border border-surface-border bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
                 >
                   <div className="flex items-center gap-3">
-                    {/* recuadro verde + icono lucide */}
                     <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-green-soft">
                       <Icon className="h-5 w-5 text-brand-green" />
                     </div>
@@ -153,47 +187,45 @@ export default function ServiciosPage() {
         </section>
 
         {/* Cómo trabajamos */}
-<section className="rounded-3xl border border-surface-border bg-white p-8 shadow-sm space-y-6">
-  <h2 className="text-3xl font-bold text-ink">Cómo trabajamos</h2>
+        <section className="space-y-6 rounded-3xl border border-surface-border bg-white p-8 shadow-sm">
+          <h2 className="text-3xl font-bold text-ink">Cómo trabajamos</h2>
 
-  <div className="grid gap-6 md:grid-cols-3">
-    {[
-      {
-        Icon: Search,
-        t: "Diagnóstico",
-        d: "Revisamos tu caso y objetivos para definir el camino más eficiente.",
-      },
-      {
-        Icon: Map,
-        t: "Estrategia y propuesta",
-        d: "Propuesta clara con alcances, tiempos y siguientes pasos.",
-      },
-      {
-        Icon: Handshake,
-        t: "Ejecución y seguimiento",
-        d: "Acompañamiento continuo con comunicación y control.",
-      },
-    ].map(({ Icon, t, d }) => (
-      <div
-        key={t}
-        className="rounded-2xl border border-surface-border bg-surface-soft p-6"
-      >
-        {/* icon badge (verde) */}
-        <div className="flex items-center gap-3">
-          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-green-soft">
-            <Icon className="h-5 w-5 text-brand-green" />
+          <div className="grid gap-6 md:grid-cols-3">
+            {[
+              {
+                Icon: Search,
+                t: "Diagnóstico",
+                d: "Revisamos tu caso y objetivos para definir el camino más eficiente.",
+              },
+              {
+                Icon: Map,
+                t: "Estrategia y propuesta",
+                d: "Propuesta clara con alcances, tiempos y siguientes pasos.",
+              },
+              {
+                Icon: Handshake,
+                t: "Ejecución y seguimiento",
+                d: "Acompañamiento continuo con comunicación y control.",
+              },
+            ].map(({ Icon, t, d }) => (
+              <div
+                key={t}
+                className="rounded-2xl border border-surface-border bg-surface-soft p-6"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-green-soft">
+                    <Icon className="h-5 w-5 text-brand-green" />
+                  </div>
+                  <h3 className="font-bold text-ink">{t}</h3>
+                </div>
+
+                <p className="mt-3 text-ink-muted">{d}</p>
+              </div>
+            ))}
           </div>
-          <h3 className="font-bold text-ink">{t}</h3>
-        </div>
+        </section>
 
-        <p className="mt-3 text-ink-muted">{d}</p>
-      </div>
-    ))}
-  </div>
-</section>
-
-
-        {/* CTA FINAL (misma paleta que tu ejemplo) */}
+        {/* CTA FINAL */}
         <section className="mt-6 rounded-3xl border border-brand-green/25 bg-brand-green p-10 text-white shadow-sm">
           <h2 className="text-3xl font-bold">¿Listo para avanzar con tu proyecto?</h2>
 

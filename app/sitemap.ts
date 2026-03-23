@@ -56,6 +56,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.8,
     },
+    // Agrega estas solo si existen
+    {
+      url: `${baseUrl}/servicios/consultoria/ingenieria`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/servicios/consultoria/modelos-financieros`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
 
     // Gestoría
     {

@@ -40,13 +40,8 @@ export const metadata: Metadata = {
     follow: true,
   },
 
-  alternates: {
-    canonical: "/",
-  },
-
   openGraph: {
     type: "website",
-    url: "/",
     siteName: "Energía México",
     locale: "es_MX",
     title: "Energía México",
@@ -70,13 +65,8 @@ export const metadata: Metadata = {
     images: ["/og/og-home.jpg"],
   },
 
-  // ✅ CAMBIO CLAVE: usar /favicon.ico (raíz), que es lo que Google espera
   icons: {
-    icon: [
-      { url: "/favicon.ico" },
-      // (Opcional) respaldo si quieres mantener el anterior:
-      { url: "/favicon/favicon.ico" },
-    ],
+    icon: [{ url: "/favicon.ico" }, { url: "/favicon/favicon.ico" }],
     shortcut: "/favicon.ico",
   },
 };
@@ -96,9 +86,17 @@ const organizationSchema = {
     addressCountry: "MX",
   },
   email: "contacto@energia-mexico.com",
+  telephone: "+52 55 7500 7413",
   brand: {
     "@type": "Brand",
     name: "Energía México",
+  },
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+52 55 7500 7413",
+    contactType: "customer service",
+    areaServed: "MX",
+    availableLanguage: ["es"],
   },
 };
 

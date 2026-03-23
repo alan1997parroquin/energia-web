@@ -70,9 +70,14 @@ export const metadata: Metadata = {
     images: ["/og/og-home.jpg"],
   },
 
+  // ✅ CAMBIO CLAVE: usar /favicon.ico (raíz), que es lo que Google espera
   icons: {
-    icon: "/favicon/favicon.ico",
-    shortcut: "/favicon/favicon.ico",
+    icon: [
+      { url: "/favicon.ico" },
+      // (Opcional) respaldo si quieres mantener el anterior:
+      { url: "/favicon/favicon.ico" },
+    ],
+    shortcut: "/favicon.ico",
   },
 };
 

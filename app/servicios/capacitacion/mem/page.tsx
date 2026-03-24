@@ -28,12 +28,7 @@ export default function CapacitacionMemPage() {
 
   return (
     <main className="relative isolate overflow-hidden bg-white">
-      {/* Background global */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-blue-soft/60 via-white to-white" />
-        <div className="absolute -top-24 -left-24 h-80 w-80 rounded-full bg-brand-blue/15 blur-3xl" />
-        <div className="absolute -bottom-28 -right-24 h-96 w-96 rounded-full bg-brand-green/10 blur-3xl" />
-      </div>
+      
 
       <div className="mx-auto max-w-7xl px-6 pt-32 pb-16 lg:pt-24">
         {/* Breadcrumb */}

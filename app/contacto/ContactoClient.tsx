@@ -102,6 +102,11 @@ function CheckPill({
 }
 
 export default function ContactoClient() {
+  const [emailError, setEmailError] = useState("");
+  const isValidEmail = (email: string) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+  const NO_DOCUMENTS_OPTION = "No tengo datos";
   const [form, setForm] = useState<FormState>(initial);
   const [step, setStep] = useState<1 | 2 | 3>(1);
 
@@ -259,6 +264,7 @@ export default function ContactoClient() {
     return base;
   }, [form.servicio]);
 
+  
   const hasEmail = form.email.trim().length > 0;
   const canNextStep1 = form.nombre.trim().length > 0 && hasEmail && form.servicio !== "";
   const canNextStep2 = form.foco.length >= 1 && form.urgencia !== "";
@@ -354,15 +360,11 @@ export default function ContactoClient() {
 
   return (
     <main className="relative isolate min-h-screen overflow-hidden bg-white">
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-blue-soft/60 via-white to-white" />
-        <div className="absolute -top-24 -left-24 h-80 w-80 rounded-full bg-brand-blue/15 blur-3xl" />
-        <div className="absolute -bottom-28 -right-24 h-96 w-96 rounded-full bg-brand-green/10 blur-3xl" />
-      </div>
+      
 
       <div className="mx-auto max-w-7xl px-6 py-14">
         <div className="max-w-2xl">
-          <p className="text-sm font-semibold text-brand-blue">Contacto</p>
+          <p className="text-sm font-semibold text-brand-green">Contacto</p>
           <h1 className="mt-2 text-4xl font-bold tracking-tight text-slate-900">
             Agenda un diagnóstico energético
           </h1>
@@ -426,11 +428,23 @@ export default function ContactoClient() {
                       <input
                         type="email"
                         value={form.email}
-                        onChange={(e) => handleChange("email", e.target.value)}
+                        onChange={(e) => {
+                          const value = e.target.value;
+                          handleChange("email", value);
+
+                          if (value && !isValidEmail(value)) {
+                            setEmailError("Ingresa un correo electrónico válido.");
+                          } else {
+                            setEmailError("");
+                          }
+                        }}
                         required
                         placeholder="correo@empresa.com"
                         className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-brand-blue/60"
                       />
+                      {emailError && (
+                        <p className="mt-2 text-xs text-red-600">{emailError}</p>
+                      )}
                     </div>
 
                     <div className="sm:col-span-1">
@@ -517,14 +531,36 @@ export default function ContactoClient() {
                     <div>
                       <p className="text-sm font-semibold text-slate-900">{micro.datosTitle}</p>
                       <div className="mt-3 grid gap-2 sm:grid-cols-2">
-                        {micro.datos.map((item) => (
-                          <CheckPill
-                            key={item}
-                            label={item}
-                            checked={form.datos.includes(item)}
-                            onToggle={() => handleChange("datos", toggleInArray(form.datos, item))}
-                          />
-                        ))}
+                        {micro.datos.map((item) => {
+                          const isNoDocuments = item === NO_DOCUMENTS_OPTION;
+
+                          return (
+                            <CheckPill
+                              key={item}
+                              label={item}
+                              checked={form.datos.includes(item)}
+                              onToggle={() => {
+                                if (isNoDocuments) {
+                                  handleChange(
+                                    "datos",
+                                    form.datos.includes(NO_DOCUMENTS_OPTION)
+                                      ? []
+                                      : [NO_DOCUMENTS_OPTION]
+                                  );
+                                  return;
+                                }
+
+                                const currentDatos = form.datos.filter(
+                                  (value) => value !== NO_DOCUMENTS_OPTION
+                                );
+
+                                const nextDatos = toggleInArray(currentDatos, item);
+
+                                handleChange("datos", nextDatos);
+                              }}
+                            />
+                          );
+                        })}
                       </div>
                       <p className="mt-2 text-xs text-slate-500">
                         Opcional. Selecciona lo que tengas a la mano.

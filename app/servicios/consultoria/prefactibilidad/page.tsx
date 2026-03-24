@@ -1,13 +1,12 @@
 // app/servicios/consultoria/prefactibilidad/page.tsx
 import Link from "next/link";
 import Image from "next/image";
-
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Estudio de Prefactibilidad Eléctrica: Validación de Sitios y Nodos",
+  title: "Estudios de prefactibilidad",
   description:
-    "¿Qué es un estudio de prefactibilidad y por qué lo necesitas? Evaluamos la viabilidad de tu proyecto ante CFE y CENACE en tiempo récord. Reduce riesgos aquí.",
+    "Evaluamos la viabilidad de tu proyecto ante CFE y CENACE con análisis técnico y estratégico para reducir riesgos antes de iniciar estudios formales.",
   keywords: [
     "MEM",
     "demanda electrica",
@@ -17,13 +16,17 @@ export const metadata: Metadata = {
     "modelos matemáticos",
     "consultoría de energía",
     "interconexión",
+    "prefactibilidad eléctrica",
+    "sistemas de almacenamiento",
+    "incremento de demanda",
+    "migración a MEM",
   ],
   alternates: { canonical: "/servicios/consultoria/prefactibilidad" },
   openGraph: {
     title:
       "Estudio de Prefactibilidad Eléctrica: Validación de Sitios y Nodos | Energía México",
     description:
-      "¿Qué es un estudio de prefactibilidad y por qué lo necesitas? Evaluamos la viabilidad de tu proyecto ante CFE y CENACE en tiempo récord. Reduce riesgos aquí.",
+      "Evaluamos la viabilidad de tu proyecto ante CFE y CENACE con análisis técnico y estratégico para reducir riesgos antes de iniciar estudios formales.",
     url: "/servicios/consultoria/prefactibilidad",
     type: "website",
   },
@@ -31,48 +34,35 @@ export const metadata: Metadata = {
 
 const subservices = [
   {
+    id: "generacion",
     title: "Análisis de Nodo para Generación (Centrales Eléctricas y Renovables)",
     desc: "Para desarrolladores de generación de energía eléctrica, realizamos un análisis técnico-estratégico del nodo para determinar la viabilidad de inyección a la red de CFE. Evaluamos la tendencia del mix energético y la presencia de otros activos de generación en la zona para identificar posibles riesgos de congestión o curtailment. Este estudio incluye proyecciones de precios de energía y la identificación de la subestación eléctrica óptima, entregando conclusiones sólidas que respaldan tu modelo financiero ante inversionistas y autoridades regulatorias.",
   },
   {
+    id: "carga",
     title: "Análisis de Nodo para Cargas Industriales",
     desc: "Si tu proyecto representa una demanda de energía significativa, validamos tu modelo económico mediante un estudio profundo del nodo de interconexión asignado por CENACE. Analizamos los precios marginales locales (LMP) históricos y generamos una proyección de costos para identificar la subestación más idónea. Evaluamos el mix de generación en la zona para asegurar fuentes de suministro competitivas, permitiéndote prever el monto de inversión y los niveles de tensión necesarios para una operación eficiente y sin sobrecostos en el Mercado Eléctrico Mayorista.",
   },
   {
+    id: "incremento-de-demanda",
     title: "Incremento de Demanda Eléctrica",
     desc: "Realizamos un diagnóstico técnico-ejecutivo para evaluar la factibilidad de aumentar tu carga ante la red de CFE. Mediante un análisis de puntos críticos y capacidad en subestaciones eléctricas, identificamos la complejidad del proceso antes de iniciar trámites formales. Aseguramos que tu incremento de demanda cumpla con el Código de Red, evitando multas y garantizando la continuidad operativa de tu proyecto industrial o comercial.",
   },
   {
+    id: "migracion",
     title: "Migración de Proyectos de Energía",
     desc: "Evaluamos las implicaciones técnicas y regulatorias para definir la ruta más rentable en la migración de tus contratos actuales. Analizamos el costo-beneficio de transitar hacia la figura de Usuario Calificado, gestionando los requisitos ante CENACE y CFE Energía. Simplificamos la transición para que tu proyecto aproveche las ventajas competitivas del Mercado Eléctrico Mayorista con el menor riesgo posible.",
   },
   {
+    id: "sistemas-de-almacenamiento",
     title: "Sistemas de Almacenamiento de Energía",
     desc: "Implementamos soluciones de sistemas de almacenamiento para optimizar tu perfil de consumo, realizar arbitraje de energía y asegurar el respaldo ante fallas de red. Analizamos la integración tecnológica con energía solar y otras fuentes de generación de energía eléctrica, permitiéndote gestionar picos de demanda y mejorar la calidad de potencia bajo los estándares más exigentes del sector eléctrico mexicano.",
   },
 ];
 
-function toId(input: string) {
-  return input
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/[^a-z0-9\s-]/g, "")
-    .trim()
-    .replace(/\s+/g, "-")
-    .replace(/-+/g, "-");
-}
-
 export default function PrefactibilidadPage() {
   return (
     <main className="relative isolate overflow-hidden bg-white">
-      {/* Background global (mismo lenguaje visual) */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-blue-soft/60 via-white to-white" />
-        <div className="absolute -top-24 -left-24 h-80 w-80 rounded-full bg-brand-blue/15 blur-3xl" />
-        <div className="absolute -bottom-28 -right-24 h-96 w-96 rounded-full bg-brand-green/10 blur-3xl" />
-      </div>
-
       <div className="mx-auto max-w-7xl px-6 pt-32 pb-16 lg:pt-24">
         {/* Breadcrumb */}
         <div className="flex flex-wrap items-center gap-2 text-sm">
@@ -93,11 +83,13 @@ export default function PrefactibilidadPage() {
           <span className="font-semibold text-ink">Prefactibilidad</span>
         </div>
 
-        {/* HERO con imagen a la derecha */}
+        {/* HERO */}
         <section className="mt-8">
           <div className="mt-6 grid items-start gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(360px,0.85fr)] lg:gap-12">
             <div>
-              <p className="text-sm font-semibold text-brand-green">Consultoría</p>
+              <p className="text-sm font-semibold text-brand-green">
+                Consultoría
+              </p>
 
               <div className="mt-2 max-w-none">
                 <h1 className="text-4xl font-bold tracking-tight text-ink sm:text-5xl">
@@ -105,22 +97,22 @@ export default function PrefactibilidadPage() {
                 </h1>
 
                 <p className="mt-4 text-base text-ink-muted">
-                    Maximiza la rentabilidad de tu capital mediante un estudio de
-                    prefactibilidad ágil diseñado para identificar la viabilidad
-                    técnica y los retos operativos de tu proyecto. Antes de
-                    comprometer recursos en trámites formales ante{" "}
-                    <span className="font-semibold text-brand-green">CENACE</span>,
-                    validamos el potencial de tu ubicación utilizando{" "}
-                    <span className="font-semibold text-brand-green">
-                      modelos matemáticos
-                    </span>{" "}
-                    basados en información pública estratégica.
-                  </p>
+                  Maximiza la rentabilidad de tu capital mediante un estudio de
+                  prefactibilidad ágil diseñado para identificar la viabilidad
+                  técnica y los retos operativos de tu proyecto. Antes de
+                  comprometer recursos en trámites formales ante{" "}
+                  <span className="font-semibold text-brand-green">CENACE</span>,
+                  validamos el potencial de tu ubicación utilizando{" "}
+                  <span className="font-semibold text-brand-green">
+                    modelos matemáticos
+                  </span>{" "}
+                  basados en información pública estratégica.
+                </p>
 
-                  <p className="mt-6 text-base text-ink-muted">
-                    Nuestro informe ejecutivo proporciona claridad inmediata sobre
-                    un sitio específico, detallando:
-                  </p>
+                <p className="mt-6 text-base text-ink-muted">
+                  Nuestro informe ejecutivo proporciona claridad inmediata sobre
+                  un sitio específico, detallando:
+                </p>
 
                 <ul className="mt-4 space-y-3 text-sm text-ink-muted">
                   <li className="flex gap-3">
@@ -162,17 +154,17 @@ export default function PrefactibilidadPage() {
                   </li>
                 </ul>
 
-                      <p className="mt-6 text-base text-ink-muted">
-                        Optimiza tu toma de decisiones con un diagnóstico que reduce
-                        la incertidumbre y acelera tu entrada al{" "}
-                        <span className="font-semibold text-brand-green">MEM</span> con{" "}
-                        <span className="font-semibold text-brand-green">
-                          consultoría de energía
-                        </span>
-                        .
-                      </p>
+                <p className="mt-6 text-base text-ink-muted">
+                  Optimiza tu toma de decisiones con un diagnóstico que reduce
+                  la incertidumbre y acelera tu entrada al{" "}
+                  <span className="font-semibold text-brand-green">MEM</span>{" "}
+                  con{" "}
+                  <span className="font-semibold text-brand-green">
+                    consultoría de energía
+                  </span>
+                  .
+                </p>
 
-                {/* CTAs */}
                 <div className="mt-8 flex flex-wrap gap-3">
                   <Link
                     href="/contacto"
@@ -225,8 +217,8 @@ export default function PrefactibilidadPage() {
           <div className="mt-8 space-y-6">
             {subservices.map((s) => (
               <div
-                key={s.title}
-                id={toId(s.title)}
+                key={s.id}
+                id={s.id}
                 className="relative scroll-mt-24 overflow-hidden rounded-3xl border border-surface-border bg-white/70 p-6 shadow-sm backdrop-blur"
               >
                 <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-brand-blue/10 blur-3xl" />

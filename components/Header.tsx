@@ -158,7 +158,7 @@ const gestoriaSections: SubMenu[] = [
     href: gestoriaPages.cenace,
     items: [
       "Prefactibilidad",
-      "Estrategia de promocion",
+      "Estrategia de promoción",
       "Manejo de SIASIC",
       "Modelo matemático",
       "Perfiles de carga",
@@ -177,15 +177,20 @@ const gestoriaSections: SubMenu[] = [
 ];
 
 
-    const integradorItems: NestedItem[] = [
-  { label: "Estudio de viabilidad", href: "/servicios/fotovoltaico/viabilidad" },
-  { label: "Diseño de solución", href: "/servicios/fotovoltaico/diseno" },
-  { label: "Ingeniería detallada", href: "/servicios/fotovoltaico/ingenieria" },
-  { label: "Suministro e instalación", href: "/servicios/fotovoltaico/instalacion" },
-  { label: "Pruebas", href: "/servicios/fotovoltaico/pruebas" },
-  { label: "Mantenimiento preventivo y correctivo", href: "/servicios/fotovoltaico/mantenimiento" },
-  { label: "Financiamiento", href: "/servicios/fotovoltaico/financiamiento" },
-  { label: "Gestoría de CFE", href: "/servicios/fotovoltaico/gestoria-cfe" },
+  const fvBase = "/servicios/fotovoltaico";
+
+const integradorItems: NestedItem[] = [
+  { label: "Estudio de viabilidad", href: `${fvBase}#estudio-de-viabilidad` },
+  { label: "Diseño de solución", href: `${fvBase}#diseno-de-solucion` },
+  { label: "Ingeniería detallada", href: `${fvBase}#ingenieria-detallada` },
+  { label: "Suministro e instalación", href: `${fvBase}#suministro-e-instalacion` },
+  { label: "Pruebas y puesta en marcha", href: `${fvBase}#pruebas-y-puesta-en-marcha` },
+  {
+    label: "Mantenimiento preventivo y correctivo",
+    href: `${fvBase}#mantenimiento-preventivo-y-correctivo`,
+  },
+  { label: "Financiamiento", href: `${fvBase}#financiamiento` },
+  { label: "Gestoría de CFE", href: `${fvBase}#gestoria-de-cfe` },
 ];
 
 
@@ -360,7 +365,7 @@ const handleNav = (href?: string) => (e: React.MouseEvent) => {
   }, [openMobile]);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-brand-green/20 bg-brand-green-soft/20 shadow-sm backdrop-blur-md">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-brand-green/40 bg-brand-green/55 shadow-sm backdrop-blur-md">
 
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4">
         {/* Brand */}

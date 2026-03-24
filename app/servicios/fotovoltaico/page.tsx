@@ -44,6 +44,8 @@ function toId(input: string) {
 const subservices = [
   {
     title: "Estudio de viabilidad",
+    image: "/imagen/fotovoltaico/viabilidad.jpg",
+    imageAlt: "Estudio de viabilidad fotovoltaica",
     desc: "Evaluamos si el proyecto fotovoltaico tiene sentido técnico y financiero antes de comprometer inversión, tiempo y recursos. Analizamos consumo, sitio, restricciones, interconexión y potencial de ahorro para construir una base de decisión más clara.",
     problem: "Problema habitual",
     problemList: [
@@ -63,6 +65,8 @@ const subservices = [
   },
   {
     title: "Diseño de solución",
+    image: "/imagen/fotovoltaico/diseno.jpg",
+    imageAlt: "Diseño de solución fotovoltaica",
     desc: "Definimos la arquitectura general del sistema fotovoltaico con enfoque técnico, operativo y económico. Seleccionamos la solución más adecuada para el sitio, el perfil de consumo y los objetivos del cliente.",
     problem: "Problema habitual",
     problemList: [
@@ -81,6 +85,8 @@ const subservices = [
   },
   {
     title: "Ingeniería detallada",
+    image: "/imagen/fotovoltaico/ingenieria.jpg",
+    imageAlt: "Ingeniería detallada fotovoltaica",
     desc: "Desarrollamos la ingeniería necesaria para construir con orden, seguridad y claridad técnica. Traducimos la estrategia del proyecto en criterios, memorias, planos, especificaciones y bases documentales para ejecución e interconexión.",
     problem: "Problema habitual",
     problemList: [
@@ -99,6 +105,8 @@ const subservices = [
   },
   {
     title: "Suministro e instalación",
+    image: "/imagen/fotovoltaico/instalacion.jpg",
+    imageAlt: "Suministro e instalación fotovoltaica",
     desc: "Ejecutamos el proyecto con control técnico y operativo: suministro, logística, montaje y coordinación en sitio para asegurar una implementación ordenada, segura y alineada con el diseño aprobado.",
     problem: "Problema habitual",
     problemList: [
@@ -117,6 +125,8 @@ const subservices = [
   },
   {
     title: "Pruebas y puesta en marcha",
+    image: "/imagen/fotovoltaico/pruebas.jpg",
+    imageAlt: "Pruebas y puesta en marcha fotovoltaica",
     desc: "Validamos el sistema antes de su operación formal para asegurar que funcione conforme a diseño, con condiciones adecuadas de seguridad, desempeño y confiabilidad.",
     problem: "Problema habitual",
     problemList: [
@@ -135,6 +145,8 @@ const subservices = [
   },
   {
     title: "Mantenimiento preventivo y correctivo",
+    image: "/imagen/fotovoltaico/mantenimiento.jpg",
+    imageAlt: "Mantenimiento preventivo y correctivo fotovoltaico",
     desc: "Acompañamos la operación del sistema fotovoltaico para conservar su desempeño, reducir fallas y minimizar pérdidas de generación mediante rutinas preventivas y atención correctiva oportuna.",
     problem: "Problema habitual",
     problemList: [
@@ -153,6 +165,8 @@ const subservices = [
   },
   {
     title: "Financiamiento",
+    image: "/imagen/fotovoltaico/financiamiento.jpg",
+    imageAlt: "Financiamiento para proyectos fotovoltaicos",
     desc: "Estructuramos el análisis económico del proyecto para facilitar la toma de decisiones y abrir opciones de inversión, CAPEX o financiamiento según el perfil del cliente y los objetivos financieros del proyecto.",
     problem: "Problema habitual",
     problemList: [
@@ -171,6 +185,8 @@ const subservices = [
   },
   {
     title: "Gestoría de CFE",
+    image: "/imagen/fotovoltaico/gestoria-cfe.jpg",
+    imageAlt: "Gestoría de CFE para proyectos fotovoltaicos",
     desc: "Acompañamos la ruta de interconexión con CFE para que el proyecto avance con orden documental, seguimiento claro y menor fricción en el proceso técnico-administrativo.",
     problem: "Problema habitual",
     problemList: [
@@ -192,13 +208,6 @@ const subservices = [
 export default function FotovoltaicoPage() {
   return (
     <main className="relative isolate overflow-hidden bg-white">
-      {/* Background global */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-blue-soft/60 via-white to-white" />
-        <div className="absolute -top-24 -left-24 h-80 w-80 rounded-full bg-brand-blue/15 blur-3xl" />
-        <div className="absolute -bottom-28 -right-24 h-96 w-96 rounded-full bg-brand-green/10 blur-3xl" />
-      </div>
-
       <div className="mx-auto max-w-7xl px-6 pt-32 pb-16 lg:pt-24">
         {/* Breadcrumb */}
         <div className="flex flex-wrap items-center gap-2 text-sm">
@@ -215,7 +224,6 @@ export default function FotovoltaicoPage() {
         {/* HERO */}
         <section className="relative">
           <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(360px,0.85fr)] lg:gap-12">
-            {/* Left */}
             <div>
               <h1 className="mt-2 text-4xl font-bold tracking-tight text-ink sm:text-5xl">
                 Proyectos <span className="text-brand-blue">fotovoltaicos</span> con{" "}
@@ -246,12 +254,11 @@ export default function FotovoltaicoPage() {
               </div>
             </div>
 
-            {/* Right visual */}
             <div className="lg:pt-6">
               <div className="overflow-hidden rounded-[2rem] border border-surface-border bg-white shadow-sm">
                 <div className="relative h-[320px] w-full sm:h-[380px] lg:h-[460px]">
                   <Image
-                    src="/imagen/fotovoltaico/diseno.jpg"
+                    src="/imagen/fotovoltaico/panel.jpg"
                     alt="Proyectos fotovoltaicos para empresas"
                     fill
                     className="object-cover"
@@ -302,132 +309,148 @@ export default function FotovoltaicoPage() {
               </ul>
             </div>
           </div>
+        </section>
 
-          {/* Problema / solución */}
-          <section className="mt-10">
-            <div className="rounded-3xl border border-surface-border bg-white/80 p-8 shadow-sm backdrop-blur">
-              <div className="grid gap-8 lg:grid-cols-2">
-                {/* Problema */}
-                <div>
-                  <p className="text-sm font-semibold text-brand-green">
-                    Problema que resolvemos
-                  </p>
-                  <h3 className="mt-1 text-2xl font-bold tracking-tight text-ink">
-                    ¿Qué frena un proyecto FV bien ejecutado?
-                  </h3>
-
-                  <ul className="mt-4 space-y-3 text-sm text-ink-muted">
-                    <li className="flex gap-3">
-                      <span className="mt-0.5 flex-none text-brand-green">✔</span>
-                      <span>
-                        Proyectos que arrancan sin validar correctamente su viabilidad técnica,
-                        financiera o regulatoria.
-                      </span>
-                    </li>
-
-                    <li className="flex gap-3">
-                      <span className="mt-0.5 flex-none text-brand-green">✔</span>
-                      <span>
-                        Soluciones mal dimensionadas o definidas solo desde lo comercial, sin una
-                        ruta clara de ingeniería y ejecución.
-                      </span>
-                    </li>
-
-                    <li className="flex gap-3">
-                      <span className="mt-0.5 flex-none text-brand-green">✔</span>
-                      <span>
-                        Retrasos y sobrecostos por falta de coordinación entre diseño, suministro,
-                        instalación, pruebas e interconexión.
-                      </span>
-                    </li>
-
-                    <li className="flex gap-3">
-                      <span className="mt-0.5 flex-none text-brand-green">✔</span>
-                      <span>
-                        Sistemas que pierden desempeño con el tiempo por falta de mantenimiento,
-                        monitoreo o seguimiento técnico.
-                      </span>
-                    </li>
-                  </ul>
-                </div>
-
-                {/* Solución */}
-                <div>
-                  <p className="text-sm font-semibold text-brand-green">Solución</p>
-                  <h3 className="mt-1 text-2xl font-bold tracking-tight text-ink">
-                    Un integrador que conecta estrategia, ingeniería y ejecución
-                  </h3>
-
-                  <ul className="mt-4 space-y-3 text-sm text-ink-muted">
-                    <li className="flex gap-3">
-                      <span className="mt-0.5 flex-none text-brand-green">✔</span>
-                      <span>
-                        Evaluamos primero la viabilidad del proyecto para reducir decisiones mal
-                        fundamentadas.
-                      </span>
-                    </li>
-
-                    <li className="flex gap-3">
-                      <span className="mt-0.5 flex-none text-brand-green">✔</span>
-                      <span>
-                        Diseñamos la solución y desarrollamos la ingeniería necesaria para ejecutar
-                        con claridad y consistencia.
-                      </span>
-                    </li>
-
-                    <li className="flex gap-3">
-                      <span className="mt-0.5 flex-none text-brand-green">✔</span>
-                      <span>
-                        Coordinamos suministro, instalación, pruebas y puesta en marcha con enfoque
-                        en calidad, seguridad y trazabilidad.
-                      </span>
-                    </li>
-
-                    <li className="flex gap-3">
-                      <span className="mt-0.5 flex-none text-brand-green">✔</span>
-                      <span>
-                        Acompañamos la operación con mantenimiento, análisis financiero y gestoría
-                        para maximizar continuidad y retorno.
-                      </span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section className="mt-14">
-            <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+        {/* Problema / solución */}
+        <section className="mt-10">
+          <div className="rounded-3xl border border-surface-border bg-white/80 p-8 shadow-sm backdrop-blur">
+            <div className="grid gap-8 lg:grid-cols-2">
               <div>
-                <p className="text-sm font-semibold text-brand-green">Subservicios</p>
-                <h2 className="mt-1 text-2xl font-bold tracking-tight text-ink">
-                  Conoce nuestra variedad de servicios
-                </h2>
+                <p className="text-sm font-semibold text-brand-green">
+                  Problema que resolvemos
+                </p>
+                <h3 className="mt-1 text-2xl font-bold tracking-tight text-ink">
+                  ¿Qué frena un proyecto FV bien ejecutado?
+                </h3>
+
+                <ul className="mt-4 space-y-3 text-sm text-ink-muted">
+                  <li className="flex gap-3">
+                    <span className="mt-0.5 flex-none text-brand-green">✔</span>
+                    <span>
+                      Proyectos que arrancan sin validar correctamente su viabilidad técnica,
+                      financiera o regulatoria.
+                    </span>
+                  </li>
+
+                  <li className="flex gap-3">
+                    <span className="mt-0.5 flex-none text-brand-green">✔</span>
+                    <span>
+                      Soluciones mal dimensionadas o definidas solo desde lo comercial, sin una
+                      ruta clara de ingeniería y ejecución.
+                    </span>
+                  </li>
+
+                  <li className="flex gap-3">
+                    <span className="mt-0.5 flex-none text-brand-green">✔</span>
+                    <span>
+                      Retrasos y sobrecostos por falta de coordinación entre diseño, suministro,
+                      instalación, pruebas e interconexión.
+                    </span>
+                  </li>
+
+                  <li className="flex gap-3">
+                    <span className="mt-0.5 flex-none text-brand-green">✔</span>
+                    <span>
+                      Sistemas que pierden desempeño con el tiempo por falta de mantenimiento,
+                      monitoreo o seguimiento técnico.
+                    </span>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <p className="text-sm font-semibold text-brand-green">Solución</p>
+                <h3 className="mt-1 text-2xl font-bold tracking-tight text-ink">
+                  Un integrador que conecta estrategia, ingeniería y ejecución
+                </h3>
+
+                <ul className="mt-4 space-y-3 text-sm text-ink-muted">
+                  <li className="flex gap-3">
+                    <span className="mt-0.5 flex-none text-brand-green">✔</span>
+                    <span>
+                      Evaluamos primero la viabilidad del proyecto para reducir decisiones mal
+                      fundamentadas.
+                    </span>
+                  </li>
+
+                  <li className="flex gap-3">
+                    <span className="mt-0.5 flex-none text-brand-green">✔</span>
+                    <span>
+                      Diseñamos la solución y desarrollamos la ingeniería necesaria para ejecutar
+                      con claridad y consistencia.
+                    </span>
+                  </li>
+
+                  <li className="flex gap-3">
+                    <span className="mt-0.5 flex-none text-brand-green">✔</span>
+                    <span>
+                      Coordinamos suministro, instalación, pruebas y puesta en marcha con enfoque
+                      en calidad, seguridad y trazabilidad.
+                    </span>
+                  </li>
+
+                  <li className="flex gap-3">
+                    <span className="mt-0.5 flex-none text-brand-green">✔</span>
+                    <span>
+                      Acompañamos la operación con mantenimiento, análisis financiero y gestoría
+                      para maximizar continuidad y retorno.
+                    </span>
+                  </li>
+                </ul>
               </div>
             </div>
-          </section>
+          </div>
+        </section>
 
-          <div className="mt-8 space-y-6">
-            {subservices.map((s) => (
+        {/* Título subservicios */}
+        <section className="mt-14">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="text-sm font-semibold text-brand-green">Subservicios</p>
+              <h2 className="mt-1 text-2xl font-bold tracking-tight text-ink">
+                Conoce nuestra variedad de servicios
+              </h2>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      {/* FRANJAS FULL WIDTH */}
+      <div className="mt-8">
+        {subservices.map((s, index) => (
+          <section
+            key={s.id}
+            id={s.id}
+            className={`relative scroll-mt-24 overflow-hidden border-t border-surface-border ${
+              index % 2 === 0 ? "bg-white" : "bg-surface-soft"
+            }`}
+          >
+            <div className="pointer-events-none absolute inset-0">
               <div
-                key={s.id}
-                id={s.id}
-                className="relative scroll-mt-24 overflow-hidden rounded-3xl border border-surface-border bg-white/70 p-6 shadow-sm backdrop-blur"
-              >
-                <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-brand-blue/10 blur-3xl" />
-                <div className="pointer-events-none absolute -bottom-28 -left-28 h-72 w-72 rounded-full bg-brand-green/10 blur-3xl" />
+                className={`absolute -top-20 -left-24 h-72 w-72 rounded-full blur-3xl ${
+                  index % 2 === 0 ? "bg-brand-blue/10" : "bg-brand-green/10"
+                }`}
+              />
+              <div
+                className={`absolute -bottom-24 -right-24 h-80 w-80 rounded-full blur-3xl ${
+                  index % 2 === 0 ? "bg-brand-green/10" : "bg-brand-blue/10"
+                }`}
+              />
+            </div>
 
-                <div className="relative">
-                  <h3 className="text-xl font-bold tracking-tight text-ink">
+            <div className="relative mx-auto max-w-7xl px-6 py-16">
+              <div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_420px] lg:items-start">
+                <div>
+                  <h3 className="text-2xl font-bold tracking-tight text-ink">
                     {s.title}
                   </h3>
 
-                  <p className="mt-2 max-w-none text-sm leading-relaxed text-ink-muted">
+                  <p className="mt-3 max-w-none text-sm leading-relaxed text-ink-muted">
                     {s.desc}
                   </p>
 
-                  <div className="mt-5 grid gap-3 sm:grid-cols-2">
-                    <div className="rounded-2xl border border-surface-border bg-white/70 p-4 backdrop-blur">
+                  <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                    <div className="rounded-2xl border border-surface-border bg-white/80 p-4 backdrop-blur">
                       <p className="text-xs font-semibold uppercase tracking-wide text-ink-soft">
                         Problema
                       </p>
@@ -444,7 +467,7 @@ export default function FotovoltaicoPage() {
                       </ul>
                     </div>
 
-                    <div className="rounded-2xl border border-surface-border bg-white/70 p-4 backdrop-blur">
+                    <div className="rounded-2xl border border-surface-border bg-white/80 p-4 backdrop-blur">
                       <p className="text-xs font-semibold uppercase tracking-wide text-ink-soft">
                         Solución
                       </p>
@@ -463,22 +486,36 @@ export default function FotovoltaicoPage() {
                     </div>
                   </div>
 
-                  <div className="mt-5 flex flex-wrap gap-3">
+                  <div className="mt-6 flex flex-wrap gap-3">
                     <Link
                       href="/contacto"
                       className="inline-flex items-center justify-center rounded-full bg-brand-blue px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-brand-blue-dark"
                     >
                       Solicitar diagnóstico
                     </Link>
-                    
+                  </div>
+                </div>
+
+                <div className="lg:pt-2">
+                  <div className="overflow-hidden rounded-[1.75rem] border border-surface-border bg-white shadow-sm">
+                    <div className="relative h-[260px] w-full sm:h-[320px] lg:h-[360px]">
+                      <Image
+                        src={s.image}
+                        alt={s.imageAlt}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
-        </section>
+            </div>
+          </section>
+        ))}
+      </div>
 
-        {/* CTA final */}
+      {/* CTA FINAL */}
+      <div className="mx-auto max-w-7xl px-6">
         <section className="mt-16 border-t border-surface-border pt-12">
           <div className="rounded-3xl border border-surface-border bg-white p-8 shadow-sm">
             <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">

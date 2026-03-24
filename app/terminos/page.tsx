@@ -16,11 +16,7 @@ export default function TerminosPage() {
   return (
     <main className="relative isolate overflow-hidden bg-white">
       {/* background accents */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-blue-soft/45 via-white to-white" />
-        <div className="absolute -top-24 -left-24 h-80 w-80 rounded-full bg-brand-blue/12 blur-3xl" />
-        <div className="absolute -bottom-28 -right-24 h-96 w-96 rounded-full bg-brand-green/10 blur-3xl" />
-      </div>
+     
 
       <div className="mx-auto max-w-4xl px-6 py-16">
         {/* back */}
@@ -35,7 +31,7 @@ export default function TerminosPage() {
 
         {/* header */}
         <header className="mb-10">
-          <p className="text-sm font-semibold tracking-wide text-brand-blue">
+          <p className="text-sm font-semibold tracking-wide text-brand-green">
             Legal
           </p>
           <h1 className="mt-2 text-3xl font-semibold tracking-tight text-gray-900 md:text-4xl">

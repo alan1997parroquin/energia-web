@@ -19,7 +19,9 @@ export const metadata: Metadata = {
     "forecasts",
     "prospección de precios",
   ],
-  alternates: { canonical: "/servicios/consultoria/anticipacion" },
+  alternates: {
+    canonical: "/servicios/consultoria/anticipacion",
+  },
   openGraph: {
     title: "Anticipación estratégica de tendencias | Energía México",
     description:
@@ -33,11 +35,11 @@ const subservices = [
   {
     id: "prospeccion-de-precios-de-energia-por-nodo-hora-y-zona",
     title: "Prospección de Precios de Energía (PML)",
-    desc: "Forecasts y escenarios de precio con granularidad por nodo/hora/zona para planear inversiones y estrategia comercial.",
+    desc: "Forecasts y escenarios de precio con granularidad por nodo, hora y zona para planear inversiones y estrategia comercial.",
     problem:
-      "Los pronósticos de mercado públicos carecen de la granularidad necesaria (nodo, hora, zona) para un modelo financiero robusto de mediano o largo plazo. Además, adquirir software especializado es costoso y requiere procesar volúmenes masivos de datos inaccesibles para la mayoría de las empresas.",
+      "Los pronósticos de mercado públicos carecen de la granularidad necesaria (nodo, hora y zona) para un modelo financiero robusto de mediano o largo plazo. Además, adquirir software especializado es costoso y requiere procesar volúmenes masivos de datos inaccesibles para la mayoría de las empresas.",
     solution:
-      "La Solución: Adaptamos procesos complejos de prospección de precios a tus necesidades específicas. Entregamos forecasts y escenarios de precio con granularidad horaria por nodo o zona de carga/generación. Obtienes la información precisa que tu proyecto requiere, respaldada por un análisis sólido y transparente que inversionistas y técnicos pueden validar para sus proyecciones de flujo de caja.",
+      "Adaptamos procesos complejos de prospección de precios a tus necesidades específicas. Entregamos forecasts y escenarios de precio con granularidad horaria por nodo o zona de carga/generación. Obtienes la información precisa que tu proyecto requiere, respaldada por un análisis sólido y transparente que inversionistas y técnicos pueden validar para sus proyecciones de flujo de caja.",
   },
   {
     id: "simulacion-de-despacho-a-corto-mediano",
@@ -88,7 +90,7 @@ export default function AnticipacionPage() {
               </h1>
 
               <p className="mt-4 max-w-2xl text-base text-ink-muted">
-                <span className="text-brand-green">
+                <span className="font-semibold text-brand-green">
                   Modelos matemáticos avanzados
                 </span>{" "}
                 para asegurar la rentabilidad de tus activos en el sector

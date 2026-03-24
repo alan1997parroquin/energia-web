@@ -360,12 +360,7 @@ const handleNav = (href?: string) => (e: React.MouseEvent) => {
   }, [openMobile]);
 
   return (
-    <header
-  className={[
-    "sticky top-0 z-50 border-b border-slate-200",
-    openMobile ? "bg-white shadow-sm" : "bg-white/70 backdrop-blur-md",
-  ].join(" ")}
->
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-brand-green/20 bg-brand-green-soft/20 shadow-sm backdrop-blur-md">
 
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4">
         {/* Brand */}
@@ -383,7 +378,7 @@ const handleNav = (href?: string) => (e: React.MouseEvent) => {
           <div className="leading-tight">
             <p className="font-bold text-ink">Energía México</p>
             <p className="text-xs text-ink-muted">
-              Consultoría • FV • Capacitación
+              Consultoría en Mercado Eléctrico Mayorista
             </p>
           </div>
         </Link>

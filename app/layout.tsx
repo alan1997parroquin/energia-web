@@ -145,8 +145,9 @@ export default function RootLayout({
         />
 
         <Header />
-        {children}
-        <Footer />
+<div aria-hidden="true" className="h-[88px] bg-white" />
+{children}
+<Footer />
       </body>
     </html>
   );

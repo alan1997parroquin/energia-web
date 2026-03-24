@@ -2,7 +2,7 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "Aviso de Privacidad | Energía México",
+  title: "Aviso de Privacidad",
   description:
     "Aviso de Privacidad Integral de Energía México: tratamiento de datos personales, finalidades, derechos ARCO y medios de contacto.",
 };

@@ -13,7 +13,7 @@ type Service = {
 };
 
 export const metadata: Metadata = {
-  title: "Capacitación energética | Energía México",
+  title: "Capacitación energética",
   description:
     "Capacitación energética para equipos técnicos y de decisión: MEM, riesgos y oportunidades, Calliope, certificaciones y análisis de datos del mercado.",
   keywords: [

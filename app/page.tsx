@@ -7,7 +7,7 @@ import AboutSection from "@/components/AboutSection";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Consultoría en Mercado Eléctrico Mexicano | Energía México",
+  title: "Consultoría en Mercado Eléctrico Mexicano",
   description:
     "Consultoría energética en México para empresas: estudios de prefactibilidad, interconexión ante CFE y CENACE, integración fotovoltaica y capacitación especializada para tomar decisiones con datos.",
   keywords: [

@@ -2,7 +2,7 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "Términos y Condiciones | Energía México",
+  title: "Términos y Condiciones",
   description:
     "Términos y Condiciones de uso del sitio de Energía México: uso permitido, propiedad intelectual, limitación de responsabilidad y ley aplicable.",
 };

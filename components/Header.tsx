@@ -194,12 +194,12 @@ const integradorItems: NestedItem[] = [
 ];
 
 
-    const capacitacionItems: NestedItem[] = [
-  { label: "MEM", href: "/servicios/capacitacion/mem" },
-  { label: "Análisis de riesgos y oportunidades", href: "/servicios/capacitacion/riesgos" },
-  { label: "Modelo de despacho en Calliope", href: "/servicios/capacitacion/calliope" },
-  { label: "Cursos de preparación para certificaciones", href: "/servicios/capacitacion/certificaciones" },
-  { label: "Análisis de datos MEM", href: "/servicios/capacitacion/datos" },
+  const capacitacionItems: NestedItem[] = [
+  { label: "MEM", href: "/servicios/capacitacion#mem" },
+  { label: "Análisis de riesgos y oportunidades", href: "/servicios/capacitacion#riesgos" },
+  { label: "Modelo de despacho en Calliope", href: "/servicios/capacitacion#calliope" },
+  { label: "Preparación para certificaciones", href: "/servicios/capacitacion#certificaciones" },
+  { label: "Análisis de datos MEM", href: "/servicios/capacitacion#datos" },
 ];
 
 
@@ -227,7 +227,7 @@ const integradorItems: NestedItem[] = [
         },
         {
           type: "list",
-          label: "Capacitaciones",
+          label: "Capacitación",
           href: "/servicios/capacitacion",
           items: capacitacionItems,
         },
@@ -573,7 +573,7 @@ const handleNav = (href?: string) => (e: React.MouseEvent) => {
           </nav>
 
           <Link
-            href="/contacto"
+            href="/contacto#formulario-cotizacion"
             className="rounded-xl bg-brand-green px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-green-dark"
           >
             Cotiza ahora
@@ -583,11 +583,11 @@ const handleNav = (href?: string) => (e: React.MouseEvent) => {
         {/* Mobile Controls */}
         <div className="flex items-center gap-3 md:hidden">
           <Link
-            href="/contacto"
-            className="rounded-xl bg-brand-green px-3 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-green-dark"
-          >
-            Cotiza
-          </Link>
+              href="/contacto#formulario-cotizacion"
+              className="rounded-xl bg-brand-green px-3 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-green-dark"
+            >
+              Cotiza
+            </Link>
 
           <button
             onClick={() => setOpenMobile(true)}
@@ -809,12 +809,12 @@ const handleNav = (href?: string) => (e: React.MouseEvent) => {
 
             <div className="mt-6 space-y-3">
               <Link
-                href="/contacto"
-                onClick={() => setOpenMobile(false)}
-                className="block w-full rounded-xl bg-brand-green px-4 py-3 text-center text-sm font-semibold text-white shadow-sm transition hover:bg-brand-green-dark"
-              >
-                Solicitar cotización
-              </Link>
+                  href="/contacto#formulario-cotizacion"
+                  onClick={() => setOpenMobile(false)}
+                  className="block w-full rounded-xl bg-brand-green px-4 py-3 text-center text-sm font-semibold text-white shadow-sm transition hover:bg-brand-green-dark"
+                >
+                  Solicitar cotización
+                </Link>
             </div>
           </nav>
         </div>

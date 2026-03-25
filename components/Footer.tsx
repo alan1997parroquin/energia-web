@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const links = {
   servicios: [
@@ -48,6 +51,8 @@ function FacebookIcon(props: React.SVGProps<SVGSVGElement>) {
 
 export default function Footer() {
   const year = new Date().getFullYear();
+  const pathname = usePathname();
+  const isContactPage = pathname === "/contacto";
 
   return (
     <footer className="relative overflow-hidden border-t border-surface-border bg-white">
@@ -142,15 +147,16 @@ export default function Footer() {
               Te orientamos para reducir costos, cumplir regulación y evaluar FV.
             </p>
 
-            <div className="mt-5 flex flex-col gap-3">
-              <Link
-                href="/contacto"
-                className="inline-flex items-center justify-center rounded-xl bg-brand-green-dark px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:brightness-110"
-              >
-                Solicitar diagnóstico
-              </Link>
-              
-            </div>
+            {!isContactPage && (
+              <div className="mt-5 flex flex-col gap-3">
+                <Link
+                  href="/contacto"
+                  className="inline-flex items-center justify-center rounded-xl bg-brand-green-dark px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:brightness-110"
+                >
+                  Solicitar diagnóstico
+                </Link>
+              </div>
+            )}
 
             <div className="mt-6 h-2 w-full rounded-full bg-gradient-to-r from-brand-green-dark via-brand-green to-[#583F66]" />
           </div>
@@ -162,7 +168,6 @@ export default function Footer() {
             © {year} Energía México. Todos los derechos reservados.
           </p>
 
-          {/* Derecha: Búscanos + iconos + links legales */}
           <div className="flex flex-wrap items-center gap-x-6 gap-y-3 text-xs">
             <div className="flex items-center gap-3">
               <span className="text-ink-soft">Búscanos en</span>

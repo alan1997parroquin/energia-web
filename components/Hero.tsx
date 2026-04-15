@@ -139,7 +139,7 @@ export default function Hero() {
               Especialistas en{" "}
               <span className="font-semibold text-brand-green">consultoría de energía</span>{" "}
               y análisis de datos del
-              <span className="font-semibold text-brand-green">Mercado Eléctrico Mayorista.</span>{" "}
+              <span className="font-semibold text-brand-green"> Mercado Eléctrico Mayorista.</span>{" "}
               Facilitamos la toma de decisiones energéticas mediante
               <span className="font-semibold text-brand-green"> estudios de prefactibilidad</span>{" "}
               precisos para la instalación de nueva carga o

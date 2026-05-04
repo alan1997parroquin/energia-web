@@ -3,23 +3,24 @@
 :root {
   --background: #ffffff;
   --foreground: #0f172a;
-
-  /* Offset global para anchors con header sticky */
   --header-offset: 104px;
 }
 
-/* Tailwind v4 tokens */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
-  --color-brand-blue: #1f4fd8;
-  --color-brand-blue-dark: #153a9b;
-  --color-brand-blue-soft: #eaf0ff;
+  --color-brand-blue: #0050D4;
+  --color-brand-blue-dark: #003A9B;
+  --color-brand-blue-soft: #E6EEFF;
 
-  --color-brand-green: #2ead4a;
-  --color-brand-green-dark: #1e7f35;
-  --color-brand-green-soft: #e8f7ed;
+  --color-brand-cyan: #00CFFF;
+  --color-brand-cyan-dark: #0099CC;
+  --color-brand-cyan-soft: #E6FAFF;
+
+  --color-brand-green: #0050D4;
+  --color-brand-green-dark: #003A9B;
+  --color-brand-green-soft: #E6EEFF;
 
   --color-warning: #f5b301;
   --color-warning-soft: #fff4d6;
@@ -33,26 +34,14 @@
   --color-surface-border: #e2e8f0;
 
   --font-sans: var(--font-inter);
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    "Liberation Mono", "Courier New", monospace;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 html {
   scroll-behavior: smooth;
   scroll-padding-top: var(--header-offset);
-  overflow-x: hidden;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  overflow-x: hidden;
-  max-width: 100%;
 }

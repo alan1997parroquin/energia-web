@@ -94,7 +94,7 @@ export default function Footer() {
               <p className="font-semibold text-ink">Contacto</p>
               <p className="mt-1 text-ink-muted">
                 Email:{" "}
-                <span className="font-medium text-ink">tomas@energia-mexico.com</span>
+                <span className="font-medium text-ink">servicios@energia-mexico.com</span>
               </p>
               <p className="mt-1 text-ink-muted">
                 WhatsApp:{" "}

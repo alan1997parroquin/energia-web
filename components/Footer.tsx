@@ -64,25 +64,27 @@ export default function Footer() {
 
       <div className="mx-auto max-w-7xl px-6 py-14">
         <div className="grid gap-10 lg:grid-cols-4">
-          {/* Brand */}
-          <div className="space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="relative h-10 w-10 overflow-hidden rounded-xl bg-brand-green/15">
-                <Image
-                  src="/branding/energia-mexico-logo.png"
-                  alt="Energía México"
-                  fill
-                  className="object-contain p-1"
-                  priority={false}
-                />
+        {/* Brand */}
+            <div className="space-y-4">
+              <div className="flex items-center gap-4">
+                <div className="flex h-14 w-14 shrink-0 items-center justify-center">
+                  <Image
+                    src="/branding/energia-mexico-logo.png"
+                    alt="Energía México"
+                    width={140}
+                    height={140}
+                    className="h-full w-full object-contain opacity-100"
+                    priority={false}
+                  />
+                </div>
+
+                <div className="min-w-0 leading-tight">
+                  <p className="text-base font-bold text-ink">Energía México</p>
+                  <p className="text-sm text-ink-muted">
+                    Más que consultores, tus socios de negocio
+                  </p>
+                </div>
               </div>
-              <div>
-                <p className="text-base font-bold text-ink">Energía México</p>
-                <p className="text-sm text-ink-muted">
-                  Más que consultores, tus socios de negocio
-                </p>
-              </div>
-            </div>
 
             <p className="text-sm leading-relaxed text-ink-muted">
               Consultoría y gestoría energética, integración fotovoltaica y capacitación
@@ -94,7 +96,7 @@ export default function Footer() {
               <p className="font-semibold text-ink">Contacto</p>
               <p className="mt-1 text-ink-muted">
                 Email:{" "}
-                <span className="font-medium text-ink">servicios@energia-mexico.com</span>
+                <span className="font-medium text-ink">tomas@energia-mexico.com</span>
               </p>
               <p className="mt-1 text-ink-muted">
                 WhatsApp:{" "}

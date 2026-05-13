@@ -368,25 +368,26 @@ const handleNav = (href?: string) => (e: React.MouseEvent) => {
     <header className="fixed inset-x-0 top-0 z-50 border-b border-brand-green/40 bg-brand-green/55 shadow-sm backdrop-blur-md">
 
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4">
-        {/* Brand */}
-        <Link href="/" className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-green-soft">
-            <Image
-              src="/branding/energia-mexico-logo.png"
-              alt="Energía México"
-              width={36}
-              height={36}
-              className="object-contain"
-              priority
-            />
-          </div>
-          <div className="leading-tight">
-            <p className="font-bold text-ink">Energía México</p>
-            <p className="text-xs text-ink-muted">
-              Consultoría en Mercado Eléctrico Mayorista
-            </p>
-          </div>
-        </Link>
+      {/* Brand */}
+<Link href="/" className="flex min-w-0 items-center gap-3">
+  <div className="flex h-14 w-14 shrink-0 items-center justify-center">
+    <Image
+      src="/branding/energia-mexico-logo.png"
+      alt="Energía México"
+      width={140}
+      height={140}
+      className="h-full w-full object-contain"
+      priority
+    />
+  </div>
+
+  <div className="min-w-0 leading-tight">
+    <p className="truncate font-bold text-ink">Energía México</p>
+    <p className="hidden text-xs text-ink-muted sm:block">
+      Consultoría en Mercado Eléctrico Mayorista
+    </p>
+  </div>
+</Link>
 
         {/* Desktop */}
         <div className="hidden items-center gap-4 md:flex">

@@ -12,6 +12,7 @@ type Servicio =
   | "otro";
 
 type Urgencia = "" | "inmediata" | "este_mes" | "trimestre" | "solo_info";
+type SendMethod = "form" | "whatsapp";
 
 type FormState = {
   nombre: string;
@@ -107,6 +108,13 @@ export default function ContactoClient() {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   };
   const NO_DOCUMENTS_OPTION = "No tengo datos";
+  const NEED_GUIDE_OPTION = "No sé / necesito guía";
+
+  const EXCLUSIVE_DATA_OPTIONS = [
+    "No tengo datos",
+    "No lo sé aún",
+    "Nada por ahora",
+  ];
   const [form, setForm] = useState<FormState>(initial);
   const [step, setStep] = useState<1 | 2 | 3>(1);
 
@@ -114,6 +122,7 @@ export default function ContactoClient() {
   const [sent, setSent] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [submittedOk, setSubmittedOk] = useState(false);
+  const [sendMethod, setSendMethod] = useState<SendMethod>("form");
 
   const cardRef = useRef<HTMLDivElement | null>(null);
 
@@ -265,10 +274,17 @@ export default function ContactoClient() {
   }, [form.servicio]);
 
   
-  const hasEmail = form.email.trim().length > 0;
-  const canNextStep1 = form.nombre.trim().length > 0 && hasEmail && form.servicio !== "";
+  const emailTrimmed = form.email.trim();
+  const hasValidEmail = isValidEmail(emailTrimmed);
+
+  const canNextStep1 =
+    form.nombre.trim().length > 0 &&
+    hasValidEmail &&
+    form.servicio !== "";
   const canNextStep2 = form.foco.length >= 1 && form.urgencia !== "";
-  const canSubmit = canNextStep1 && canNextStep2 && form.aceptaPrivacidad && !sending;
+  const canSend = canNextStep1 && canNextStep2 && form.aceptaPrivacidad;
+  const canSubmit = canSend && !sending;
+  const canSendWhatsapp = canSend;
 
   const whatsappText = useMemo(() => {
     const focoTxt = form.foco.length ? `• ${form.foco.join("\n• ")}` : "(Sin selección)";
@@ -287,6 +303,12 @@ export default function ContactoClient() {
   }, [form, serviceLabel, urgencyLabel, micro]);
 
   const whatsappHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappText}`;
+
+  const handleWhatsappSend = () => {
+    if (!canSendWhatsapp) return;
+
+    window.open(whatsappHref, "_blank", "noopener,noreferrer");
+  };
 
   const onServiceChange = (value: Servicio) => {
     setSubmittedOk(false);
@@ -348,15 +370,16 @@ export default function ContactoClient() {
     }
   };
 
-  const resetAll = () => {
-    setSubmittedOk(false);
-    setSent(false);
-    setError(null);
-    setSending(false);
-    setForm(initial);
-    setStep(1);
-    scrollToCard();
-  };
+    const resetAll = () => {
+      setSubmittedOk(false);
+      setSent(false);
+      setError(null);
+      setSending(false);
+      setSendMethod("form");
+      setForm(initial);
+      setStep(1);
+      scrollToCard();
+    };
 
   return (
     <main className="relative isolate min-h-screen overflow-hidden bg-white">
@@ -426,22 +449,22 @@ export default function ContactoClient() {
                     <div className="sm:col-span-1">
                       <label className="text-sm font-semibold text-slate-900">Correo</label>
                       <input
-                        type="email"
-                        value={form.email}
-                        onChange={(e) => {
-                          const value = e.target.value;
-                          handleChange("email", value);
+                          type="email"
+                          value={form.email}
+                          onChange={(e) => {
+                            const value = e.target.value;
+                            handleChange("email", value);
 
-                          if (value && !isValidEmail(value)) {
-                            setEmailError("Ingresa un correo electrónico válido.");
-                          } else {
-                            setEmailError("");
-                          }
-                        }}
-                        required
-                        placeholder="correo@empresa.com"
-                        className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-brand-blue/60"
-                      />
+                            if (value.trim() && !isValidEmail(value.trim())) {
+                              setEmailError("Ingresa un correo electrónico válido.");
+                            } else {
+                              setEmailError("");
+                            }
+                          }}
+                          required
+                          placeholder="correo@empresa.com"
+                          className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-brand-blue/60"
+                        />
                       {emailError && (
                         <p className="mt-2 text-xs text-red-600">{emailError}</p>
                       )}
@@ -494,14 +517,7 @@ export default function ContactoClient() {
                         Siguiente
                       </button>
 
-                      <a
-                        href={whatsappHref}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-sm transition hover:bg-slate-50"
-                      >
-                        Enviar por WhatsApp
-                      </a>
+                      
                     </div>
 
                     <p className="sm:col-span-2 text-xs text-slate-500">
@@ -512,118 +528,134 @@ export default function ContactoClient() {
                 )}
 
                 {step === 2 && (
-                  <div className="grid gap-6">
-                    <div>
-                      <p className="text-sm font-semibold text-slate-900">{micro.focoTitle}</p>
-                      <div className="mt-3 flex flex-wrap gap-2">
-                        {micro.foco.map((item) => (
-                          <Chip
-                            key={item}
-                            label={item}
-                            active={form.foco.includes(item)}
-                            onClick={() => handleChange("foco", toggleInArray(form.foco, item))}
-                          />
-                        ))}
-                      </div>
-                      <p className="mt-2 text-xs text-slate-500">Elige al menos 1 opción.</p>
-                    </div>
+  <div className="grid gap-6">
+    <div>
+      <p className="text-sm font-semibold text-slate-900">{micro.focoTitle}</p>
 
-                    <div>
-                      <p className="text-sm font-semibold text-slate-900">{micro.datosTitle}</p>
-                      <div className="mt-3 grid gap-2 sm:grid-cols-2">
-                        {micro.datos.map((item) => {
-                          const isNoDocuments = item === NO_DOCUMENTS_OPTION;
+      <div className="mt-3 flex flex-wrap gap-2">
+        {micro.foco.map((item) => {
+          const isNeedGuide = item === NEED_GUIDE_OPTION;
 
-                          return (
-                            <CheckPill
-                              key={item}
-                              label={item}
-                              checked={form.datos.includes(item)}
-                              onToggle={() => {
-                                if (isNoDocuments) {
-                                  handleChange(
-                                    "datos",
-                                    form.datos.includes(NO_DOCUMENTS_OPTION)
-                                      ? []
-                                      : [NO_DOCUMENTS_OPTION]
-                                  );
-                                  return;
-                                }
+          return (
+            <Chip
+              key={item}
+              label={item}
+              active={form.foco.includes(item)}
+              onClick={() => {
+                if (isNeedGuide) {
+                  handleChange(
+                    "foco",
+                    form.foco.includes(NEED_GUIDE_OPTION)
+                      ? []
+                      : [NEED_GUIDE_OPTION]
+                  );
+                  return;
+                }
 
-                                const currentDatos = form.datos.filter(
-                                  (value) => value !== NO_DOCUMENTS_OPTION
-                                );
+                const currentFoco = form.foco.filter(
+                  (value) => value !== NEED_GUIDE_OPTION
+                );
 
-                                const nextDatos = toggleInArray(currentDatos, item);
+                const nextFoco = toggleInArray(currentFoco, item);
 
-                                handleChange("datos", nextDatos);
-                              }}
-                            />
-                          );
-                        })}
-                      </div>
-                      <p className="mt-2 text-xs text-slate-500">
-                        Opcional. Selecciona lo que tengas a la mano.
-                      </p>
-                    </div>
+                handleChange("foco", nextFoco);
+              }}
+            />
+          );
+        })}
+      </div>
 
-                    <div>
-                      <label className="text-sm font-semibold text-slate-900">Urgencia</label>
-                      <select
-                        value={form.urgencia}
-                        onChange={(e) => handleChange("urgencia", e.target.value as Urgencia)}
-                        className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-brand-blue/60"
-                      >
-                        <option value="" disabled>
-                          Selecciona una opción
-                        </option>
-                        <option value="inmediata">Inmediata (0–2 semanas)</option>
-                        <option value="este_mes">Este mes</option>
-                        <option value="trimestre">Este trimestre</option>
-                        <option value="solo_info">Solo información</option>
-                      </select>
-                    </div>
+      <p className="mt-2 text-xs text-slate-500">Elige al menos 1 opción.</p>
+    </div>
 
-                    <div className="flex flex-col gap-3 sm:flex-row">
-                      <button
-                        type="button"
-                        onClick={() => {
-                          setStep(1);
-                          scrollToCard();
-                        }}
-                        className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-sm transition hover:bg-slate-50"
-                      >
-                        Atrás
-                      </button>
+    <div>
+      <p className="text-sm font-semibold text-slate-900">{micro.datosTitle}</p>
 
-                      <button
-                        type="button"
-                        onClick={() => {
-                          setStep(3);
-                          scrollToCard();
-                        }}
-                        disabled={!canNextStep2}
-                        className={cx(
-                          "inline-flex items-center justify-center rounded-xl px-6 py-3 text-sm font-semibold shadow-sm transition",
-                          canNextStep2
-                            ? "bg-brand-green text-white hover:bg-brand-green-dark"
-                            : "cursor-not-allowed bg-slate-200 text-slate-500"
-                        )}
-                      >
-                        Siguiente
-                      </button>
+      <div className="mt-3 grid gap-2 sm:grid-cols-2">
+        {micro.datos.map((item) => {
+          const isExclusiveDataOption = EXCLUSIVE_DATA_OPTIONS.includes(item);
 
-                      <a
-                        href={whatsappHref}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-sm transition hover:bg-slate-50"
-                      >
-                        Enviar por WhatsApp
-                      </a>
-                    </div>
-                  </div>
-                )}
+          return (
+            <CheckPill
+              key={item}
+              label={item}
+              checked={form.datos.includes(item)}
+              onToggle={() => {
+                if (isExclusiveDataOption) {
+                  handleChange(
+                    "datos",
+                    form.datos.includes(item) ? [] : [item]
+                  );
+                  return;
+                }
+
+                const currentDatos = form.datos.filter(
+                  (value) => !EXCLUSIVE_DATA_OPTIONS.includes(value)
+                );
+
+                const nextDatos = toggleInArray(currentDatos, item);
+
+                handleChange("datos", nextDatos);
+              }}
+            />
+          );
+        })}
+      </div>
+
+      <p className="mt-2 text-xs text-slate-500">
+        Opcional. Selecciona lo que tengas a la mano.
+      </p>
+    </div>
+
+    <div>
+      <label className="text-sm font-semibold text-slate-900">Urgencia</label>
+
+      <select
+        value={form.urgencia}
+        onChange={(e) => handleChange("urgencia", e.target.value as Urgencia)}
+        className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-brand-blue/60"
+      >
+        <option value="" disabled>
+          Selecciona una opción
+        </option>
+        <option value="inmediata">Inmediata (0–2 semanas)</option>
+        <option value="este_mes">Este mes</option>
+        <option value="trimestre">Este trimestre</option>
+        <option value="solo_info">Solo información</option>
+      </select>
+    </div>
+
+    <div className="flex flex-col gap-3 sm:flex-row">
+      <button
+        type="button"
+        onClick={() => {
+          setStep(1);
+          scrollToCard();
+        }}
+        className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-sm transition hover:bg-slate-50"
+      >
+        Atrás
+      </button>
+
+      <button
+        type="button"
+        onClick={() => {
+          setStep(3);
+          scrollToCard();
+        }}
+        disabled={!canNextStep2}
+        className={cx(
+          "inline-flex items-center justify-center rounded-xl px-6 py-3 text-sm font-semibold shadow-sm transition",
+          canNextStep2
+            ? "bg-brand-green text-white hover:bg-brand-green-dark"
+            : "cursor-not-allowed bg-slate-200 text-slate-500"
+        )}
+      >
+        Siguiente
+      </button>
+    </div>
+  </div>
+)}
 
                 {step === 3 && (
                   <div className="grid gap-5">
@@ -742,6 +774,54 @@ export default function ContactoClient() {
                           </span>
                         </label>
 
+                        <div className="rounded-2xl border border-slate-200 bg-white p-4">
+                          <p className="text-sm font-semibold text-slate-900">
+                            ¿Cómo prefieres enviar tu solicitud?
+                          </p>
+
+                          <p className="mt-1 text-xs text-slate-500">
+                            Elige solo un canal. No es necesario enviar ambos.
+                          </p>
+
+                          <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                            <button
+                              type="button"
+                              onClick={() => setSendMethod("form")}
+                              className={cx(
+                                "rounded-2xl border p-4 text-left transition",
+                                sendMethod === "form"
+                                  ? "border-brand-green/40 bg-brand-green-soft/60"
+                                  : "border-slate-200 bg-white hover:bg-slate-50"
+                              )}
+                            >
+                              <span className="block text-sm font-bold text-slate-900">
+                                Enviar formulario
+                              </span>
+                              <span className="mt-1 block text-xs leading-relaxed text-slate-600">
+                                Ideal para dejar registrada tu solicitud y recibir seguimiento formal por correo.
+                              </span>
+                            </button>
+
+                            <button
+                              type="button"
+                              onClick={() => setSendMethod("whatsapp")}
+                              className={cx(
+                                "rounded-2xl border p-4 text-left transition",
+                                sendMethod === "whatsapp"
+                                  ? "border-brand-green/40 bg-brand-green-soft/60"
+                                  : "border-slate-200 bg-white hover:bg-slate-50"
+                              )}
+                            >
+                              <span className="block text-sm font-bold text-slate-900">
+                                Enviar por WhatsApp
+                              </span>
+                              <span className="mt-1 block text-xs leading-relaxed text-slate-600">
+                                Ideal si buscas una respuesta más rápida con el mensaje ya preparado.
+                              </span>
+                            </button>
+                          </div>
+                        </div>
+
                         <div className="flex flex-col gap-3 sm:flex-row">
                           <button
                             type="button"
@@ -754,28 +834,41 @@ export default function ContactoClient() {
                             Atrás
                           </button>
 
-                          <button
-                            type="submit"
-                            disabled={!canSubmit}
-                            className={cx(
-                              "inline-flex items-center justify-center rounded-xl px-6 py-3 text-sm font-semibold shadow-sm transition",
-                              !canSubmit
-                                ? "cursor-not-allowed bg-slate-200 text-slate-500"
-                                : "bg-brand-green text-white hover:bg-brand-green-dark"
-                            )}
-                          >
-                            {sending ? "Enviando..." : "Enviar"}
-                          </button>
-
-                          <a
-                            href={whatsappHref}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-sm transition hover:bg-slate-50"
-                          >
-                            Enviar por WhatsApp
-                          </a>
+                          {sendMethod === "form" ? (
+                            <button
+                              type="submit"
+                              disabled={!canSubmit}
+                              className={cx(
+                                "inline-flex items-center justify-center rounded-xl px-6 py-3 text-sm font-semibold shadow-sm transition",
+                                !canSubmit
+                                  ? "cursor-not-allowed bg-slate-200 text-slate-500"
+                                  : "bg-brand-green text-white hover:bg-brand-green-dark"
+                              )}
+                            >
+                              {sending ? "Enviando..." : "Enviar formulario"}
+                            </button>
+                          ) : (
+                            <button
+                              type="button"
+                              onClick={handleWhatsappSend}
+                              disabled={!canSendWhatsapp}
+                              className={cx(
+                                "inline-flex items-center justify-center rounded-xl px-6 py-3 text-sm font-semibold shadow-sm transition",
+                                !canSendWhatsapp
+                                  ? "cursor-not-allowed bg-slate-200 text-slate-500"
+                                  : "bg-brand-green text-white hover:bg-brand-green-dark"
+                              )}
+                            >
+                              Abrir WhatsApp
+                            </button>
+                          )}
                         </div>
+
+                        {!form.aceptaPrivacidad && (
+                          <p className="text-xs text-slate-500">
+                            Para continuar, primero acepta el aviso de privacidad.
+                          </p>
+                        )}
                       </>
                     )}
                   </div>
@@ -797,14 +890,7 @@ export default function ContactoClient() {
                 <div className="rounded-2xl bg-slate-50 p-4">
                   <p className="text-xs font-semibold text-slate-500">WhatsApp</p>
                   <p className="mt-1 font-semibold text-slate-900">{WHATSAPP_VISIBLE}</p>
-                  <a
-                    className="mt-3 inline-flex w-full items-center justify-center rounded-xl bg-brand-green px-4 py-2 text-sm font-semibold text-white transition hover:bg-brand-green-dark"
-                    href={whatsappHref}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Abrir WhatsApp
-                  </a>
+                  
                 </div>
 
                 <div className="rounded-2xl bg-brand-blue-soft/60 p-4">

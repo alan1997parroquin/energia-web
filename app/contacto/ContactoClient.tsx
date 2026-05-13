@@ -127,9 +127,10 @@ export default function ContactoClient() {
   const cardRef = useRef<HTMLDivElement | null>(null);
 
   const FORM_ENDPOINT = "https://formspree.io/f/mbdaarno";
-  const WHATSAPP_NUMBER = "525575007413";
-  const WHATSAPP_VISIBLE = "+52 55 7500 7413";
+  const WHATSAPP_NUMBER = "525644671599";
+  const WHATSAPP_VISIBLE = "+52 56 4467 1599";
   const EMAIL_TO = "tomas@energia-mexico.com";
+
 
   const handleChange = <K extends keyof FormState>(key: K, value: FormState[K]) => {
     setForm((prev) => ({ ...prev, [key]: value }));

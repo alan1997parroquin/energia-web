@@ -66,8 +66,37 @@ export const metadata: Metadata = {
   },
 
   icons: {
-    icon: [{ url: "/favicon.ico" }, { url: "/favicon/favicon.ico" }],
+    icon: [
+      { url: "/favicon.ico" },
+      {
+        url: "/favicon/favicon-16x16.png",
+        sizes: "16x16",
+        type: "image/png",
+      },
+      {
+        url: "/favicon/favicon-32x32.png",
+        sizes: "32x32",
+        type: "image/png",
+      },
+      {
+        url: "/favicon/icon-192.png",
+        sizes: "192x192",
+        type: "image/png",
+      },
+      {
+        url: "/favicon/icon-512.png",
+        sizes: "512x512",
+        type: "image/png",
+      },
+    ],
     shortcut: "/favicon.ico",
+    apple: [
+      {
+        url: "/favicon/icon-180.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
   },
 };
 
@@ -126,9 +155,9 @@ export default function RootLayout({
       </head>
 
       <body
-          suppressHydrationWarning
-          className={`${inter.className} min-h-screen overflow-x-hidden bg-white text-gray-900`}
-        >
+        suppressHydrationWarning
+        className={`${inter.className} min-h-screen overflow-x-hidden bg-white text-gray-900`}
+      >
         <noscript>
           <iframe
             src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
@@ -146,9 +175,9 @@ export default function RootLayout({
         />
 
         <Header />
-          <div aria-hidden="true" className="h-[88px] bg-white" />
-          {children}
-          <Footer />
+        <div aria-hidden="true" className="h-[88px] bg-white" />
+        {children}
+        <Footer />
       </body>
     </html>
   );

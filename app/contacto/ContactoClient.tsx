@@ -129,7 +129,7 @@ export default function ContactoClient() {
   const FORM_ENDPOINT = "https://formspree.io/f/mbdaarno";
   const WHATSAPP_NUMBER = "525644671599";
   const WHATSAPP_VISIBLE = "+52 56 4467 1599";
-  const EMAIL_TO = "tomas@energia-mexico.com";
+  const EMAIL_TO = "ventas@energia-mexico.com";
 
 
   const handleChange = <K extends keyof FormState>(key: K, value: FormState[K]) => {

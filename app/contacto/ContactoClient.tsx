@@ -107,7 +107,7 @@ export default function ContactoClient() {
   const isValidEmail = (email: string) => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   };
-  const NO_DOCUMENTS_OPTION = "No tengo datos";
+
   const NEED_GUIDE_OPTION = "No sé / necesito guía";
 
   const EXCLUSIVE_DATA_OPTIONS = [
@@ -363,8 +363,12 @@ export default function ContactoClient() {
       scrollToCard();
 
       setTimeout(() => setSent(false), 4500);
-    } catch (err: any) {
-      setError(err?.message || "Ocurrió un error al enviar. Intenta de nuevo.");
+    } catch (err: unknown) {
+      const message =
+        err instanceof Error
+          ? err.message
+          : "Ocurrió un error al enviar. Intenta de nuevo.";
+      setError(message);
       scrollToCard();
     } finally {
       setSending(false);

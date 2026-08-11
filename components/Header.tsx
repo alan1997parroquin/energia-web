@@ -370,22 +370,15 @@ const handleNav = (href?: string) => (e: React.MouseEvent) => {
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4">
       {/* Brand */}
 <Link href="/" className="flex min-w-0 items-center gap-3">
-  <div className="flex h-14 w-14 shrink-0 items-center justify-center">
+  <div className="flex h-14 w-36 shrink-0 items-center justify-center">
     <Image
-      src="/branding/energia-mexico-logo.png"
+      src="/branding/LOGO_EM_BLUE.png"
       alt="Energía México"
-      width={140}
-      height={140}
+      width={240}
+      height={56}
       className="h-full w-full object-contain"
       priority
     />
-  </div>
-
-  <div className="min-w-0 leading-tight">
-    <p className="truncate font-bold text-ink">Energía México</p>
-    <p className="hidden text-xs text-ink-muted sm:block">
-      Consultoría en Mercado Eléctrico Mayorista
-    </p>
   </div>
 </Link>
 
@@ -393,7 +386,7 @@ const handleNav = (href?: string) => (e: React.MouseEvent) => {
         <div className="hidden items-center gap-4 md:flex">
           <nav
             ref={desktopWrapRef}
-            className="relative flex items-center gap-6 text-sm font-medium text-ink-muted"
+            className="relative flex items-center gap-6 text-sm font-medium text-white/90"
           >
             {/* Servicios */}
             <div
@@ -421,7 +414,7 @@ const handleNav = (href?: string) => (e: React.MouseEvent) => {
                 }}
                 aria-haspopup="menu"
                 aria-expanded={openDesktopMenu === "servicios"}
-                className="inline-flex items-center gap-2 transition hover:text-ink"
+                className="inline-flex items-center gap-2 transition hover:text-white"
               >
                 Servicios <span className="text-xs">▾</span>
               </button>
@@ -564,11 +557,11 @@ const handleNav = (href?: string) => (e: React.MouseEvent) => {
               )}
             </div>
 
-            <Link href="/nosotros" className="transition hover:text-ink">
+            <Link href="/nosotros" className="transition hover:text-white">
               Quiénes somos
             </Link>
 
-            <Link href="/contacto" className="transition hover:text-ink">
+            <Link href="/contacto" className="transition hover:text-white">
               Contacto
             </Link>
           </nav>
@@ -617,7 +610,7 @@ const handleNav = (href?: string) => (e: React.MouseEvent) => {
           <div className="flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-green-soft">
               <Image
-                src="/branding/energia-mexico-logo.png"
+                src="/branding/ISOLOGO_EM_BLUE.png"
                 alt="Energía México"
                 width={34}
                 height={34}

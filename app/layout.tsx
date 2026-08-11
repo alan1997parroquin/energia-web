@@ -1,15 +1,21 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import Script from "next/script";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-const inter = Inter({
-  subsets: ["latin"],
+const montserrat = localFont({
+  src: [
+    {
+      path: "../public/fonts/Montserrat-VariableFont_wght.ttf",
+      weight: "100 900",
+      style: "normal",
+    },
+  ],
+  variable: "--font-montserrat",
   display: "swap",
-  variable: "--font-inter",
 });
 
 export const metadata: Metadata = {
@@ -105,7 +111,7 @@ const organizationSchema = {
   "@type": "ProfessionalService",
   name: "Energía México",
   url: "https://www.energia-mexico.com",
-  logo: "https://www.energia-mexico.com/branding/energia-mexico-logo.png",
+  logo: "https://www.energia-mexico.com/branding/LOGO_EM_BLUE.png",
   image: "https://www.energia-mexico.com/og/og-home.jpg",
   description:
     "Consultoría y gestoría energética en México: estudios de prefactibilidad, interconexión ante CFE/CENACE, integración fotovoltaica y capacitación para el MEM.",
@@ -137,7 +143,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es" className={inter.variable}>
+    <html lang="es" className={montserrat.variable}>
       <head>
         <Script
           id="gtm-script"
@@ -156,7 +162,7 @@ export default function RootLayout({
 
       <body
         suppressHydrationWarning
-        className={`${inter.className} min-h-screen overflow-x-hidden bg-white text-gray-900`}
+        className="min-h-screen overflow-x-hidden bg-white text-gray-900"
       >
         <noscript>
           <iframe

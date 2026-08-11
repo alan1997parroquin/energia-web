@@ -10,17 +10,27 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
-  --color-brand-blue: #0050D4;
-  --color-brand-blue-dark: #003A9B;
-  --color-brand-blue-soft: #E6EEFF;
+  /* Nuevos nombres semánticos del branding */
+  --color-primary: #0050D4;
+  --color-primary-dark: #003A9B;
+  --color-primary-soft: #E6EEFF;
 
-  --color-brand-cyan: #00CFFF;
-  --color-brand-cyan-dark: #0099CC;
-  --color-brand-cyan-soft: #E6FAFF;
+  --color-accent: #00CFFF;
+  --color-accent-dark: #0099CC;
+  --color-accent-soft: #E6FAFF;
 
-  --color-brand-green: #0050D4;
-  --color-brand-green-dark: #003A9B;
-  --color-brand-green-soft: #E6EEFF;
+  /* Alias para mantener compatibilidad con el proyecto actual */
+  --color-brand-blue: var(--color-primary);
+  --color-brand-blue-dark: var(--color-primary-dark);
+  --color-brand-blue-soft: var(--color-primary-soft);
+
+  --color-brand-cyan: var(--color-accent);
+  --color-brand-cyan-dark: var(--color-accent-dark);
+  --color-brand-cyan-soft: var(--color-accent-soft);
+
+  --color-brand-green: var(--color-primary);
+  --color-brand-green-dark: var(--color-primary-dark);
+  --color-brand-green-soft: var(--color-primary-soft);
 
   --color-warning: #f5b301;
   --color-warning-soft: #fff4d6;
@@ -33,7 +43,7 @@
   --color-surface-soft: #f8fafc;
   --color-surface-border: #e2e8f0;
 
-  --font-sans: var(--font-inter);
+  --font-sans: var(--font-montserrat);
 }
 
 html {

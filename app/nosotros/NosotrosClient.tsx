@@ -151,7 +151,7 @@ export default function NosotrosClient() {
             <div className="mb-4 flex items-center gap-3">
               <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white shadow-sm">
                 <Image
-                  src="/branding/energia-mexico-logo.png"
+                  src="/branding/ISOLOGO_EM_BLUE.png"
                   alt="Energía México"
                   width={36}
                   height={36}

@@ -4,6 +4,13 @@
   --background: #ffffff;
   --foreground: #0f172a;
   --header-offset: 104px;
+
+  /* Nueva paleta de marca */
+  --brand-primary: #2E11BE;
+  --brand-primary-dark: #000C28;
+  --brand-surface-soft: #EFEEEB;
+  --brand-accent: #49B2F3;
+  --brand-accent-soft: #EAF7FF;
 }
 
 @theme inline {
@@ -11,26 +18,26 @@
   --color-foreground: var(--foreground);
 
   /* Nuevos nombres semánticos del branding */
-  --color-primary: #0050D4;
-  --color-primary-dark: #003A9B;
-  --color-primary-soft: #E6EEFF;
+  --color-primary: var(--brand-primary);
+  --color-primary-dark: var(--brand-primary-dark);
+  --color-primary-soft: var(--brand-accent-soft);
 
-  --color-accent: #00CFFF;
-  --color-accent-dark: #0099CC;
-  --color-accent-soft: #E6FAFF;
+  --color-accent: var(--brand-accent);
+  --color-accent-dark: #2F88D6;
+  --color-accent-soft: var(--brand-accent-soft);
 
   /* Alias para mantener compatibilidad con el proyecto actual */
-  --color-brand-blue: var(--color-primary);
-  --color-brand-blue-dark: var(--color-primary-dark);
-  --color-brand-blue-soft: var(--color-primary-soft);
+  --color-brand-blue: var(--brand-primary);
+  --color-brand-blue-dark: var(--brand-primary-dark);
+  --color-brand-blue-soft: var(--brand-accent-soft);
 
-  --color-brand-cyan: var(--color-accent);
-  --color-brand-cyan-dark: var(--color-accent-dark);
-  --color-brand-cyan-soft: var(--color-accent-soft);
+  --color-brand-cyan: var(--brand-accent);
+  --color-brand-cyan-dark: #2F88D6;
+  --color-brand-cyan-soft: var(--brand-accent-soft);
 
-  --color-brand-green: var(--color-primary);
-  --color-brand-green-dark: var(--color-primary-dark);
-  --color-brand-green-soft: var(--color-primary-soft);
+  --color-brand-green: var(--brand-primary);
+  --color-brand-green-dark: var(--brand-primary-dark);
+  --color-brand-green-soft: var(--brand-accent-soft);
 
   --color-warning: #f5b301;
   --color-warning-soft: #fff4d6;
@@ -40,7 +47,7 @@
   --color-ink-soft: #64748b;
 
   --color-surface: #ffffff;
-  --color-surface-soft: #f8fafc;
+  --color-surface-soft: var(--brand-surface-soft);
   --color-surface-border: #e2e8f0;
 
   --font-sans: var(--font-montserrat);

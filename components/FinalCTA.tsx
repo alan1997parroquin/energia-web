@@ -5,10 +5,10 @@ export default function FinalCTA() {
     <section className="relative overflow-hidden py-16">
       {/* Background */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0E482A] via-[#0E482A] to-[#583F66]" />
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute -top-24 -left-24 h-80 w-80 rounded-full bg-white/20 blur-3xl" />
-          <div className="absolute -bottom-28 -right-24 h-96 w-96 rounded-full bg-white/15 blur-3xl" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-dark)]" />
+        <div className="absolute inset-0 opacity-25">
+          <div className="absolute -top-24 -left-24 h-80 w-80 rounded-full bg-[var(--color-accent)]/30 blur-3xl" />
+          <div className="absolute -bottom-28 -right-24 h-96 w-96 rounded-full bg-white/10 blur-3xl" />
         </div>
       </div>
 
@@ -16,7 +16,7 @@ export default function FinalCTA() {
         <div className="grid items-center gap-10 rounded-3xl border border-white/15 bg-white/10 p-8 shadow-xl backdrop-blur lg:grid-cols-2 lg:p-12">
           {/* Copy */}
           <div>
-            <p className="text-sm font-semibold text-white/90">
+            <p className="text-sm font-semibold text-[var(--color-accent-soft)]">
               Diagnóstico energético
             </p>
             <h2 className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
@@ -30,7 +30,7 @@ export default function FinalCTA() {
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
                 href="/contacto"
-                className="inline-flex items-center justify-center rounded-xl bg-white px-6 py-3 text-base font-semibold text-[#0E482A] shadow-sm transition hover:brightness-95"
+                className="inline-flex items-center justify-center rounded-xl bg-[var(--color-accent)] px-6 py-3 text-base font-semibold text-white shadow-sm transition hover:bg-[var(--color-accent-dark)]"
               >
                 Solicitar diagnóstico
               </Link>
@@ -45,7 +45,7 @@ export default function FinalCTA() {
           </div>
 
           {/* Bullets */}
-          <div className="rounded-3xl border border-white/15 bg-white/10 p-6">
+          <div className="rounded-3xl border border-white/15 bg-[var(--color-primary-soft)]/10 p-6">
             <p className="text-sm font-semibold text-white">
               En la primera conversación revisamos:
             </p>
@@ -56,7 +56,7 @@ export default function FinalCTA() {
                 Tu situación actual (consumo, tarifa, operación y objetivos)
               </li>
               <li className="flex items-start gap-3">
-                <span className="mt-1.5 h-2 w-2 rounded-full bg-[#7D968B]" />
+                <span className="mt-1.5 h-2 w-2 rounded-full bg-[var(--color-accent)]" />
                 Oportunidades rápidas de ahorro y prioridades
               </li>
               <li className="flex items-start gap-3">
@@ -64,7 +64,7 @@ export default function FinalCTA() {
                 Ruta recomendada: consultoría/gestoría, FV o capacitación
               </li>
               <li className="flex items-start gap-3">
-                <span className="mt-1.5 h-2 w-2 rounded-full bg-[#7D968B]" />
+                <span className="mt-1.5 h-2 w-2 rounded-full bg-[var(--color-accent)]" />
                 Siguientes pasos con tiempos y responsables
               </li>
             </ul>

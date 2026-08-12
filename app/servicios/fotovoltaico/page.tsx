@@ -515,8 +515,8 @@ export default function FotovoltaicoPage() {
       </div>
 
       {/* CTA FINAL */}
-      <div className="mx-auto max-w-7xl px-6">
-        <section className="mt-16 border-t border-surface-border pt-12">
+      <div className="mx-auto max-w-7xl px-6 pb-12">
+        <section className="mt-16 border-t border-surface-border pt-12 pb-4">
           <div className="rounded-3xl border border-surface-border bg-white p-8 shadow-sm">
             <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
               <div>

@@ -69,7 +69,7 @@ export default function Footer() {
               <div className="flex items-center gap-4">
                 <div className="flex h-14 w-14 shrink-0 items-center justify-center">
                   <Image
-                    src="/branding/ISOLOGO_EM_BLUE.png"
+                    src="/branding/ISOLOGO_EM_DEEP_BLUE.png"
                     alt="Energía México"
                     width={140}
                     height={140}

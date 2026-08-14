@@ -608,13 +608,13 @@ const handleNav = (href?: string) => (e: React.MouseEvent) => {
         {/* Header del panel */}
         <div className="flex items-center justify-between border-b border-surface-border px-6 py-4">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--color-primary-soft)]">
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-[#d9ebf9] bg-[var(--color-accent-soft)] shadow-sm">
               <Image
-                src="/branding/ISOLOGO_EM_BLUE.png"
+                src="/branding/ISOLOGO_EM_DEEP_BLUE.png"
                 alt="Energía México"
                 width={34}
                 height={34}
-                className="object-contain"
+                className="h-8 w-8 object-contain"
               />
             </div>
 
